@@ -1,0 +1,8 @@
+div.year-column{
+    height: 40px;
+    background-color: #3C3C76;
+    color : white;
+    font-size: 20px;
+    line-height: 40px;
+    padding-left: 10px;
+}

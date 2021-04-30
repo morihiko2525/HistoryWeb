@@ -49,6 +49,7 @@
     </div>
     
     <div class = site-feature>
-    <h1>特徴</h1>    
+    <h1>特徴</h1> 
+    <p>aiueo</p>
     </div>
 @endsection
