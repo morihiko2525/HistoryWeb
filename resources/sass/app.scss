@@ -1,0 +1,96 @@
+//
+div.top-img{
+    /*display: block;*/
+    height: 600px;
+    background-color: #3C3C76;
+    width: 100%;
+}
+
+p.title{
+  text-align:center;
+  height:60px;
+  line-height:500px;
+  font-size: 50px;
+  color: white;
+}
+
+h1{
+    text-align: center;
+    color:black;
+    font-weight: 500;
+}
+
+ /* --- 外枠の定義 ---------------------------------------------*/
+.history-table-feature {
+  margin         : auto;                 /* サンプル用 中央寄せ */
+  margin-top: 40px;
+  box-sizing     : border-box;           /* 罫線も含む長さ      */
+  /*background     : #3c3c76;                 /* BOXの背景色         */
+  /*border         : 1px solid #666;       /* 枠線の指定          */
+  width          : 1000px;                /* BOXの幅             */
+  max-height     : 420px;                /* BOXの高さ           */
+  animation: boxAnime 10s linear infinite alternate;
+
+  /* ▼ inline-block時の定義 */
+  letter-spacing : 0;                    /* 1行の高さを初期化   */
+  line-height    : 1;                    /* 文字間隔を初期化    */
+  text-align     : center;               /* 横位置定義          */
+}
+
+
+ /* --- 個別のBOXの定義 --------------------------------------- */
+.history-table-content{
+  box-sizing     : border-box;           /* 罫線も含む長さ      */
+  /*background     : #B0C4DE;              /* BOXの背景色         */
+  /*border         : 2px solid #35557f;    /* 枠線の指定          */
+  width          : 300px;                 /* サンプルBOXの幅     */
+  height         : 300px;                 /* サンプルBOXの幅     */
+  margin         : 12px;                  /* サンプルBOXの間     */
+
+  /* ▼ inline-blockの定義 */
+  display        : inline-block;         /* インラインブロック化*/
+}
+
+.ht-sumnail{
+    display: block;
+    height: 200px;
+    width: 200px;
+    /*text-align: center;*/
+    background-color: #FFCCFF;
+      
+    margin         : auto;                 /* サンプル用 中央寄せ */
+
+}
+
+.ht-title{
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.ht-description{
+    
+}
+
+.site-feature{
+
+    height: 700px;
+    background-color: #FFCCFF;
+
+}
+
+.linkBox {
+	position: relative;
+}
+
+.linkBox a {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.linkBox a:hover{/* マウスオーバー時に色変更*/
+    opacity: 0.1;
+    background-color: #000000;
+}
