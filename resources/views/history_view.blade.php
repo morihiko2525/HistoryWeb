@@ -9,4 +9,7 @@
 
 <div class = year-column>2015年</div>
 
+<div id = footer>
+
+</div>
 @endsection

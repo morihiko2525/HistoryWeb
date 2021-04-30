@@ -6,3 +6,12 @@ div.year-column{
     line-height: 40px;
     padding-left: 10px;
 }
+
+#footer{
+    height: 80px;
+    background-color: #3C3C76;
+    color : white;
+    font-size: 20px;
+    line-height: 40px;
+    padding-left: 10px;
+}
