@@ -29,5 +29,11 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
+    
+    'google' => [
+        'client_id'=>'1073811079122-mbaqoe9cnjp5ilpe6gma1db18s75rdi4.apps.googleusercontent.com',
+        'client_secret'=>'_p1gBjDLKgMNMubSWF20PC7U',
+        'redirect'=>'https://historyweb.herokuapp.com/',
+    ]
 
 ];

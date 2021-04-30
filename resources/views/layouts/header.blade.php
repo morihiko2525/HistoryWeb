@@ -22,8 +22,8 @@
                     <ul class="navbar-nav mr-auto"></ul>
                     <ul class="navbar-nav">
                         {{-- メッセージ作成ページへのリンク --}}
-                        <li class="nav-item"><a href = "{{ Route('signup.get') }}">ログイン</a></li>
-                        <li class="nav-item"><a href = "{{ Route('login') }}">アカウント作成</a></li>
+                        <li class="nav-item"><a href = "{{ Route('login') }}">ログイン</a></li>
+                        <li class="nav-item"><a href = "{{ Route('signup.get') }}">アカウント作成</a></li>
 
                         @if (Auth::check())
                             {{-- ユーザ一覧ページへのリンク --}}

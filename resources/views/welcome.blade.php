@@ -6,7 +6,9 @@
         <p class = title>Webで年表作成</p>
     </div>
     
-    
+      @if (Auth::check())
+        {{ Auth::user()->name }}
+      @endif
     <div class = "history-table-feature">
     <h1>人気の年表</h1>
         <div class = history-table-content>
@@ -41,6 +43,8 @@
             <p>ここは年表説明欄です。サイゼリヤの年表を作りたいと思っています。</p>
                 </div>
         </div>
+        <a class="btn btn-block btn-social btn-google" href=auth/google>
+</a>
     </div>
     
     <div class = site-feature>
