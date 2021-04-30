@@ -10,10 +10,23 @@ p.title{
   text-align:center;
   height:60px;
   line-height:500px;
-  font-size: 50px;
+  font-size: 70px;
   color: white;
+  font-family: dnp-shuei-4gob-std, sans-serif;
+  font-weight: 700;
+  font-style: normal;
 }
 
+p.subtitle{
+  text-align:center;
+  height:60px;
+  line-height:500px;
+  font-size: 18px;
+  color: white;
+  font-weight: 400;
+  font-style: normal;
+}
+  
 h1{
     text-align: center;
     color:black;
@@ -28,7 +41,7 @@ h1{
   /*background     : #3c3c76;                 /* BOXの背景色         */
   /*border         : 1px solid #666;       /* 枠線の指定          */
   width          : 1000px;                /* BOXの幅             */
-  max-height     : 420px;                /* BOXの高さ           */
+  max-height     : 600px;                /* BOXの高さ           */
   animation: boxAnime 10s linear infinite alternate;
 
   /* ▼ inline-block時の定義 */
@@ -45,7 +58,7 @@ h1{
   /*border         : 2px solid #35557f;    /* 枠線の指定          */
   width          : 300px;                 /* サンプルBOXの幅     */
   height         : 300px;                 /* サンプルBOXの幅     */
-  margin         : 12px;                  /* サンプルBOXの間     */
+  margin         : 15px;                  /* サンプルBOXの間     */
 
   /* ▼ inline-blockの定義 */
   display        : inline-block;         /* インラインブロック化*/
@@ -74,8 +87,10 @@ h1{
 .site-feature{
 
     height: 700px;
-    background-color: #FFCCFF;
-
+    background-color: #DCDCDC;
+    margin:0 -200%;
+    padding:0 200%;
+    padding-top: 50px;
 }
 
 .linkBox {

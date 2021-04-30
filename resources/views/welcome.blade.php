@@ -4,6 +4,7 @@
 
     <div class = top-img>
         <p class = title>Webで年表作成</p>
+        <p class = subtitle>年表を作ってみませんか</p>
     </div>
     
       @if (Auth::check())
@@ -43,11 +44,9 @@
             <p>ここは年表説明欄です。サイゼリヤの年表を作りたいと思っています。</p>
                 </div>
         </div>
-        <a class="btn btn-block btn-social btn-google" href=auth/google>
-</a>
     </div>
     
     <div class = site-feature>
-    <p>特徴</p>    
+    <h1>特徴</h1>    
     </div>
 @endsection
