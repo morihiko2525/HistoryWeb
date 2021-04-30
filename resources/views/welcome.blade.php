@@ -1,12 +1,14 @@
 @extends('layouts.header')
 
 @section('content')
-
+    
     <div class = top-img>
         <p class = title>Webで年表作成</p>
         <p class = subtitle>年表を作ってみませんか</p>
     </div>
-    
+    <div class="wrapper">
+        <a href= "{{ url('/history_view') }}" class="button">作成する！</a>
+    </div>
       @if (Auth::check())
         {{ Auth::user()->name }}
       @endif

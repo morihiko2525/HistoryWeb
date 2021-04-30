@@ -21,6 +21,10 @@ Route::get('/myhistory_list', function () {
     return view('history_table.myhistory_list');
 });
 
+Route::get('/history_view', function () {
+    return view('history_view');
+});
+
 // ユーザ登録
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup.get');
 Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');

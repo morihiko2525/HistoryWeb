@@ -1,3 +1,7 @@
+body{
+    overflow: hidden;
+}
+
 div.top-img{
     /*display: block;*/
     height: 600px;
