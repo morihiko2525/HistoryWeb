@@ -18,15 +18,17 @@
 <div class = year-column>2015年</div>
 <div class = year-column>2015年</div>
 
-<button id="openModal">Open modal</button>
+<button id="openModal">イベントを追加</button>
 
 <!-- モーダルエリアここから -->
 <section id="modalArea" class="modalArea">
   <div id="modalBg" class="modalBg"></div>
   <div class="modalWrapper">
     <div class="modalContents">
-      <h1>Here are modal contents!</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+      <h1>イベントを追加</h1>
+      <p>イベント名 </p>
+      <p>イベント名 </p>
+      <p>イベント名 </p><p>イベント名 </p><p>イベント名 </p><p>イベント名 </p><p>イベント名 </p>
     </div>
     <div id="closeModal" class="closeModal">
       ×
