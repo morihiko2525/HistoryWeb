@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/button.css') }}">
         <link rel="stylesheet" href="{{ asset('css/history_table.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/modal.css') }}">
 
         <script>
           (function(d) {
@@ -19,8 +20,9 @@
             h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
           })(document);
         </script>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script type="text/javascript" src="{{ asset('js/jQuery.js') }}"></script>
         <script type="text/javascript" src="{{ asset('js/footerFixed.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/modal.js') }}"></script>
     </head>
 
     <body>
@@ -65,8 +67,6 @@
             @yield('content')
 
         </div>
-
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
         <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"></script>
