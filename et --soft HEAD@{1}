@@ -1,0 +1,15 @@
+[33m88ec33d[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m HEAD@{0}: reset: moving to 88ec33da55860344bcecb642c11b243bb514c5f8
+[33m86af174[m HEAD@{1}: commit: コントローラーを複数形に修正
+[33m88ec33d[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m HEAD@{2}: commit: eventcontrollerのindexを実装
+[33m877ca74[m[33m ([m[1;31mheroku/master[m[33m)[m HEAD@{3}: commit: コントローラ、モデルを作成
+[33m4975b3e[m HEAD@{4}: commit: モーダルのCSSを調整
+[33m9c4bc6c[m HEAD@{5}: commit: jQueryを入れた
+[33m7092145[m HEAD@{6}: commit: footerFixedを追加
+[33m0ddf9c6[m HEAD@{7}: commit: historiesのmigrationファイルを作成
+[33mcf395e8[m HEAD@{8}: commit: トップページに孫正義とダイエーのダミーデーターを配置
+[33md234540[m HEAD@{9}: commit: 色々追加
+[33m4cb8319[m HEAD@{10}: commit: small
+[33m0cf6621[m HEAD@{11}: commit: headerを画面端まで広がるようにした
+[33m164610d[m HEAD@{12}: commit: GoogleOAuthの実装
+[33m6701047[m HEAD@{13}: commit: small
+[33m99c955d[m HEAD@{14}: commit (initial): first commit

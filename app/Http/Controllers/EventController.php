@@ -41,7 +41,6 @@ class EventController extends Controller
         
         
         $events = new Event;
-        /*
         $events->name = $request->name;
         $events->description = $request->description;
         $events->year = $request->year;
@@ -51,18 +50,8 @@ class EventController extends Controller
         $events->date = "2020-01-01";
         $events->history_id = 1;
         
-        $events->save();*/
-        $request->history()->events()->create([
-            'name' => $request->name,
-            'description' => $request->description,
-            'year' => $request->year,
-            'month' => $request->month,
-            'day' => $request->day,
-        
-            'date' => "2020-01-01",
-        ]);
-        
+        $events->save();
+
         return redirect('/history_view');
-        
     }
 }
