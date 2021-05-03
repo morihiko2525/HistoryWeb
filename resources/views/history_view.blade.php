@@ -23,18 +23,15 @@
                 <thead>
                     <tr>
                         <th>id</th>
-                        <th>タスク</th>
+                        <th>イベント名</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($events as $events)
-                        //@if($tasks->user_id == Auth::user()->id)
                         <tr>
-                            <td>{!! link_to_route('events.show', $events->id, ['event' => $events->id]) !!}</td>
+                            <td>{{$events->id}}</td>
                             <td>{{ $events->name }}</td>
-                            <td>{{ $tasks->status }}</td>
                         </tr>
-                        @endif
                     @endforeach
                 </tbody>
             </table>
