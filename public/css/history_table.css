@@ -19,3 +19,11 @@ div.year-column{
     margin:0 -200%;
     padding:0 200%;
 }
+
+div.event{
+    height: 150px;
+    background-color: #EEEEEE;
+    font-size: 20px;
+    line-height: 40px;
+    padding-left: 10px;
+}
