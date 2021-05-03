@@ -16,14 +16,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+/*
 Route::get('/myhistory_list', function () {
     return view('history_table.myhistory_list');
-});
+});*/
 
+Route::get('/history_view', 'EventController@index');
+
+Route::post('/history_view', 'EventController@store')->name('events.store');
+
+/*
 Route::get('/history_view', function () {
     return view('history_view');
-});
+});*/
 
 // ユーザ登録
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup.get');

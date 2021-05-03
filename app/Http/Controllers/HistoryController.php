@@ -3,24 +3,39 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\History;
 
 class HistoryController extends Controller
 {
     //
     public function index () 
     {
-        $hello = 'Hello,World!';
-        $hello_array = ['Hello', 'こんにちは', 'ニーハオ'];
-
-        return view('index', compact('hello', 'hello_array'));
+        $events = Event::all();
+        
+        return view('history_view', [
+            'events' => $events,
+            ]);
     }
     
-    public function create(){
-        
+    public function create()
+    {
+         $historis = new History;
+
+        // メッセージ作成ビューを表示
+        return view('history_view', [
+            'histories' => $histories,
+        ]);
     }
     
     public function store(Request $request)
     {
         //
+        $request->histories()->create([
+        'name' => $request->name,
+        'description' => $request->description,
+        ]);
+
+
+        return redirect('/');
     }
 }

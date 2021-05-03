@@ -17,6 +17,9 @@ class CreateEventsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name')->nullable(false);
             $table->string('description');
+            $table->unsignedBigInteger('history_id');
+            $table->foreign('history_id')->references('id')->on('histories');
+
             $table->integer('year')->nullable(false);
             $table->integer('month')->nullable(false);
             $table->integer('day')->nullable(false);
