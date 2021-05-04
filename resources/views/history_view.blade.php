@@ -20,7 +20,7 @@
 </div>
 @foreach ($events as $events)
 <div class = event>
-  <p>5月4日</p>
+  <p>{{ $events->month }}月{{ $events->day }}日</p>
   <h3>{{ $events->name }}</h3>
   <p>{{ $events->description }}</p>
 </div>
@@ -113,6 +113,7 @@
   });
 });</script>
 <div id = footer>
+  
 <div class="wrapper">
         <a href= "{{ url('/history_view') }}" class="button">完成！</a>
     </div>

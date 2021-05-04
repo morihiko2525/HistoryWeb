@@ -27,3 +27,7 @@ div.event{
     line-height: 40px;
     padding-left: 10px;
 }
+
+body.test{
+    background-color: #C73E3A;
+}

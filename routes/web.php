@@ -21,11 +21,11 @@ Route::get('/', function () {
 Route::get('/create', function () {
     return view('create_history');
 });*/
-//Route::get('/create', 'HistoryController@index')->name('histories.create');
+Route::get('/create', 'HistoryController@create')->name('histories.create');
 
-//Route::post('/create', 'HistoryController@store')->name('histories.store');
+Route::post('/create', 'HistoryController@store')->name('histories.store');
 
-Route::get('/history_view', 'EventController@index');
+Route::get('/history_view', 'EventController@index')->name('events.index');
 
 Route::post('/history_view', 'EventController@store')->name('events.store');
 

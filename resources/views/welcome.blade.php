@@ -7,7 +7,7 @@
         <p class = subtitle>年表を作ってみませんか</p>
     </div>
     <div class="wrapper">
-        <a href= "{{ url('/history_view') }}" class="button">作成する！</a>
+        <a href= "{{ route('histories.create') }}" class="button">作成する！</a>
     </div>
       @if (Auth::check())
         {{ Auth::user()->name }}

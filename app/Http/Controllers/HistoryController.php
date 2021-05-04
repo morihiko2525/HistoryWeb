@@ -19,10 +19,10 @@ class HistoryController extends Controller
     
     public function create()
     {
-         $historis = new History;
+         $histories = new History;
 
-        // メッセージ作成ビューを表示
-        return view('history_view', [
+        //ビューの階層を書く
+        return view('create_history', [
             'histories' => $histories,
         ]);
     }
@@ -35,9 +35,9 @@ class HistoryController extends Controller
         $request->histories()->create([
         'name' => $request->name,
         'description' => $request->description,
-        ]);
+        ]);*/
 
 
-        return redirect('/');*/
+        return redirect('/');
     }
 }

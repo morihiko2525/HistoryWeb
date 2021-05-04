@@ -7,9 +7,9 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/button.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/history_table.css') }}">
         <link rel="stylesheet" href="{{ asset('css/modal.css') }}">
-
+        <link rel="stylesheet" href="{{ asset('css/loading.css') }}"> 
+        <link rel="stylesheet" href="{{ asset('css/history_table.css') }}">
         <script>
           (function(d) {
             var config = {
@@ -23,6 +23,8 @@
         <script type="text/javascript" src="{{ asset('js/jQuery.js') }}"></script>
         <script type="text/javascript" src="{{ asset('js/footerFixed.js') }}"></script>
         <script type="text/javascript" src="{{ asset('js/modal.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/loading.js') }}"></script>
+
     </head>
 
     <body>
