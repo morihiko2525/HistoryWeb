@@ -16,10 +16,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
 /*
-Route::get('/myhistory_list', function () {
-    return view('history_table.myhistory_list');
+Route::get('/create', function () {
+    return view('create_history');
 });*/
+//Route::get('/create', 'HistoryController@index')->name('histories.create');
+
+//Route::post('/create', 'HistoryController@store')->name('histories.store');
 
 Route::get('/history_view', 'EventController@index');
 

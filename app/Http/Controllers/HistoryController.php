@@ -10,10 +10,10 @@ class HistoryController extends Controller
     //
     public function index () 
     {
-        $events = Event::all();
         
-        return view('history_view', [
-            'events' => $events,
+        
+        return view('create_history', [
+            
             ]);
     }
     
@@ -29,13 +29,15 @@ class HistoryController extends Controller
     
     public function store(Request $request)
     {
+        $histories = new History;
         //
+        /*
         $request->histories()->create([
         'name' => $request->name,
         'description' => $request->description,
         ]);
 
 
-        return redirect('/');
+        return redirect('/');*/
     }
 }
