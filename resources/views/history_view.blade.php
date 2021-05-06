@@ -13,11 +13,6 @@
 
 <button id="openModal">イベントを追加</button>
 
-<div class = event>
-  <p>5月4日</p>
-  <h3>本八幡店創業</h3>
-  <p>千葉県市川市本八幡にて、サイゼリヤ１号店創業。299円のミラノ風ドリアが人気だった。</p>
-</div>
 @foreach ($events as $events)
 <div class = event>
   <p>{{ $events->month }}月{{ $events->day }}日</p>
