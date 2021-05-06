@@ -5,15 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Event;
 
+    
 class EventController extends Controller
 {
     protected $fillable = ['name', 'body'];
     
-    public function index()
+    public function index(Request $id)
     {
         //
-        $events = Event::all();
-        
+        //$events = Event::where('history_id', 1)->first();
+        $events = Event::where('history_id', 1)->get();
         return view('history_view', [
             'events' => $events,
             ]);
