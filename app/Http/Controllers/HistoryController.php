@@ -32,7 +32,7 @@ class HistoryController extends Controller
         $histories = new History;
         
         $histories->name = $request->name;
-        $histories->description = $request->name;
+        $histories->description = $request->description;
 
         $histories->save();
         
