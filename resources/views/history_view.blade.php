@@ -84,7 +84,7 @@
             {!! Form::text('day', null, ['class' => 'form-control']) !!}
 
           </div>
-          {!! Form::hidden('his_id', 1)!!}
+          {!! Form::hidden('his_id', $his_id)!!}
 
           <button type="submit" class="btn btn-primary">Submit</button>
         {!! Form::close() !!}

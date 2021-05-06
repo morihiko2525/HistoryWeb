@@ -15,6 +15,7 @@ class EventController extends Controller
         $events = Event::where('history_id', $id)->get();
         return view('history_view', [
             'events' => $events,
+            'his_id' => $id,
             ]);
     }
     
