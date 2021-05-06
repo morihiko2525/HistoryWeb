@@ -1,6 +1,6 @@
 window.onload = function() {
   const spinner = document.getElementById('loading');
-  sleep(1500, function(){
+  sleep(500, function(){
     spinner.classList.add('loaded');
       
   })
