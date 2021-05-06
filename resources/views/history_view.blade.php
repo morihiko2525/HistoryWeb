@@ -6,40 +6,17 @@
 <a href = "">イベントを追加</a>
 
 <div class = year-column>2015年</div>
-<p>あいうえお</p>
-<div class = year-column>2015年</div>
-<div class = year-column>2015年</div>
 
 
 <button id="openModal">イベントを追加</button>
 
 @foreach ($events as $events)
 <div class = event>
-  <p>{{ $events->month }}月{{ $events->day }}日</p>
+  <p>{{$events->year}}年{{ $events->month }}月{{ $events->day }}日</p>
   <h3>{{ $events->name }}</h3>
   <p>{{ $events->description }}</p>
 </div>
 @endforeach
-<table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>id</th>
-                        <th>イベント名</th>
-                    </tr>
-                </thead>
-                <tbody>
-                  {{--
-                    @foreach ($events as $events)
-                    <div class = year-column>{{$events->id}}</div>
-                        <tr>
-                            <td>{{$events->id}}</td>
-                            <td>{{ $events->name }}</td>
-                            <td>{{ $events->description }}</td>
-
-                        </tr>
-                    @endforeach--}}
-                </tbody>
-</table>
             
             
             
