@@ -30,14 +30,11 @@ class HistoryController extends Controller
     public function store(Request $request)
     {
         $histories = new History;
-        //
-        /*
-        $request->histories()->create([
-        'name' => $request->name,
-        'description' => $request->description,
-        ]);*/
+        
+        $histories->name = $request->name;
+        $histories->description = $request->name;
 
-
-        return redirect('/');
+        $histories->save();
+        return redirect('/history_view');
     }
 }
