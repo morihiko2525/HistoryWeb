@@ -46,7 +46,7 @@ class EventController extends Controller
         $events->month = $request->month;
         $events->day = $request->day;
         
-        $events->date = "2020-01-01";
+        $events->date = $request->year . '-' . $request->month . '-' . $request->day ;
         $events->history_id = $request->his_id;
         
         $events->save();
