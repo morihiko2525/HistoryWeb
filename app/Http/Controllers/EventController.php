@@ -10,7 +10,7 @@ class EventController extends Controller
 {
     protected $fillable = ['name', 'body'];
     
-    public function index(Request $id)
+    public function index($id)
     {
         //
         //$events = Event::where('history_id', 1)->first();
