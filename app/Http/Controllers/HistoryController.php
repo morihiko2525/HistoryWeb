@@ -37,7 +37,7 @@ class HistoryController extends Controller
         $histories->save();
         
         return redirect(route('events.index',[
-            'id' => 1,
+            'id' => $histories->id,
             ]));
     }
 }
