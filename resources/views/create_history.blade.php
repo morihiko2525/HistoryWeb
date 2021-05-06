@@ -7,7 +7,7 @@
 
 <div class=dialog-window>
 <h1>年表を作成しましょう！</h1>
- {!! Form::model($histories, ['route' => 'histories.store']) !!}
+ {!! Form::model($histories, ['route' => 'histories.create']) !!}
 
           <div class="form-group">
             
@@ -19,6 +19,6 @@
             {!! Form::text('description', null, ['class' => 'form-control']) !!}
           <button type="submit" class="btn btn-primary">作成</button>
         {!! Form::close() !!}
-        <a href= "{{ action('EventController@index', 1) }}" class="button">作成する！</a>
+        <a href= "{{ action('EventController@index', 1) }}" type = submit class="button">作成する！</a>
 </div>
 @endsection

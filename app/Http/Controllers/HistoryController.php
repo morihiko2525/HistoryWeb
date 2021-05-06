@@ -21,7 +21,7 @@ class HistoryController extends Controller
     {
          $histories = new History;
 
-        //ビューの階層を書く
+        //ここの上側にはビューの階層を書く
         return view('create_history', [
             'histories' => $histories,
         ]);
@@ -35,6 +35,9 @@ class HistoryController extends Controller
         $histories->description = $request->name;
 
         $histories->save();
-        return redirect('/history_view');
+        
+        return redirect(route('events.index',[
+            'id' => 1,
+            ]));
     }
 }
