@@ -8,8 +8,6 @@ use App\Event;
     
 class EventController extends Controller
 {
-    protected $fillable = ['name', 'body'];
-    
     public function index($id)
     {
         //
@@ -40,7 +38,6 @@ class EventController extends Controller
             'status' => 'required|max:10',
         ]);*/
         
-        
         $events = new Event;
         $events->name = $request->name;
         $events->description = $request->description;
@@ -49,10 +46,12 @@ class EventController extends Controller
         $events->day = $request->day;
         
         $events->date = "2020-01-01";
-        $events->history_id = 1;
+        $events->history_id = $request->his_id;
         
         $events->save();
-
-        return redirect('/history_view');
+        
+        return redirect(route('events.index',[
+            'id' => $request->his_id,
+            ]));
     }
 }

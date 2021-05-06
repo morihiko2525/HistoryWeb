@@ -58,7 +58,6 @@
       <h1>イベントを追加</h1>
       
         {!! Form::model($events, ['route' => 'events.store']) !!}
-
           <div class="form-group">
             {!! Form::label('name', 'イベント名') !!}
             {!! Form::text('name', null, ['class' => 'form-control']) !!}
@@ -85,15 +84,8 @@
             {!! Form::text('day', null, ['class' => 'form-control']) !!}
 
           </div>
+          {!! Form::hidden('his_id', 1)!!}
 
-
-
-
-
-          <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-          </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         {!! Form::close() !!}
             </div>
