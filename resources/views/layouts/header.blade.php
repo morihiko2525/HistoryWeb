@@ -40,9 +40,7 @@
                 <div class="collapse navbar-collapse" id="nav-bar">
                     <ul class="navbar-nav mr-auto"></ul>
                     <ul class="navbar-nav">
-                        {{-- メッセージ作成ページへのリンク --}}
-                        <li class="nav-item"><a href = "{{ Route('login') }}">ログイン</a></li>
-                        <li class="nav-item"><a href = "{{ Route('signup.get') }}">アカウント作成</a></li>
+                    
 
                         @if (Auth::check())
                             {{-- ユーザ一覧ページへのリンク --}}
@@ -57,6 +55,8 @@
                                 </ul>
                             </li>
                         @else
+                            <li class="nav-item"><a href = "{{ Route('login') }}">ログイン</a></li>
+                            <li class="nav-item"><a href = "{{ Route('signup.get') }}">アカウント作成</a></li>
                         @endif
                     </ul>
                 </div>
