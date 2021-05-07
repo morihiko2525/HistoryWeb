@@ -28,9 +28,13 @@
                     {!! Form::label('password_confirmation', 'パスワードの再確認') !!}
                     {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
                 </div>
-
+                <div class="g-recaptcha" data-callback="clearcall" data-sitekey="1073811079122-mbaqoe9cnjp5ilpe6gma1db18s75rdi4.apps.googleusercontent.com"></div>
                 {!! Form::submit('Sign up', ['class' => 'btn btn-primary btn-block']) !!}
             {!! Form::close() !!}
+            
+            
+
         </div>
     </div>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
 @endsection
