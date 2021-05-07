@@ -17,7 +17,10 @@
           <div class="form-group">
             {!! Form::label('description', '説明') !!}
             {!! Form::text('description', null, ['class' => 'form-control']) !!}
+          </div>
+            {!! Form::hidden('user_id', Auth::user()->id )!!}
           <button type="submit" class="btn btn-primary">作成</button>
+          
         {!! Form::close() !!}
         <a href= "{{ action('EventController@index', 1) }}" type = submit class="button">作成する！</a>
 </div>
