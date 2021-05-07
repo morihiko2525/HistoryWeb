@@ -5,11 +5,10 @@
 <h1>{{$historiesController->getHistoryName($his_id)}}</h1>
 <p>{{$historiesController->getHistoryDescription($his_id)}}</p>
 
-<button id="openModal">イベントを追加</button>
 @if(Auth::check())
-@if($historiesController->getHistoryUserID($his_id) === Auth::user()->id)
-<a href = {{ action('EventController@edit', $his_id)}}>編集する</a>
-@endif
+  @if($historiesController->getHistoryUserID($his_id) === Auth::user()->id)
+    <a href = {{ action('EventController@edit', $his_id)}}>編集する</a>
+  @endif
 @endif
 
 
@@ -24,7 +23,7 @@
 
 <div class = event>
   <p>{{ $events->month }}月{{ $events->day }}日</p>
-  <h3>{{ $events->name }}</h3>
+  <h3 class = event-title>{{ $events->name }}</h3>
   <p>{{ $events->description }}</p>
 </div>
 @endforeach

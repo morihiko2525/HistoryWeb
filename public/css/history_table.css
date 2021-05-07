@@ -28,6 +28,10 @@ div.event{
     padding-left: 10px;
 }
 
+h3.event-title{
+    padding-left: 20px;
+}
+
 body.test{
     background-color: #C73E3A;
 }

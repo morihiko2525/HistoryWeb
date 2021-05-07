@@ -22,6 +22,5 @@
           <button type="submit" class="btn btn-primary">作成</button>
           
         {!! Form::close() !!}
-        <a href= "{{ action('EventController@index', 1) }}" type = submit class="button">作成する！</a>
 </div>
 @endsection
