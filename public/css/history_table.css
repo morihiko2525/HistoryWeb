@@ -32,6 +32,11 @@ h3.event-title{
     padding-left: 20px;
 }
 
+p.event-desc{
+    font-size: 19px;
+    padding-left: 32px;
+}
+
 body.test{
     background-color: #C73E3A;
 }

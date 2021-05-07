@@ -11,11 +11,14 @@
 
           <div class="form-group">
             
-            {!! Form::label('name', '年表名') !!}
+            {!! Form::label('name', '年表タイトル') !!}
+            <small id="emailHelp" class="form-text text-muted">年表のタイトルを入力しましょう。例) 〇〇の人生</small>
             {!! Form::text('name', null, ['class' => 'form-control']) !!}
           </div>
           <div class="form-group">
             {!! Form::label('description', '説明') !!}
+            <small id="emailHelp" class="form-text text-muted">年表の説明を入力しましょう。</small>
+
             {!! Form::text('description', null, ['class' => 'form-control']) !!}
           </div>
           {!! Form::hidden('user_id', Auth::user()->id )!!}
