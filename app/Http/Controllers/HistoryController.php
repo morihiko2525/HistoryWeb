@@ -24,6 +24,11 @@ class HistoryController extends Controller
         return $his_name;
     }
     
+    public function getHistoryDescription($id){
+        $his_name = History::where('id', $id)->value('description');
+        return $his_name;
+    }
+    
     public function create()
     {
          $histories = new History;
