@@ -9,9 +9,7 @@
         <a href= "{{ route('histories.create') }}" class="button">作成する！</a>
     </div>
     </div>
-      @if (Auth::check())
-        {{ Auth::user()->name }}
-      @endif
+
     <div class = "history-table-feature">
     <h1>人気の年表</h1>
         <div class = history-table-content>
