@@ -10,11 +10,13 @@ class HistoryController extends Controller
     //
     public function index () 
     {
-        
-        
         return view('create_history', [
             
             ]);
+    }
+    
+    public function __construct(){
+        $this->middleware('auth');    
     }
     
     public function create()

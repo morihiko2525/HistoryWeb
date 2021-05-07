@@ -19,7 +19,7 @@
                 <div class = ht-sumnail>
                     <img src = "https://riverwalk.co.jp/app/wp-content/uploads/2019/03/20190318-saizeriya_logo.jpg" width = 200px height = 200px>
                 </div>
-            <a href="https://www.google.co.jp"></a>
+            <a href="/history_view/4"></a>
             <p class = ht-title>サイゼリヤ年表</p>
             <p>ここは年表説明欄です。サイゼリヤの年表を作りたいと思っています。</p>
                 </div>
