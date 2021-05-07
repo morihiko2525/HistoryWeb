@@ -48,7 +48,7 @@ class EventController extends Controller
         
         $events->save();
         
-        return redirect(route('events.index',[
+        return redirect(route('events.edit',[
             'id' => $request->his_id,
             ]));
     }
