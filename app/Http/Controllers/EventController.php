@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Event;
-
+use App\History;
     
 class EventController extends Controller
 {
@@ -18,7 +18,7 @@ class EventController extends Controller
             'his_id' => $id,
             ]);
     }
-    
+
     public function create()
     {
         //

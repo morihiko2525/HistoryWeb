@@ -19,6 +19,11 @@ class HistoryController extends Controller
         $this->middleware('auth');    
     }
     
+    public function getHistoryName($id){
+        $his_name = History::where('id', $id)->value('name');
+        return $his_name;
+    }
+    
     public function create()
     {
          $histories = new History;

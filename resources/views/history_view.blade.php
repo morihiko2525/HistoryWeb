@@ -1,7 +1,7 @@
 @extends('layouts.header')
-
+@inject('historiesController','App\Http\Controllers\HistoryController')
 @section('content')
-<h1>新規年表を作成</h1>
+<h1>{{$historiesController->getHistoryName($his_id)}}</h1>
 
 <a href = "">イベントを追加</a>
 
