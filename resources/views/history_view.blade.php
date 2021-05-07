@@ -5,14 +5,20 @@
 
 <a href = "">イベントを追加</a>
 
-<div class = year-column>2015年</div>
-
 
 <button id="openModal">イベントを追加</button>
 
+<?php $pre_y = 0 ?>
 @foreach ($events as $events)
+
+@if($events->year !== $pre_y)
+  <div class = year-column>{{$events->year}}年</div>
+@endif
+
+<?php $pre_y = $events->year ?>
+
 <div class = event>
-  <p>{{$events->year}}年{{ $events->month }}月{{ $events->day }}日</p>
+  <p>{{ $events->month }}月{{ $events->day }}日</p>
   <h3>{{ $events->name }}</h3>
   <p>{{ $events->description }}</p>
 </div>
