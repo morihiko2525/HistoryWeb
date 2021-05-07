@@ -7,7 +7,7 @@
 
 <button id="openModal">イベントを追加</button>
 @if($historiesController->getHistoryUserID($his_id) === Auth::user()->id)
-<a href = {{ action('EventController@edit', $his_id)}}>編集する</a>
+<p>編集モード中</p>
 @endif
 
 
@@ -22,7 +22,7 @@
 
 <div class = event>
   <p>{{ $events->month }}月{{ $events->day }}日</p>
-  <h3>{{ $events->name }}</h3>
+  <h3><a href ="javascript:openModal();">{{ $events->name }}</a></h3>
   <p>{{ $events->description }}</p>
 </div>
 @endforeach

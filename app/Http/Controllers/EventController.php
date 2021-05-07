@@ -24,10 +24,7 @@ class EventController extends Controller
         //
         $events = new Event;
 
-        // メッセージ作成ビューを表示
-        return view('tasks.create', [
-            'tasks' => $tasks,
-        ]);
+        
     }
     
     public function store(Request $request)
@@ -54,5 +51,17 @@ class EventController extends Controller
         return redirect(route('events.index',[
             'id' => $request->his_id,
             ]));
+    }
+    
+    public function edit($id){
+        $events = Event::where('history_id', $id)->orderBy('date', 'asc')->get();
+        return view('history_edit', [
+            'events' => $events,
+            'his_id' => $id,
+            ]);
+    }
+    
+    public function update(){
+        
     }
 }
