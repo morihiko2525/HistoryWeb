@@ -21,7 +21,7 @@ div.year-column{
 }
 
 div.event{
-    height: 150px;
+    height: auto;
     background-color: #EEEEEE;
     font-size: 20px;
     line-height: 40px;
