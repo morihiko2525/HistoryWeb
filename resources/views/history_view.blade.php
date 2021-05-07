@@ -5,11 +5,11 @@
 <h1>{{$historiesController->getHistoryName($his_id)}}</h1>
 <p>{{$historiesController->getHistoryDescription($his_id)}}</p>
 
+<button id="openModal">イベントを追加</button>
 @if($historiesController->getHistoryUserID($his_id) === Auth::user()->id)
 <a href = "">編集する</a>
 @endif
 
-<button id="openModal">イベントを追加</button>
 
 <?php $pre_y = 0 ?>
 @foreach ($events as $events)
