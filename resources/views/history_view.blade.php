@@ -6,8 +6,10 @@
 <p>{{$historiesController->getHistoryDescription($his_id)}}</p>
 
 <button id="openModal">イベントを追加</button>
+@if(Auth::check())
 @if($historiesController->getHistoryUserID($his_id) === Auth::user()->id)
 <a href = {{ action('EventController@edit', $his_id)}}>編集する</a>
+@endif
 @endif
 
 
