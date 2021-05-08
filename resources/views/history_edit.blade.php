@@ -22,11 +22,11 @@
 
 <div class = event>
   <p>{{ $events->month }}月{{ $events->day }}日</p>
-  <h3><a href = "#">{{ $events->name }}</a></h3>
+  <h3><a href="javascript:void(0);" onclick="OnEditClick();"> {{ $events->name }}</a></h3>
   <p class = event-desc>{{ $events->description }}</p>
 </div>
 @endforeach
-            
+
             
             
             

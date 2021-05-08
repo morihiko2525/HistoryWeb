@@ -6,3 +6,7 @@ $(function () {
     $('#modalArea').fadeOut();
   });
 });
+
+function OnEditClick(){
+   $('#modalArea').fadeIn();
+}
