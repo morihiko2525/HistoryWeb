@@ -19,10 +19,10 @@
 @endif
 
 <?php $pre_y = $events->year ?>
-
+<?php $naa = $events->name ?>
 <div class = event>
   <p>{{ $events->month }}月{{ $events->day }}日</p>
-  <h3><a href="javascript:void(0);" onclick="OnEditClick();"> {{ $events->name }}</a></h3>
+  <h3><a href="javascript:void(0);" onclick="OnEditClick('{{$events->id}}', '{{$events->name}}', '{{$events->description}}', '{{$events->year}}', '{{$events->month}}', '{{$events->day}}');"> {{ $events->name }}</a></h3>
   <p class = event-desc>{{ $events->description }}</p>
 </div>
 @endforeach
@@ -41,28 +41,28 @@
         {!! Form::model($events, ['route' => 'events.update']) !!}
           <div class="form-group">
             {!! Form::label('name', 'イベント名') !!}
-            {!! Form::text('name', null, ['class' => 'form-control']) !!}
+            {!! Form::text('name', null, ['class' => 'form-control', 'id' => 'name']) !!}
 
-            <small id="emailHelp" class="form-text text-muted">出来事を入力</small>
+          <small id="emailHelp" class="form-text text-muted">出来事を入力</small>
           </div>
           <div class="form-group">
             {!! Form::label('description', '説明') !!}
-            {!! Form::text('description', null, ['class' => 'form-control']) !!}
+            {!! Form::text('description', null, ['class' => 'form-control', 'id' => 'desc']) !!}
 
           </div>
           <div class="form-group">
             {!! Form::label('year', '年') !!}
-            {!! Form::text('year', null, ['class' => 'form-control']) !!}
+            {!! Form::text('year', null, ['class' => 'form-control', 'id' => 'year']) !!}
 
           </div>
           <div class="form-group">
             {!! Form::label('month', '月') !!}
-            {!! Form::text('month', null, ['class' => 'form-control']) !!}
+            {!! Form::text('month', null, ['class' => 'form-control', 'id' => 'month']) !!}
 
           </div>
           <div class="form-group">
             {!! Form::label('day', '日') !!}
-            {!! Form::text('day', null, ['class' => 'form-control']) !!}
+            {!! Form::text('day', null, ['class' => 'form-control', 'id' => 'day']) !!}
 
           </div>
           {!! Form::hidden('his_id', $his_id)!!}
