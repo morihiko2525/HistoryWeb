@@ -36,9 +36,9 @@
   <div id="modalBg" class="modalBg"></div>
   <div class="modalWrapper">
     <div class="modalContents">
-      <h1>イベントを追加</h1>
+      <h1>イベントを編集</h1>
       
-        {!! Form::model($events, ['route' => 'events.store']) !!}
+        {!! Form::model($events, ['route' => 'events.update']) !!}
           <div class="form-group">
             {!! Form::label('name', 'イベント名') !!}
             {!! Form::text('name', null, ['class' => 'form-control']) !!}

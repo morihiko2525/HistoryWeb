@@ -31,7 +31,7 @@ Route::post('/history_view', 'EventController@store')->name('events.store');
 
 Route::get('/history_view/{id}/edit', 'EventController@edit')->name('events.edit');
 
-Route::post('/history_view/{id}/', 'EventController@update')->name('events.update');
+Route::post('/history_view/edit', 'EventController@update')->name('events.update');
 
 Route::get('/userpage', 'UsersController@index')->name('userpage.index');
 /*
