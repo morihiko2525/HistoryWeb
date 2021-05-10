@@ -114,7 +114,9 @@
           <button type="submit" class="btn btn-primary">変更</button>
           {!! Form::close() !!}
           
-          
+          @if($events->id === null)
+            $events->id = 1;
+          @endif
           {!! Form::model($events, ['route' => ['events.destroy', $events->id]]) !!}  
           <button type = "submit" class="btn btn-danger">削除</button>
           {!! Form::close() !!}
