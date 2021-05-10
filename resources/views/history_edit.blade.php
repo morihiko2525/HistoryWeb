@@ -36,34 +36,34 @@
         {!! Form::model($events, ['route' => 'events.store']) !!}
           <div class="form-group">
             {!! Form::label('name', 'イベント名') !!}
-            {!! Form::text('name', "", ['class' => 'form-control'] !!}
+            {!! Form::text('name', "", ['class' => 'form-control']) !!}
 
-          <small id="emailHelp" class="form-text text-muted">出来事を入力</small>
+            <small id="emailHelp" class="form-text text-muted">出来事を入力</small>
           </div>
           <div class="form-group">
             {!! Form::label('description', '説明') !!}
-            {!! Form::text('description', "", ['class' => 'form-control'] !!}
+            {!! Form::text('description', "", ['class' => 'form-control']) !!}
 
           </div>
           <div class="form-group">
             {!! Form::label('year', '年') !!}
-            {!! Form::text('year', "", ['class' => 'form-control'] !!}
+            {!! Form::text('year', "", ['class' => 'form-control']) !!}
 
           </div>
           <div class="form-group">
             {!! Form::label('month', '月') !!}
-            {!! Form::text('month', "", ['class' => 'form-control'] !!}
+            {!! Form::text('month', "", ['class' => 'form-control']) !!}
 
           </div>
           <div class="form-group">
             {!! Form::label('day', '日') !!}
-            {!! Form::text('day', "" ['class' => 'form-control'] !!}
+            {!! Form::text('day', "", ['class' => 'form-control']) !!}
 
           </div>
           {!! Form::hidden('his_id', $his_id)!!}
 
-          <button type="submit" class="btn btn-primary">変更</button>
-          {!! Form::close() !!}
+          <button type="submit" class="btn btn-primary">Submit</button>
+        {!! Form::close() !!}
             </div>
 
     <div id="closeModal" class="closeModal">

@@ -29,7 +29,7 @@
 @endforeach
             
             
-        
+            
 <div id = footer>
   
 <div class="wrapper">
