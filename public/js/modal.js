@@ -1,22 +1,27 @@
 $(function () {
-  $('#openModal').click(function(){
-      $('#modalArea').fadeIn();
+  $('#opencreateModal').click(function(){
+      $('#create-modalArea').fadeIn();
   });
   $('#closeModal , #modalBg').click(function(){
-    $('#modalArea').fadeOut();
+    $('#create-modalArea').fadeOut();
+    $('#edit-modalArea').fadeOut();
   });
 });
 
-_id = 0;
+
+
 
 function OnEditClick(id, name, desc, year, month, day){
-   $('#modalArea').fadeIn();
+   $('#edit-modalArea').fadeIn();
    document.getElementById( "name" ).value = name;
    document.getElementById( "desc" ).value =desc;
    document.getElementById( "year" ).value = year;
    document.getElementById( "month" ).value = month;
    document.getElementById( "day" ).value = day;
    document.getElementById( "eid" ).value = id;
-   _id = id;
+   
+   //document.getElementById("destroy-btn").href = "action('events.destroy', id)";
+   
+ 
 }
 

@@ -78,4 +78,14 @@ class EventController extends Controller
             ]));
 
     }
+    
+    public function destroy($his_id, $id){
+        $events = Event::findOrFail($id);
+        
+        $events->delete();
+        
+        return redirect(route('events.edit',[
+            'id' => $request->his_id,
+            ]));
+    }
 }

@@ -5,7 +5,7 @@
 <h1>{{$historiesController->getHistoryName($his_id)}}</h1>
 <p>{{$historiesController->getHistoryDescription($his_id)}}</p>
 
-<button id="openModal">イベントを追加</button>
+<button id="opencreateModal">イベントを追加</button>
 @if($historiesController->getHistoryUserID($his_id) === Auth::user()->id)
 <p>編集モード中</p>
 @endif
@@ -27,12 +27,55 @@
 </div>
 @endforeach
 
-            
+<section id="create-modalArea" class="create-modalArea">
+  <div id="modalBg" class="modalBg"></div>
+  <div class="modalWrapper">
+    <div class="modalContents">
+      <h1>イベントを追加</h1>
+      
+        {!! Form::model($events, ['route' => 'events.store']) !!}
+          <div class="form-group">
+            {!! Form::label('name', 'イベント名') !!}
+            {!! Form::text('name', "", ['class' => 'form-control'] !!}
+
+          <small id="emailHelp" class="form-text text-muted">出来事を入力</small>
+          </div>
+          <div class="form-group">
+            {!! Form::label('description', '説明') !!}
+            {!! Form::text('description', "", ['class' => 'form-control'] !!}
+
+          </div>
+          <div class="form-group">
+            {!! Form::label('year', '年') !!}
+            {!! Form::text('year', "", ['class' => 'form-control'] !!}
+
+          </div>
+          <div class="form-group">
+            {!! Form::label('month', '月') !!}
+            {!! Form::text('month', "", ['class' => 'form-control'] !!}
+
+          </div>
+          <div class="form-group">
+            {!! Form::label('day', '日') !!}
+            {!! Form::text('day', "" ['class' => 'form-control'] !!}
+
+          </div>
+          {!! Form::hidden('his_id', $his_id)!!}
+
+          <button type="submit" class="btn btn-primary">変更</button>
+          {!! Form::close() !!}
+            </div>
+
+    <div id="closeModal" class="closeModal">
+      ×
+    </div>
+  </div>
+</section>            
             
             
 <!-- モーダルエリアここから -->
 
-<section id="modalArea" class="modalArea">
+<section id="edit-modalArea" class="edit-modalArea">
   <div id="modalBg" class="modalBg"></div>
   <div class="modalWrapper">
     <div class="modalContents">
@@ -68,9 +111,11 @@
           {!! Form::hidden('id', null, ['id' => 'eid']) !!}
           {!! Form::hidden('his_id', $his_id)!!}
 
-          <button type="submit" class="btn btn-primary">Submit</button>
-        {!! Form::close() !!}
+          <button type="submit" class="btn btn-primary">変更</button>
+          {!! Form::close() !!}
             </div>
+            <a id = destroy-btn href = "{{ action('EventController@destroy', $his_id, 20) }}"><button class="btn btn-danger">削除</button></a>
+
     <div id="closeModal" class="closeModal">
       ×
     </div>
