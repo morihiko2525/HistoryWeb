@@ -61,7 +61,21 @@ class EventController extends Controller
             ]);
     }
     
-    public function update(){
+    public function update(Request $request){
         
+        $events = Event::findOrFail($request->id);
+        
+        $events->name = $request->name;
+        $events->description = $request->description;
+        $events->year = $request->year;
+        $events->month = $request->month;
+        $events->day = $request->day;
+        $events->date = $request->year . '-' . $request->month . '-' . $request->day ;
+        $events->save();
+        
+        return redirect(route('events.edit',[
+            'id' => $request->his_id,
+            ]));
+
     }
 }

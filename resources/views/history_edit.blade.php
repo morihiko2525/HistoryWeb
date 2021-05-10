@@ -65,6 +65,7 @@
             {!! Form::text('day', null, ['class' => 'form-control', 'id' => 'day']) !!}
 
           </div>
+          {!! Form::hidden('id', null, ['id' => 'eid']) !!}
           {!! Form::hidden('his_id', $his_id)!!}
 
           <button type="submit" class="btn btn-primary">Submit</button>
@@ -77,14 +78,7 @@
 </section>
 <!-- モーダルエリアここまで -->
 
-<script>$(function () {
-  $('#openModal').click(function(){
-      $('#modalArea').fadeIn();
-  });
-  $('#closeModal , #modalBg').click(function(){
-    $('#modalArea').fadeOut();
-  });
-});</script>
+
 <div id = footer>
   
 <div class="wrapper">

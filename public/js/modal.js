@@ -16,6 +16,7 @@ function OnEditClick(id, name, desc, year, month, day){
    document.getElementById( "year" ).value = year;
    document.getElementById( "month" ).value = month;
    document.getElementById( "day" ).value = day;
+   document.getElementById( "eid" ).value = id;
    _id = id;
 }
 
