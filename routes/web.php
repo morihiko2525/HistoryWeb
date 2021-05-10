@@ -33,7 +33,7 @@ Route::get('/history_view/{id}/edit', 'EventController@edit')->name('events.edit
 
 Route::post('/history_view/edit', 'EventController@update')->name('events.update');
 
-Route::post('/history_view/{id}/edit', 'EventController@destroy')->name('events.destroy');
+Route::post('/history_view/destroy', 'EventController@destroy')->name('events.destroy');
 
 Route::get('/userpage', 'UsersController@index')->name('userpage.index');
 /*

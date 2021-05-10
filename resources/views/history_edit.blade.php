@@ -122,7 +122,8 @@
             <?php $events->id = 1; ?> 
           @endif
           
-          {!! Form::model($events, ['route' => ['events.destroy', $events->id]]) !!}  
+          {!! Form::model($events, ['route' => 'events.destroy']) !!}
+          {!! Form::hidden('id', null, ['id' => 'd_eid']) !!}
           <button type = "submit" class="btn btn-danger">削除</button>
           {!! Form::close() !!}
       </div>
