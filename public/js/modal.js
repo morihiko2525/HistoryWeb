@@ -19,7 +19,7 @@ function OnEditClick(id, name, desc, year, month, day){
    document.getElementById( "e_month" ).value = month;
    document.getElementById( "e_day" ).value = day;
    document.getElementById( "eid" ).value = id;
-   //document.getElementById("destroy-btn").href = "action('events.destroy', id)";
+   //document.getElementById("destroy-btn").href = "'{{action('EventController@destroy', id)}}'";
    
  
 }

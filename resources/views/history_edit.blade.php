@@ -113,9 +113,13 @@
 
           <button type="submit" class="btn btn-primary">変更</button>
           {!! Form::close() !!}
-            </div>
-            <a id = destroy-btn href = "{{ action('EventController@destroy', $his_id, 20) }}"><button class="btn btn-danger">削除</button></a>
-
+          
+          
+          {!! Form::model($events, ['route' => ['events.destroy', $events->id]]) !!}  
+          <button type = "submit" class="btn btn-danger">削除</button>
+          {!! Form::close() !!}
+      </div>
+          
     <div id="closeModal" class="closeModal">
       ×
     </div>
