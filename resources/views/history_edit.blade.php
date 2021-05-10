@@ -84,28 +84,28 @@
         {!! Form::model($events, ['route' => 'events.update']) !!}
           <div class="form-group">
             {!! Form::label('name', 'イベント名') !!}
-            {!! Form::text('name', null, ['class' => 'form-control', 'id' => 'name']) !!}
+            {!! Form::text('name', null, ['class' => 'form-control', 'id' => 'e_name']) !!}
 
           <small id="emailHelp" class="form-text text-muted">出来事を入力</small>
           </div>
           <div class="form-group">
             {!! Form::label('description', '説明') !!}
-            {!! Form::text('description', null, ['class' => 'form-control', 'id' => 'desc']) !!}
+            {!! Form::text('description', null, ['class' => 'form-control', 'id' => 'e_desc']) !!}
 
           </div>
           <div class="form-group">
             {!! Form::label('year', '年') !!}
-            {!! Form::text('year', null, ['class' => 'form-control', 'id' => 'year']) !!}
+            {!! Form::text('year', null, ['class' => 'form-control', 'id' => 'e_year']) !!}
 
           </div>
           <div class="form-group">
             {!! Form::label('month', '月') !!}
-            {!! Form::text('month', null, ['class' => 'form-control', 'id' => 'month']) !!}
+            {!! Form::text('month', null, ['class' => 'form-control', 'id' => 'e_month']) !!}
 
           </div>
           <div class="form-group">
             {!! Form::label('day', '日') !!}
-            {!! Form::text('day', null, ['class' => 'form-control', 'id' => 'day']) !!}
+            {!! Form::text('day', null, ['class' => 'form-control', 'id' => 'e_day']) !!}
 
           </div>
           {!! Form::hidden('id', null, ['id' => 'eid']) !!}
