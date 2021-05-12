@@ -5,9 +5,10 @@
     <div class = top-img>
         <p class = title>Webで年表作成</p>
         <p class = subtitle>年表を作ってみませんか</p>
-    <div class="button-wrapper">
-        <a href= "{{ route('histories.create') }}" class="button">作成する！</a>
-    </div>
+        <p class = subtitle>絶賛開発中！(Version : alpha 1.0)</p>
+        <div class="button-wrapper">
+            <a href= "{{ route('histories.create') }}" class="button">作成する！</a>
+        </div>
     </div>
 
     <div class = "history-table-feature">

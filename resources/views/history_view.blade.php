@@ -22,18 +22,13 @@
 <?php $pre_y = $events->year ?>
 
 <div class = event>
-  <p>{{ $events->month }}月{{ $events->day }}日</p>
-  <h3 class = event-title>{{ $events->name }}</h3>
+  <p class = event-date>{{ $events->month }}月{{ $events->day }}日</p>
+
+  <h3 class = event-title>「{{ $events->name }}」</h3>
   <p class = event-desc>{{ $events->description }}</p>
 </div>
 @endforeach
             
             
             
-<div id = footer>
-  
-<div class="wrapper">
-        <a href= "{{ url('/history_view') }}" class="button">完成！</a>
-    </div>
-</div>
 @endsection
