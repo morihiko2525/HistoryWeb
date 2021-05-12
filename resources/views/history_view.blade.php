@@ -30,10 +30,4 @@
             
             
             
-<div id = footer>
-  
-<div class="wrapper">
-        <a href= "{{ url('/history_view') }}" class="button">完成！</a>
-    </div>
-</div>
 @endsection

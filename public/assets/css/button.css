@@ -10,7 +10,9 @@
 .button-wrapper {
   display: block;
   position: absolute;
-  top: 40%;
+
+  margin-top: 300px;
+  
   left: 50%;
   transform: translate(-50%, -50%);
 }
