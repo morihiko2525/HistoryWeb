@@ -23,7 +23,7 @@
 
 <div class = event>
   <p class = event-date>{{ $events->month }}月{{ $events->day }}日</p>
-  <h3 class = event-title>{{ $events->name }}</h3>
+  <h3 class = event-title>「{{ $events->name }}」</h3>
   <p class = event-desc>{{ $events->description }}</p>
 </div>
 @endforeach
