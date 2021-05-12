@@ -24,17 +24,30 @@ div.event{
     height: auto;
     background-color: #EEEEEE;
     font-size: 20px;
-    line-height: 40px;
+    line-height: 37px;
     padding-left: 10px;
 }
 
-h3.event-title{
-    padding-left: 20px;
+/*イベントの日時*/
+p.event-date{
+    padding-top: 6px;
+    margin-left: 5px;
 }
 
+/*イベントのタイトル*/
+h3.event-title{
+    padding-left: 20px;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+/*イベントの詳細部分*/
 p.event-desc{
     font-size: 19px;
-    padding-left: 32px;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-bottom: 20px;
+    padding-bottom: 13px;
 }
 
 body.test{
