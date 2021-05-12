@@ -30,6 +30,12 @@ div.event{
     box-shadow: 2px 2px 4px rgb(206, 204, 204);
 }
 
+div.event-image{
+    float: left;
+    height:300px;
+    width: 300px;
+}
+
 /*イベントの日時*/
 p.event-date{
     padding-top: 6px;
