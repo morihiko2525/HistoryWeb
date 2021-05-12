@@ -22,21 +22,56 @@ div.year-column{
 
 div.event{
     height: auto;
-    background-color: #EEEEEE;
+    background-color: #F0F0F0;
     font-size: 20px;
-    line-height: 40px;
+    line-height: 37px;
     padding-left: 10px;
+
+    box-shadow: 2px 2px 4px rgb(206, 204, 204);
+    margin-bottom: 23px;
 }
 
+div.event-image{
+    background-color: #3C3C76;
+    float: left;
+    height: 250px;
+    width: 250px;
+    margin-bottom: 50px;
+}
+
+div.event-content{
+    float: left;
+}
+
+/*イベントの日時*/
+p.event-date{
+    padding-top: 6px;
+    margin-left: 5px;
+    font-size: 23px;
+}
+
+/*イベントのタイトル*/
 h3.event-title{
-    padding-left: 20px;
+    padding-left: 18px;
+    font-size: 30px;
+    margin-bottom: 20px;
 }
 
+/*イベントの詳細部分*/
 p.event-desc{
     font-size: 19px;
-    padding-left: 32px;
+    padding-left: 60px;
+    padding-right: 60px;
+    margin-bottom: 20px;
+    padding-bottom: 13px;
 }
 
 body.test{
     background-color: #C73E3A;
+}
+
+.clearfix:after{
+	content: "";
+	clear: both;
+	display: block;
 }

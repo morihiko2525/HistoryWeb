@@ -29,12 +29,11 @@ class EventController extends Controller
     
     public function store(Request $request)
     {
-        //
-        /*
+
         $request->validate([
-            'content' => 'required|max:255',
-            'status' => 'required|max:10',
-        ]);*/
+            'month' => 'required|max:255',
+            'day' => 'required|max:10',
+        ]);
         
         $events = new Event;
         $events->name = $request->name;

@@ -1,10 +1,10 @@
 $(function () {
   $('#opencreateModal').click(function(){
-      $('#create-modalArea').fadeIn();
+      $('#create-modalArea').fadeIn(250);
   });
   $('#closeModal , #modalBg').click(function(){
-    $('#create-modalArea').fadeOut();
-    $('#edit-modalArea').fadeOut();
+    $('#create-modalArea').fadeOut(200);
+    $('#edit-modalArea').fadeOut(200);
   });
 });
 
@@ -12,7 +12,7 @@ $(function () {
 
 
 function OnEditClick(id, name, desc, year, month, day){
-   $('#edit-modalArea').fadeIn();
+   $('#edit-modalArea').fadeIn(250);
    document.getElementById( "e_name" ).value = name;
    document.getElementById( "e_desc" ).value =desc;
    document.getElementById( "e_year" ).value = year;
@@ -20,8 +20,5 @@ function OnEditClick(id, name, desc, year, month, day){
    document.getElementById( "e_day" ).value = day;
    document.getElementById( "eid" ).value = id;
    document.getElementById( "d_eid" ).value = id;
-   //document.getElementById("destroy-btn").href = "'{{action('EventController@destroy', id)}}'";
-   
- 
 }
 
