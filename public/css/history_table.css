@@ -75,3 +75,7 @@ body.test{
 	clear: both;
 	display: block;
 }
+
+.test{
+    color :red;
+}
