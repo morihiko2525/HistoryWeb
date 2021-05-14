@@ -9,7 +9,7 @@ const EventList = () =>{
     },[])
 
     const getEvents = async () => {
-        const responce = await axios.get('/api/event/');
+        const responce = await axios.get('/api/event/2');
         console.log(responce);
         setEvents(responce.data.events);
     }

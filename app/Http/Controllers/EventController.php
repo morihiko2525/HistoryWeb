@@ -12,10 +12,15 @@ class EventController extends Controller
     {
         //
         //$events = Event::where('history_id', 1)->first();
+
         $events = Event::where('history_id', $id)->orderBy('date', 'asc')->get();
-        return view('history_view', [
+        /*return view('history_view', [
             'events' => $events,
             'his_id' => $id,
+            ]);*/
+
+            return response([
+                'events' => $events,
             ]);
     }
 
