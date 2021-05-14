@@ -125,10 +125,11 @@ class UsersController extends Controller
     
     public function login_init(Request $request){
         $token = Cookie::get('my_token'); //Token check
+
         if(!$this->isTokenExists($token) || $token == null){
             return response(['user_data' => -1])->withoutCookie('my_token')->withoutCookie('loggedin');
         }
-        if($this->isTokenValid($token)){
+        if(!$this->isTokenValid($token)){
             return response(['user_data' => -1])->withoutCookie('my_token')->withoutCookie('loggedin');
         }
         
@@ -190,7 +191,7 @@ class UsersController extends Controller
     //トークンが有効かどうか
     private function isTokenValid($token){​​​​​​​
         $user = User::where('token', $token)->first();
-        $carbon_expire = Carbon::createFromTimeStamp($user->token_created_at);
+        $carbon_expire = $user->token_expired_at;
         $carbon_now = Carbon::now('Asia/Tokyo');
         return  $carbon_expire->gt($carbon_now);
     }​​​​​​​

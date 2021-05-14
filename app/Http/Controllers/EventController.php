@@ -85,4 +85,11 @@ class EventController extends Controller
 
         return back();
     }
+
+    public function getAllEvents(Request $request){
+        $events = Event::All();
+        return response([
+            'events' => $events
+            ]);
+    }
 }

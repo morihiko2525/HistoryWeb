@@ -9,22 +9,25 @@ const EventList = () =>{
     },[])
 
     const getEvents = async () => {
-        const responce = await axios.get('/api/event');
+        const responce = await axios.get('/api/event/');
+        console.log(responce);
         setEvents(responce.data.events);
     }
 
-    let pre_y;
+    const [pre_y, setPre_y] = useState("");
 
 return (
     <div>
         <h1 className="test">Events一覧</h1>
             <button>編集する</button>
-
+            
             {events.map((event) => 
             <React.Fragment>
-                <div class = "year-column">{event.year}年</div>
+                
 
-                <div class = "event clearfix">                   
+                <div className = "year-column">{event.year}年</div>
+                
+                <div className = "event clearfix">                   
                     <p className = "event-date">{event.month}月{event.day}日</p>
 
                     <div className = "event-image"></div>

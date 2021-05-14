@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\EventController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,14 +14,23 @@ use App\Http\Controllers\UserController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
+/*
 Route::get('/event',function (Request $request) {
 	
-	$events = App\Event::all();
-	
+	//$events = App\Event::all();
+	EventController::class , ''
 	return response()->json(['events' => $events]);
 
+});*/
+/*
+Route::get('/event', function (Request $request){
+    $events = EventController::getAllEvents();
+    return response()->json(['events' => $events]);
 });
+*/
+Route::get("/event",[EventController::class, 'getAllEvents']);
+
+Route::get("/event/{id}",[EventController::class, 'index']);
 
 //User
 Route::post("/signup", [UserController::class, 'signup']);
