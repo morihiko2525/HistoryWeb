@@ -34,7 +34,6 @@ class EventList extends React.Component {
     }
 
     render(){
-        <Header />
         let test = "testaaaaaa";
         {this.state.events.map(event =>
             <React.Fragment>
