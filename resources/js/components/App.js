@@ -6,12 +6,14 @@ import GlobalNav from './GlobalNav';
 import Top from './Top';
 import About from './About';
 import EventList from './EventList';
+import Header from './Header';
 
 class App extends React.Component{
     render(){
         return(
             <BrowserRouter>
             <React.Fragment>
+                <Header />
                 <GlobalNav />
                 <Switch> 　　　　　　　　　　
                     <Route path="/" exact component={Top} /> 

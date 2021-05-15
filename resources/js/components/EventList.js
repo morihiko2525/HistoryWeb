@@ -7,13 +7,13 @@ class EventList extends React.Component {
         super(props,context)
         this.state = {
             events : [],
-            viewTest: "testttt",
+            previous_year: "",
         }
     }
 
     componentDidMount() {
         axios
-            .get('/api/event')
+            .get('/api/event/2')
             .then(response => {
                 console.log("通信に成功しました")
                 this.setState({events: response.data.events});
@@ -25,25 +25,24 @@ class EventList extends React.Component {
                 console.log('通信に失敗しました');
             });
     }
-/*
-    renderEvents(){
-        this.state.events.map(events => {
-            
-                <li key={events.key}>
-                    {events.name}: {events.content}
-                </li>
-            
-        });
-    }
 
     renderTest(){
+        this.setState({previous_year: event.year});
         return(
             <p>rendertest</p>
         );      
-    }*/
+    }
 
     render(){
+        <Header />
         let test = "testaaaaaa";
+        {this.state.events.map(event =>
+            <React.Fragment>
+    
+            
+            <div className = "year-column">{event.year}年</div>
+            </React.Fragment>
+        )}
         return(
             <div>
 
@@ -54,9 +53,9 @@ class EventList extends React.Component {
                     {this.state.events.map(event =>
                         <React.Fragment>
                 
-
-                        <div className = "year-column">{event.year}年</div>
                         
+                        <div className = "year-column">{event.year}年</div>
+
                         <div className = "event clearfix">                   
                             <p className = "event-date">{event.month}月{event.day}日</p>
         
@@ -67,7 +66,7 @@ class EventList extends React.Component {
                                 <p className = "event-desc">{event.description}</p>
                             </div>
                         </div>
-                    </React.Fragment>
+                        </React.Fragment>
 
                         
                     )}
