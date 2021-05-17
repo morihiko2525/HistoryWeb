@@ -22,11 +22,11 @@ export default class Login extends React.Component {
     };
     
     render(){
-        /*const is_guest = this.props.isGuest;
+        const is_guest = this.props.isGuest;
         
         if(!is_guest){
             return(<Redirect push to="/home" />);
-        }*/
+        }
         
         return (
         <div className="flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">

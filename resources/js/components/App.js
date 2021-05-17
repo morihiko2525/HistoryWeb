@@ -79,8 +79,8 @@ class App extends React.Component{
                     <Route path="/about" component={About} />
                     <Route path="/eventlist" component={EventList} />
                     <Route path="/create" component={CreateHistory} />
-                    <Route path="/login" component={Login} />
-                    <Route path="/signup" component={Signup} />
+                    <Route path="/login" render={(routeProps)=> <Login setIsGuest={this.setIsGuest} isGuest={this.state.guest} {...routeProps} />} />
+                    <Route path="/signup" render={(routeProps)=> <Signup setIsGuest={this.setIsGuest} isGuest={this.state.guest} {...routeProps} />} />
                 </Switch>
             </React.Fragment>
             </BrowserRouter>
