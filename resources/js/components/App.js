@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Cookies from 'js-cookie';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 import GlobalNav from './GlobalNav';
@@ -8,8 +9,65 @@ import About from './About';
 import EventList from './EventList';
 import CreateHistory from './CreateHistory';
 import Header from './Header';
+import Login from './Login';
+import Signup from './Signup';
+import { Api_LoginWithToken } from "./api/Api"
+
+
+const GUESTDATA = {'id': 'guest',
+                   'name': 'guest',
+                   'icon': 'null',
+                   'description': 'None'
+                    }
 
 class App extends React.Component{
+
+    constructor(props){
+        super(props);
+        this.state = {
+            'guest': true,
+            'user_data': GUESTDATA,
+            'comment_type':'timeline',
+            'loading':false,
+        };
+        
+        this.setIsGuest = this.setIsGuest.bind(this);
+        this.setGuest = this.setGuest.bind(this);
+        this.setUserData = this.setUserData.bind(this)
+    }
+
+    setLoading(){
+        this.setState((state)=>({loading: !this.state.loading}));
+    }
+    
+    setGuest(){
+        this.setState({guest: true,
+            user_data:GUESTDATA
+        })
+    }
+    
+    setIsGuest(data){
+        console.log(data);
+        if(data !== -1){
+            this.setState({guest: false,
+                user_data: data
+            });
+        }
+        
+    }
+
+    setUserData(data){
+        this.setState((state)=>({user_data: data}));
+    }
+    
+    componentDidMount(){
+        if(Cookies.get('loggedin') != null){
+            Api_LoginWithToken(this.setIsGuest);
+        }else{
+            this.setState({guest: true});
+        }
+    }
+
     render(){
         return(
             <BrowserRouter>
@@ -21,6 +79,8 @@ class App extends React.Component{
                     <Route path="/about" component={About} />
                     <Route path="/eventlist" component={EventList} />
                     <Route path="/create" component={CreateHistory} />
+                    <Route path="/login" component={Login} />
+                    <Route path="/signup" component={Signup} />
                 </Switch>
             </React.Fragment>
             </BrowserRouter>
@@ -28,22 +88,6 @@ class App extends React.Component{
         )
     }
 }
-/*
-const App = () => {
-    return(
-        <BrowserRouter>
-        <React.Fragment>
-            <GlobalNav />
-            <Switch>
-　　　　　　　　　　
-                <Route path="/" exact component={Top} /> 
-                <Route path="/about" component={About} />
-                <Route path="/eventlist" component={EventList} />
-            </Switch>
-        </React.Fragment>
-        </BrowserRouter>
-    )
-}*/
 
 if (document.getElementById('app')) {
     ReactDOM.render(<App />, document.getElementById('app'));
