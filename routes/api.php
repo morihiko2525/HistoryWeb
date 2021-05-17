@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\UsersController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\HistoryController;
 /*
@@ -35,8 +35,8 @@ Route::get("/event/{id}",[EventController::class, 'index']);
 
 Route::post("/history/create",[HistoryController::class, 'store']);
 //User
-Route::post("/signup", [UserController::class, 'signup']);
-Route::get("/login_init",[UserController::class, 'login_init']);
-Route::post("/login", [UserController::class, 'login']);
-Route::get("/logout", [UserController::class, 'logout']);
-Route::get("/is_me", [UserController::class, 'is_me']);
+Route::post("/signup", [UsersController::class, 'signup']);
+Route::get("/login_init",[UsersController::class, 'login_init']);
+Route::post("/login", [UsersController::class, 'login']);
+Route::get("/logout", [UsersController::class, 'logout']);
+Route::get("/is_me", [UsersController::class, 'is_me']);
