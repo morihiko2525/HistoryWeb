@@ -32,6 +32,10 @@ Route::get("/event",[EventController::class, 'getAllEvents']);
 
 Route::get("/event/{id}",[EventController::class, 'index']);
 
+Route::post("history/create", function(Request $request){
+	$events = App\Event::all();
+	return response()->json(['events' => $events]);
+});
 //User
 Route::post("/signup", [UserController::class, 'signup']);
 Route::get("/login_init",[UserController::class, 'login_init']);
