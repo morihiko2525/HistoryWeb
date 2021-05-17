@@ -16,7 +16,7 @@ class Header extends React.Component {
                 <p className = "subtitle">絶賛開発中！(Version : alpha 1.0)</p>
 
                 <div className ="button-wrapper">
-                  <a href= "#" class="button" onClick={this.onClickButton}>作成する！</a>
+                  <a href= "#" className="button" onClick={this.onClickButton}>作成する！</a>
                 </div>
             </div>
 
