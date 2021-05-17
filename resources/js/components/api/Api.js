@@ -9,7 +9,7 @@ let ongoing1 = false
 export function Api_Logout(setGuest){
     if(ongoing1 === false){
         ongoing1 = true;
-        axios.get('api/logout') //apiだからapi/
+        axios.get('/api/logout') //apiだからapi/
                     .then(res => {
                         setGuest(); //setState
                         console.log("logout")
@@ -30,10 +30,10 @@ let ongoing2 = false
 export function Api_Login(email, password, setIsGuest){
      if(ongoing2 === false){
         ongoing2 = true;
-        axios.post('api/login',{'email': email,'password': password})
+        axios.post('/api/login',{'email': email,'password': password})
                     .then(res => {
                         const data = res.data.user_data;
-                        setIsGuest(data);   //ここからApp.jsに送れてない
+                        setIsGuest(data);
                         console.log("login")
                         ongoing2 = false
                     })

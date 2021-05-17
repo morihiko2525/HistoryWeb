@@ -2,9 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-use App\User; // 追加
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cookie;
@@ -12,11 +9,12 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use App\Models\User;
+use App\User;
 use Carbon\Carbon;
 
 class UsersController extends Controller
 {
+    /*
     public function index()
     {
         // ユーザ一覧をidの降順で取得
@@ -28,7 +26,7 @@ class UsersController extends Controller
         ]);
     }
     
-        public function show($id)
+    public function show($id)
     {
         // idの値でユーザを検索して取得
         $user = User::findOrFail($id);
@@ -37,8 +35,12 @@ class UsersController extends Controller
         return view('users.show', [
             'user' => $user,
         ]);
-    }
+    }*/
 
+    public function isMailExists($email){​​​​​​​ //bool
+        $booo = DB::table('users')->where('email', $email)->exists();
+        //return $booo;
+    }
     ///Auth
 
     public function signup(Request $request){
@@ -81,12 +83,13 @@ class UsersController extends Controller
     
     public function login(Request $request){
         $email = request()->get('email');
-        
+        /*
         if(!$this->isMailExists($email)){
             return response([
                 'user_data' => -1,
                 ]);
-        }
+                
+        }*/
 
  
 
@@ -177,9 +180,11 @@ class UsersController extends Controller
 
     //privates
     //メールが存在するか
+    /*
     private function isMailExists($email){​​​​​​​ //bool
-        return DB::table('users')->where('email', $email)->exists();
-    }​​​​​​​
+        $booo = DB::table('users')->where('email', $email)->exists();
+        return $booo;
+    }​​​​​​​*/
    
     //トークンが存在するか
     private function isTokenExists($token){​​​​​​​ //bool
@@ -207,6 +212,6 @@ class UsersController extends Controller
     //ユーザーを取得(id->user)
     private function getUser($id){​​​​​​​ //user
         return User::where('id', $id)->first();
-    }​​​​​​​
+    }​​​​​​​*/
 
 }
