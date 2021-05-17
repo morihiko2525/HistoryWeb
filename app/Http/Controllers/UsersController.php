@@ -54,8 +54,6 @@ class UsersController extends Controller
         if ($user) { //ユーザが存在するか確認
             $user->email = request()->get("email"); //各データを登録
             $user->password = Hash::make(request()->get("password")); //password をhash化
-            $user->name = request()->get("name"); //
-            $user->description = "初めまして！よろしくお願いします！";
 
             $token = Str::random(255); //今回のセッション用のトークンを発行
             $user->token = $token; //ユーザのトークンに登録
