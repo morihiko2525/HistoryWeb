@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\HistoryController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -32,10 +33,7 @@ Route::get("/event",[EventController::class, 'getAllEvents']);
 
 Route::get("/event/{id}",[EventController::class, 'index']);
 
-Route::post("history/create", function(Request $request){
-	$events = App\Event::all();
-	return response()->json(['events' => $events]);
-});
+Route::post("/history/create",[HistoryController::class, 'store']);
 //User
 Route::post("/signup", [UserController::class, 'signup']);
 Route::get("/login_init",[UserController::class, 'login_init']);
