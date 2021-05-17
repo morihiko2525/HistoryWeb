@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 
 class Header extends React.Component {
 
@@ -16,7 +17,7 @@ class Header extends React.Component {
                 <p className = "subtitle">絶賛開発中！(Version : alpha 1.0)</p>
 
                 <div className ="button-wrapper">
-                  <a href= "#" className="button" onClick={this.onClickButton}>作成する！</a>
+                  <Link to = "/create"><a href= "#" className="button">作成する！</a></Link>
                 </div>
             </div>
 

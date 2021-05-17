@@ -19,6 +19,7 @@ class App extends React.Component{
                     <Route path="/" exact component={Top} /> 
                     <Route path="/about" component={About} />
                     <Route path="/eventlist" component={EventList} />
+                    <Route path="/create" component={EventList} />
                 </Switch>
             </React.Fragment>
             </BrowserRouter>
