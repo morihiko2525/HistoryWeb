@@ -6,6 +6,7 @@ import GlobalNav from './GlobalNav';
 import Top from './Top';
 import About from './About';
 import EventList from './EventList';
+import CreateHistory from './CreateHistory';
 import Header from './Header';
 
 class App extends React.Component{
@@ -15,11 +16,11 @@ class App extends React.Component{
             <React.Fragment>
                 <Header />
                 <GlobalNav />
-                <Switch> 　　　　　　　　　　
+                <Switch>
                     <Route path="/" exact component={Top} /> 
                     <Route path="/about" component={About} />
                     <Route path="/eventlist" component={EventList} />
-                    <Route path="/create" component={EventList} />
+                    <Route path="/create" component={CreateHistory} />
                 </Switch>
             </React.Fragment>
             </BrowserRouter>
