@@ -3,13 +3,20 @@ import axios from 'axios';
 
 class Header extends React.Component {
 
+    constructor(props,context){
+        super(props,context)
+        this.state = {
+            userdata : [],
+        }
+    }
+
     componentDidMount() {
         axios
             .get('/api/fetch_userdata')
             .then(response => {
                 console.log("ユーザーデータを取得")
-                //this.setState({events: response.data.events});
-                console.log(response.data);
+                this.setState({userdata: response.data.user});
+                console.log(this.state.userdata);
                 //console.log(events)
             })
             .catch(err => {
@@ -19,13 +26,13 @@ class Header extends React.Component {
     }
 
     getUserName(){
-        
+
     }
+
     render(){
         
         return(
             <div>
-
             <div className="mb-4">
             <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
 
@@ -40,7 +47,7 @@ class Header extends React.Component {
                     <ul className="navbar-nav"></ul>
                 
                     <li className="nav-item dropdown">
-                        <a href = "#" className="nav-link dropdown-toggle" data-toggle="dropdown">ユーザー名</a>
+                        <a href = "#" className="nav-link dropdown-toggle" data-toggle="dropdown">{this.state.userdata.name}</a>
                         <ul className="dropdown-menu dropdown-menu-right">
 
                             <li className="dropdown-item"><a href="{{Route('userpage.index')}}">プロフィール</a></li>

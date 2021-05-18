@@ -170,7 +170,23 @@ class UsersController extends Controller
                          'id' => request()->id]);
     }
     
-    
+    public function getUserData(){
+        $token = Cookie::get('my_token'); //Token check
+        if(!$this->isTokenExists($token) || $token == null){
+            return response(['user_data' => -1])->withoutCookie('my_token')->withoutCookie('loggedin');
+        }
+        
+        if(!$this->isTokenValid($token)){
+            return response(['user_data' => -1])->withoutCookie('my_token')->withoutCookie('loggedin');
+        }
+        
+        $user = $this->getTokenUser($token); //get user
+
+        return response([
+            'user' => $user,
+            ]);
+    }
+
     public function fetch_userdetails(Request $request){
         $user_id = request()->id;
         $c_data = array();
