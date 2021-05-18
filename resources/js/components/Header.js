@@ -3,13 +3,13 @@ import axios from 'axios';
 
 class Header extends React.Component {
 
-    constructor(props,context){
-        super(props,context)
+    constructor(props){
+        super(props)
         this.state = {
             userdata : [],
         }
     }
-
+/*
     componentDidMount() {
         axios
             .get('/api/fetch_userdata')
@@ -23,7 +23,7 @@ class Header extends React.Component {
                 console.log(err);
                 console.log('通信に失敗しました');
             });
-    }
+    }*/
 
     getUserName(){
 
@@ -47,7 +47,7 @@ class Header extends React.Component {
                     <ul className="navbar-nav"></ul>
                 
                     <li className="nav-item dropdown">
-                        <a href = "#" className="nav-link dropdown-toggle" data-toggle="dropdown">{this.state.userdata.name}</a>
+                        <a href = "#" className="nav-link dropdown-toggle" data-toggle="dropdown">{this.props.userdata.name}</a>
                         <ul className="dropdown-menu dropdown-menu-right">
 
                             <li className="dropdown-item"><a href="{{Route('userpage.index')}}">プロフィール</a></li>

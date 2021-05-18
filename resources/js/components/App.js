@@ -72,7 +72,7 @@ class App extends React.Component{
         return(
             <BrowserRouter>
             <React.Fragment>
-                <Header />
+                <Header userdata={this.state.user_data}/>
                 <GlobalNav />
                 <Switch>
                     <Route path="/" exact component={Top} /> 
