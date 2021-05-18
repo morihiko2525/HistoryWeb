@@ -57,7 +57,7 @@ class HistoryController extends Controller
         $histories = new History;
         
         $histories->name = $request->name;
-        //$histories->description = $request->description;
+        $histories->description = $request->description;
         //$histories->user_id = $request->user_id;
         $histories->save();
         /*

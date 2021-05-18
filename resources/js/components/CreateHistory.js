@@ -37,8 +37,9 @@ class CreateHistory extends React.Component {
                             <textarea
                                 type = "text"
                                 id = "description"
-                                className="form-control">
-        
+                                className="form-control"
+                                value={this.state.description}
+                                onChange={e => this.setState({description :e.target.value})}>
                             </textarea>
                         </div>
 
@@ -53,11 +54,7 @@ class CreateHistory extends React.Component {
 
     postForm(){
         
-        const data = new URLSearchParams();
-        data.append('name', this.state.name);
-        data.append('description', this.state.description);
-
-        axios.post('/api/history/create', { data })
+        axios.post('/api/history/create', { 'name': this.state.name, 'description': this.state.description })
             .then(res => {
                 console.log(res);
       })

@@ -33,7 +33,7 @@ class UserPage extends React.Component {
         return(
             <div>
                 <h1>ユーザーページ</h1>
-                {this.props.userdata.name}
+
                 <h2>自分の年表一覧</h2>
 
                 <React.Fragment>
