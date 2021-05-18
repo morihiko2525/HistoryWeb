@@ -41,3 +41,4 @@ Route::get("/login_init",[UsersController::class, 'login_init']);
 Route::post("/login", [UsersController::class, 'login']);
 Route::get("/logout", [UsersController::class, 'logout']);
 Route::get("/is_me", [UsersController::class, 'is_me']);
+Route::get("/fetch_userdata", [UsersController::class, 'fetch_userdata']);

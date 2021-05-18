@@ -40,5 +40,5 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    protected $dates = ['token_expired_at'];
+    protected $dates = ['token_expire_at'];
 }

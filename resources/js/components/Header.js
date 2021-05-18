@@ -3,6 +3,20 @@ import axios from 'axios';
 
 class Header extends React.Component {
 
+    componentDidMount() {
+        axios
+            .get('/api/fetch_userdata')
+            .then(response => {
+                console.log("ユーザーデータを取得")
+                //this.setState({events: response.data.events});
+                console.log(response.data);
+                //console.log(events)
+            })
+            .catch(err => {
+                console.log(err);
+                console.log('通信に失敗しました');
+            });
+    }
     render(){
         
         return(
