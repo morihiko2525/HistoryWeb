@@ -79,7 +79,7 @@ class App extends React.Component{
                     <Route path="/" exact component={Top} /> 
                     <Route path="/about" component={About} />
                     <Route path="/eventlist" component={EventList} />
-                    <Route path="/create" component={CreateHistory} />
+                    <Route path="/create"  render={(routeProps)=> <CreateHistory userdata={this.state.user_data} {...routeProps} />}  />
                     <Route path="/login" render={(routeProps)=> <Login setIsGuest={this.setIsGuest} isGuest={this.state.guest} {...routeProps} />} />
                     <Route path="/signup" render={(routeProps)=> <Signup setIsGuest={this.setIsGuest} isGuest={this.state.guest} {...routeProps} />} />
                     <Route path="/userpage" render={(routeProps)=> <UserPage userdata={this.state.user_data} {...routeProps} />} />

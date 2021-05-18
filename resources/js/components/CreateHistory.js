@@ -7,6 +7,7 @@ class CreateHistory extends React.Component {
     constructor(props){
         super(props);
         this.state={
+            userdata: [],
             name : "",
             description: "",
         };
@@ -54,7 +55,7 @@ class CreateHistory extends React.Component {
 
     postForm(){
         
-        axios.post('/api/history/create', { 'name': this.state.name, 'description': this.state.description })
+        axios.post('/api/history/create', { 'name': this.state.name, 'description': this.state.description, 'user_id': this.props.userdata.id})
             .then(res => {
                 console.log(res);
       })
