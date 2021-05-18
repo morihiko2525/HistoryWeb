@@ -13,19 +13,20 @@ class UserPage extends React.Component {
     }
 
     componentDidMount() {
-        let id = this.props.userdata.name;
-        /*axios
-            .get('/api/user/')
+        let id = this.props.userdata.id;
+        let apiuri = ('/api/getMyHistories/' + id); 
+        axios
+            .get('/api/getMyHistories/' + id)
             .then(response => {
-                console.log("通信に成功しました")
-                this.setState({events: response.data.events});
-                console.log(response.data.events);
+                console.log("通信に成功しました");
+                //this.setState({events: response.data.events});
+                console.log(response.data);
                 //console.log(events)
             })
             .catch(err => {
                 console.log(err);
                 console.log('通信に失敗しました');
-            });*/
+            });
     }
 
     render(){

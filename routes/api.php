@@ -35,6 +35,7 @@ Route::get("/event/{id}",[EventController::class, 'index']);
 
 Route::post("/history/create",[HistoryController::class, 'store']);
 
+Route::get("/getMyHistories",[HistoryController::class, 'getMyHistories']);
 //User
 Route::post("/signup", [UsersController::class, 'signup']);
 Route::get("/login_init",[UsersController::class, 'login_init']);

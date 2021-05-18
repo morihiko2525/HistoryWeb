@@ -15,10 +15,6 @@ class HistoryController extends Controller
             ]);
     }
     
-    public function showMyHistories($user_id){
-        $histories = History::where('user_id', $user_id)->get();
-        return $histories;
-    }
     
     public function __construct(){
         $this->middleware('auth');    
@@ -39,6 +35,13 @@ class HistoryController extends Controller
         return $his_userID;
     }
     
+    
+    public function getMyHistories($user_id){
+        $histories = History::where('user_id', $user_id)->get();
+        return response([
+            'histories' => $histories
+        ]);
+    }
     
     public function create()
     {

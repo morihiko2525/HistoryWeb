@@ -35,13 +35,7 @@ class EventList extends React.Component {
 
     render(){
         let test = "testaaaaaa";
-        {this.state.events.map(event =>
-            <React.Fragment>
-    
-            
-            <div className = "year-column">{event.year}年</div>
-            </React.Fragment>
-        )}
+        
         return(
             <div>
 
