@@ -17,6 +17,10 @@ class Header extends React.Component {
                 console.log('通信に失敗しました');
             });
     }
+
+    getUserName(){
+        
+    }
     render(){
         
         return(
@@ -34,10 +38,22 @@ class Header extends React.Component {
                 <div className="collapse navbar-collapse" id="nav-bar">
                     <ul className="navbar-nav mr-auto"></ul>
                     <ul className="navbar-nav"></ul>
+                
+                    <li className="nav-item dropdown">
+                        <a href = "#" className="nav-link dropdown-toggle" data-toggle="dropdown">ユーザー名</a>
+                        <ul className="dropdown-menu dropdown-menu-right">
+
+                            <li className="dropdown-item"><a href="{{Route('userpage.index')}}">プロフィール</a></li>
+                            <li className="dropdown-divider"></li>
+
+                            <li className="dropdown-item"><a href="{{Route('userpage.index')}}">ログアウト</a></li>
+                        </ul>
+                    </li>
+
 
                 </div>
-                </nav>
-                </div>
+            </nav>
+            </div>
             </div>
         )
     }
