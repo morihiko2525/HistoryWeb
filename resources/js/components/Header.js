@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 
 class Header extends React.Component {
 
@@ -50,7 +51,7 @@ class Header extends React.Component {
                         <a href = "#" className="nav-link dropdown-toggle" data-toggle="dropdown">{this.props.userdata.name}</a>
                         <ul className="dropdown-menu dropdown-menu-right">
 
-                            <li className="dropdown-item"><a href="{{Route('userpage.index')}}">プロフィール</a></li>
+                            <Link to = "/userpage"><li className="dropdown-item"><a href ="#">プロフィール</a></li></Link>
                             <li className="dropdown-divider"></li>
 
                             <li className="dropdown-item"><a href="{{Route('userpage.index')}}">ログアウト</a></li>

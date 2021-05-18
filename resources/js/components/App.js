@@ -11,6 +11,7 @@ import CreateHistory from './CreateHistory';
 import Header from './Header';
 import Login from './Login';
 import Signup from './Signup';
+import UserPage from './UserPage';
 import { Api_LoginWithToken } from "./api/Api"
 
 
@@ -81,6 +82,7 @@ class App extends React.Component{
                     <Route path="/create" component={CreateHistory} />
                     <Route path="/login" render={(routeProps)=> <Login setIsGuest={this.setIsGuest} isGuest={this.state.guest} {...routeProps} />} />
                     <Route path="/signup" render={(routeProps)=> <Signup setIsGuest={this.setIsGuest} isGuest={this.state.guest} {...routeProps} />} />
+                    <Route path="/userpage" render={(routeProps)=> <UserPage userdata={this.state.user_data} {...routeProps} />} />
                 </Switch>
             </React.Fragment>
             </BrowserRouter>
