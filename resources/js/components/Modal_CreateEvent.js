@@ -39,10 +39,11 @@ const Modal_CreateEvent = () => {
     }
 
     function postForm(){
-        axios.post('/api/history/create', { 'name': this.state.name, 'description': this.state.description, 'user_id': this.props.userdata.id})
+        axios.post('/api/event/add', { 'name': eventName, 'description': eventDesc, 'year': eventYear, 'month': eventMonth, 'day': eventDay})
             .then(res => {
                 console.log(res);
       })
+      closeModal()
     }
 
     return (    
@@ -105,7 +106,7 @@ const Modal_CreateEvent = () => {
 
 
           <Button variant="success" className="mr-2" onClick={closeModal}>close</Button>
-          <Button type = "submit" className= "btn-success" onClick={closeModal}>完了</Button>
+          <Button type = "submit" className= "btn-success" onClick={postForm}>完了</Button>
           </form>
         </Modal>
       </div>

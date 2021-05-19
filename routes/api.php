@@ -33,11 +33,14 @@ Route::get("/event",[EventController::class, 'getAllEvents']);
 
 Route::get("/event/{id}",[EventController::class, 'index']);
 
+Route::post("/event/add",[EventController::class, 'addEvent']);
+
 Route::post("/history/create",[HistoryController::class, 'store']);
 
 Route::get("/getMyHistories/{id}",[HistoryController::class, 'getMyHistories']);
 
 Route::get("/getAllHistories",[HistoryController::class, 'getAllHistories']);
+
 
 //User
 Route::post("/signup", [UsersController::class, 'signup']);
