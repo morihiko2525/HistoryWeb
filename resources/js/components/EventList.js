@@ -8,13 +8,15 @@ class EventList extends React.Component {
         this.state = {
             events : [],
             previous_year: "",
-            
+            historydata: ["null"],
         }
     }
 
     componentDidMount() {
+        let id = this.props.location.state.historydata.id;
+        console.log(id);
         axios
-            .get('/api/event/2')
+            .get('/api/event/')
             .then(response => {
                 console.log("通信に成功しました")
                 this.setState({events: response.data.events});
@@ -40,7 +42,7 @@ class EventList extends React.Component {
             <div>
 
                 <p>テスト</p>
-                
+                <p>{this.props.location.state.historydata.id}</p>
                 <React.Fragment>
                     {this.state.viewTest}
                     {this.state.events.map(event =>

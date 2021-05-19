@@ -14,7 +14,6 @@ import Signup from './Signup';
 import UserPage from './UserPage';
 import { Api_LoginWithToken } from "./api/Api"
 
-
 const GUESTDATA = {'id': 'guest',
                    'name': 'guest',
                    'icon': 'null',
@@ -30,6 +29,8 @@ class App extends React.Component{
             'user_data': GUESTDATA,
             'comment_type':'timeline',
             'loading':false,
+            'historydata':[],
+            'value': 0,
         };
         
         this.setIsGuest = this.setIsGuest.bind(this);
@@ -56,6 +57,10 @@ class App extends React.Component{
         }
         
     }
+    changeValue(value){
+        this.setState({value: value});
+        console.log(this.state.value);
+    }
 
     setUserData(data){
         this.setState((state)=>({user_data: data}));
@@ -78,11 +83,11 @@ class App extends React.Component{
                 <Switch>
                     <Route path="/" exact component={Top} /> 
                     <Route path="/about" component={About} />
-                    <Route path="/eventlist" component={EventList} />
+                    <Route path="/eventlist" render={(routeProps)=> <EventList historydata={this.props.historydata} {...routeProps} />} />
                     <Route path="/create"  render={(routeProps)=> <CreateHistory userdata={this.state.user_data} {...routeProps} />}  />
                     <Route path="/login" render={(routeProps)=> <Login setIsGuest={this.setIsGuest} isGuest={this.state.guest} {...routeProps} />} />
                     <Route path="/signup" render={(routeProps)=> <Signup setIsGuest={this.setIsGuest} isGuest={this.state.guest} {...routeProps} />} />
-                    <Route path="/userpage" render={(routeProps)=> <UserPage userdata={this.state.user_data} {...routeProps} />} />
+                    <Route path="/userpage" render={(routeProps)=> <UserPage userdata={this.state.user_data} testvalue={this.state.value} changeValue={this.changeValue.bind(this)} {...routeProps} />} />
                 </Switch>
             </React.Fragment>
             </BrowserRouter>
