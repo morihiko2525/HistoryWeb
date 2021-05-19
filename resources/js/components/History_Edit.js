@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
-import {useParams,Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
+import Modal_CreateEvent from './Modal_CreateEvent';
 
-class EventList extends React.Component {
+class History_Edit extends React.Component {
 
     constructor(props,context){
         super(props,context)
@@ -13,40 +14,14 @@ class EventList extends React.Component {
         }
     }
 
-    componentDidMount() {
-        let id = this.props.historydata.id;
-        //console.log(id);
-        axios
-            .get('/api/event/'+ id)
-            .then(response => {
-                console.log("通信に成功しました")
-                this.setState({events: response.data.events});
-                console.log(response.data.events);
-                //console.log(events)
-            })
-            .catch(err => {
-                console.log(err);
-                console.log('通信に失敗しました');
-            });
-
-    }
-
-    renderTest(){
-        this.setState({previous_year: event.year});
-        return(
-            <p>rendertest</p>
-        );      
-    }
-
     render(){
-
         return(
             <div>
-                <Link to="/history_edit"><a href ="#">編集する</a></Link>
+                <a href ="#">イベントを追加</a>
+                <Modal_CreateEvent/>
                 <p>年表タイトル: {this.props.historydata.name}</p>
                 <p>historyID : {this.props.historydata.id}</p>
                 <React.Fragment>
-                    {this.state.viewTest}
                     {this.state.events.map(event =>
                         <React.Fragment>
                 
@@ -68,12 +43,11 @@ class EventList extends React.Component {
                         
                     )}
 
-
-
                 </React.Fragment>
             </div>
         )
     }
+
 }
 
-export default EventList;
+export default History_Edit;

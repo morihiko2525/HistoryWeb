@@ -12,6 +12,8 @@ import Header from './Header';
 import Login from './Login';
 import Signup from './Signup';
 import UserPage from './UserPage';
+import History_Edit from './History_Edit';
+
 import { Api_LoginWithToken } from "./api/Api"
 
 const GUESTDATA = {'id': 'guest',
@@ -88,6 +90,7 @@ class App extends React.Component{
                     <Route path="/login" render={(routeProps)=> <Login setIsGuest={this.setIsGuest} isGuest={this.state.guest} {...routeProps} />} />
                     <Route path="/signup" render={(routeProps)=> <Signup setIsGuest={this.setIsGuest} isGuest={this.state.guest} {...routeProps} />} />
                     <Route path="/userpage" render={(routeProps)=> <UserPage userdata={this.state.user_data} testvalue={this.state.value} setHistory={this.setHistory.bind(this)} {...routeProps} />} />
+                    <Route path="/history_edit" render={(routeProps)=> <History_Edit historydata={this.state.historydata} {...routeProps} />} />
                 </Switch>
             </React.Fragment>
             </BrowserRouter>
