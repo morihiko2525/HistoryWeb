@@ -83,7 +83,7 @@ class App extends React.Component{
                 <Switch>
                     <Route path="/" exact component={Top} /> 
                     <Route path="/about" component={About} />
-                    <Route path="/eventlist" render={(routeProps)=> <EventList historydata={this.props.historydata} {...routeProps} />} />
+                    <Route path="/eventlist" render={(routeProps)=> <EventList historyID={this.state.value} {...routeProps} />} />
                     <Route path="/create"  render={(routeProps)=> <CreateHistory userdata={this.state.user_data} {...routeProps} />}  />
                     <Route path="/login" render={(routeProps)=> <Login setIsGuest={this.setIsGuest} isGuest={this.state.guest} {...routeProps} />} />
                     <Route path="/signup" render={(routeProps)=> <Signup setIsGuest={this.setIsGuest} isGuest={this.state.guest} {...routeProps} />} />
