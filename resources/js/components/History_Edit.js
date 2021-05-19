@@ -17,7 +17,6 @@ class History_Edit extends React.Component {
     render(){
         return(
             <div>
-                <a href ="#">イベントを追加</a>
                 <Modal_CreateEvent/>
                 <p>年表タイトル: {this.props.historydata.name}</p>
                 <p>historyID : {this.props.historydata.id}</p>

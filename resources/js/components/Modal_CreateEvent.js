@@ -30,7 +30,7 @@ const Modal_CreateEvent = () => {
     }
     return (    
         <div>
-        <Button variant="success" className="mr-2" onClick={openModal}>モーダル表示</Button>
+        <Button variant="success" className="mr-2" onClick={openModal}>イベントを追加</Button>
         <Modal
           isOpen={modalIsOpen}
           onAfterOpen={afterOpenModal}
@@ -38,9 +38,45 @@ const Modal_CreateEvent = () => {
           style={customStyles}
           contentLabel="Example Modal"
         >
-          <h2 ref={_subtitle => (subtitle = _subtitle)}>Mebee</h2>
+          <h2 ref={_subtitle => (subtitle = _subtitle)}>イベントを追加</h2>
+          <label>イベント名</label>
+          <input
+          type = "text"
+          id = "name"
+          className = "form-control"
+          ></input>
+
+          <label>説明</label>
+          <input
+          type = "text"
+          id = "description"
+          className = "form-control"
+          ></input>
+
+          <label>年</label>
+          <input
+          type = "text"
+          id = "year"
+          className = "form-control"
+          ></input>
+          
+          <label>月</label>
+          <input
+          type = "text"
+          id = "month"
+          className = "form-control"
+          ></input>
+          
+          <label>日</label>
+          <input
+          type = "text"
+          id = "day"
+          className = "form-control"
+          ></input>
+
+
           <Button variant="success" className="mr-2" onClick={closeModal}>close</Button>
-          <div>テキストテキスト</div>          
+          <Button className= "btn-success">完了</Button>
         </Modal>
       </div>
     );
