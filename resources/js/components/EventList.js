@@ -8,7 +8,7 @@ class EventList extends React.Component {
         this.state = {
             events : [],
             previous_year: "",
-            historyID:"",
+            historydata:[],
         }
     }
 
@@ -41,8 +41,8 @@ class EventList extends React.Component {
         return(
             <div>
 
-                <p>テスト</p>
-                <p>historyID : {this.props.historyID}</p>
+                <p>年表タイトル: {this.props.historydata.name}</p>
+                <p>historyID : {this.props.historydata.id}</p>
                 <React.Fragment>
                     {this.state.viewTest}
                     {this.state.events.map(event =>

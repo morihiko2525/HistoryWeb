@@ -52,7 +52,7 @@ class UserPage extends React.Component {
                     
                     //<Link to = {{pathname: "/eventlist" , state: {historydata: this.state.histories}}}><h1><a href = "#" >{history.name}</a></h1></Link>
                     //<h1 onClick={this.props.history.push({pathname: "/eventlist", state: {historydata: this.state.histories}})}><a href = "#" >{history.name}</a></h1>
-                    <Link to = {{pathname: "/eventlist" , state: {historydata: this.state.histories}}}><h1 onClick = {() => this.props.changeValue(history.id)}><a href = "#" >{history.name}</a></h1></Link>
+                    <Link to = {{pathname: "/eventlist" , state: {historydata: this.state.histories}}}><h1 onClick = {() => this.props.setHistory(history)}><a href = "#" >{history.name}</a></h1></Link>
                     )}
                
                           
