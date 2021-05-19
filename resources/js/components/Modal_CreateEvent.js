@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Modal from 'react-modal'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Button } from 'react-bootstrap';
- 
+import axios from 'axios';
+
 const customStyles = {
     content : {
       top                   : '50%',
@@ -14,9 +15,17 @@ const customStyles = {
     }
   };  
  
+
 const Modal_CreateEvent = () => {
     var subtitle;
     const [modalIsOpen,setIsOpen] = React.useState(false);
+
+    const [eventName, setEventName] = useState("");
+    const [eventDesc, setEventDesc] = useState("");
+    const [eventYear, setEventYear] = useState();
+    const [eventMonth, setEventMonth] = useState();
+    const [eventDay, setEventDay] = useState();
+
     function openModal() {
         setIsOpen(true);
     }
@@ -28,6 +37,14 @@ const Modal_CreateEvent = () => {
     function closeModal(){
         setIsOpen(false);
     }
+
+    function postForm(){
+        axios.post('/api/history/create', { 'name': this.state.name, 'description': this.state.description, 'user_id': this.props.userdata.id})
+            .then(res => {
+                console.log(res);
+      })
+    }
+
     return (    
         <div>
         <Button variant="success" className="mr-2" onClick={openModal}>イベントを追加</Button>
@@ -39,11 +56,15 @@ const Modal_CreateEvent = () => {
           contentLabel="Example Modal"
         >
           <h2 ref={_subtitle => (subtitle = _subtitle)}>イベントを追加</h2>
+          <form>
+
           <label>イベント名</label>
           <input
           type = "text"
           id = "name"
           className = "form-control"
+          value={eventName}
+          onChange={e=>setEventName(e.target.value)}
           ></input>
 
           <label>説明</label>
@@ -51,6 +72,8 @@ const Modal_CreateEvent = () => {
           type = "text"
           id = "description"
           className = "form-control"
+          value={eventDesc}
+          onChange={e=>setEventDesc(e.target.value)}
           ></input>
 
           <label>年</label>
@@ -58,6 +81,8 @@ const Modal_CreateEvent = () => {
           type = "text"
           id = "year"
           className = "form-control"
+          value={eventYear}
+          onChange={e=>setEventYear(e.target.value)}
           ></input>
           
           <label>月</label>
@@ -65,6 +90,8 @@ const Modal_CreateEvent = () => {
           type = "text"
           id = "month"
           className = "form-control"
+          value={eventMonth}
+          onChange={e=>setEventMonth(e.target.value)}
           ></input>
           
           <label>日</label>
@@ -72,11 +99,14 @@ const Modal_CreateEvent = () => {
           type = "text"
           id = "day"
           className = "form-control"
+          value={eventDay}
+          onChange={e=>setEventDay(e.target.value)}
           ></input>
 
 
           <Button variant="success" className="mr-2" onClick={closeModal}>close</Button>
-          <Button className= "btn-success">完了</Button>
+          <Button type = "submit" className= "btn-success" onClick={closeModal}>完了</Button>
+          </form>
         </Modal>
       </div>
     );
