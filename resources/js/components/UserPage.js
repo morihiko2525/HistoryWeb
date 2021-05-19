@@ -8,7 +8,7 @@ class UserPage extends React.Component {
         super(props)
         this.state = {
             userdata : [],
-            histories : "",
+            histories : [],
         }
     }
 
@@ -19,9 +19,9 @@ class UserPage extends React.Component {
             .get('/api/getMyHistories/' + id)
             .then(response => {
                 console.log("通信に成功しました");
-                //this.setState({events: response.data.events});
+                this.setState({histories: response.data.histories});
                 console.log(response.data);
-                //console.log(events)
+                console.log(this.state.histories)
             })
             .catch(err => {
                 console.log(err);
@@ -35,11 +35,12 @@ class UserPage extends React.Component {
                 <h1>ユーザーページ</h1>
 
                 <h2>自分の年表一覧</h2>
-
-                <React.Fragment>
+                {this.state.histories.map(history =>
+                    <p>{history.name}</p>
+                    )}
+               
                           
 
-                </React.Fragment>
             </div>
         )
     }
