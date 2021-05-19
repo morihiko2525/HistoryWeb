@@ -8,6 +8,7 @@ class EventList extends React.Component {
         this.state = {
             events : [],
             previous_year: "",
+            
         }
     }
 
@@ -35,7 +36,6 @@ class EventList extends React.Component {
 
     render(){
         let test = "testaaaaaa";
-        window.history.pushState(null, null, "/eventlist/001");
         return(
             <div>
 

@@ -48,7 +48,9 @@ class UserPage extends React.Component {
 
                 <h2>自分の年表一覧</h2>
                 {this.state.histories.map(history =>
-                    <h1><a href = "#" >{history.name}</a></h1>
+                    
+                    <Link to = {{pathname: "/eventlist" , state: {historyID: this.state.histories.id}}}><h1><a href = "#" >{history.name}</a></h1></Link>
+                    
                     )}
                
                           
