@@ -13,10 +13,10 @@ class EventList extends React.Component {
     }
 
     componentDidMount() {
-        let id = this.props.location.state.historydata.id;
-        console.log(id);
+        let id = this.props.historydata.id;
+        //console.log(id);
         axios
-            .get('/api/event/')
+            .get('/api/event/'+ id)
             .then(response => {
                 console.log("通信に成功しました")
                 this.setState({events: response.data.events});
