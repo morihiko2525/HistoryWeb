@@ -14,7 +14,19 @@ class UserPage extends React.Component {
 
     componentDidMount() {
         let id = this.props.userdata.id;
-        let apiuri = ('/api/getMyHistories/' + id); 
+        axios
+            .get('/api/getMyHistories/' + id)
+            .then(response => {
+                console.log("通信に成功しました");
+                this.setState({histories: response.data.histories});
+                console.log(response.data);
+                console.log(this.state.histories)
+            })
+            .catch(err => {
+                console.log(err);
+                console.log('通信に失敗しました');
+            });
+
         axios
             .get('/api/getMyHistories/' + id)
             .then(response => {
@@ -36,7 +48,7 @@ class UserPage extends React.Component {
 
                 <h2>自分の年表一覧</h2>
                 {this.state.histories.map(history =>
-                    <p>{history.name}</p>
+                    <h1><a href = "#" >{history.name}</a></h1>
                     )}
                
                           
