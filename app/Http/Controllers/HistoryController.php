@@ -15,15 +15,6 @@ class HistoryController extends Controller
             ]);
     }
     
-    public function showMyHistories($user_id){
-        $histories = History::where('user_id', $user_id)->get();
-        return $histories;
-    }
-    
-    public function __construct(){
-        $this->middleware('auth');    
-    }
-    
     public function getHistoryName($id){
         $his_name = History::where('id', $id)->value('name');
         return $his_name;
@@ -40,6 +31,17 @@ class HistoryController extends Controller
     }
     
     
+    public function getMyHistories($id){
+        $histories = History::where('user_id', $id)->get();
+        return response([
+            'histories' => $histories
+        ]);
+    }
+    
+    public function getAllHistories(){
+
+    }
+
     public function create()
     {
          $histories = new History;
@@ -58,9 +60,9 @@ class HistoryController extends Controller
         $histories->description = $request->description;
         $histories->user_id = $request->user_id;
         $histories->save();
-        
+        /*
         return redirect(route('events.index',[
             'id' => $histories->id,
-            ]));
+            ]));*/
     }
 }

@@ -1,56 +1,34 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
-import {useParams,Link} from 'react-router-dom';
-
-class EventList extends React.Component {
+import {Link} from 'react-router-dom';
+import Modal_CreateEvent from './Modal_CreateEvent';
+import EditModal from './Modal_CreateEvent';
+class History_Edit extends React.Component {
 
     constructor(props,context){
         super(props,context)
         this.state = {
             events : [],
             previous_year: "",
-            historydata:[],
             user_id: "",
+            historydata:[],
         }
     }
 
-    componentDidMount() {
-        let id = this.props.historydata.id;
-        //console.log(id);
-        axios
-            .get('/api/event/'+ id)
-            .then(response => {
-                console.log("通信に成功しました")
-                this.setState({events: response.data.events});
-                console.log(response.data.events);
-                //console.log(events)
-            })
-            .catch(err => {
-                console.log(err);
-                console.log('通信に失敗しました');
-            });
-
-    }
-
-    renderTest(){
-        this.setState({previous_year: event.year});
-        return(
-            <p>rendertest</p>
-        );      
+    getUserID(){
+        return this.props.user_id;
     }
 
     render(){
-
         return(
             <div>
-                <Link to="/history_edit"><a href ="#">編集する</a></Link>
+                <Modal_CreateEvent history_id={this.props.historydata.id}/>
                 <p>年表タイトル: {this.props.historydata.name}</p>
                 <p>historyID : {this.props.historydata.id}</p>
+                <p>ユーザーID：{this.props.user_id}</p>
                 <React.Fragment>
-                    {this.state.viewTest}
                     {this.state.events.map(event =>
                         <React.Fragment>
-                
                         
                         <div className = "year-column">{event.year}年</div>
 
@@ -69,12 +47,11 @@ class EventList extends React.Component {
                         
                     )}
 
-
-
                 </React.Fragment>
             </div>
         )
     }
+
 }
 
-export default EventList;
+export default History_Edit;

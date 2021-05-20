@@ -26,6 +26,10 @@
         "sass-loader": "^8.0.0"
     },
     "dependencies": {
-        "gulp": "^4.0.2"
+        "gulp": "^4.0.2",
+        "js-cookie": "^2.2.1",
+        "react-bootstrap": "^1.6.0",
+        "react-modal": "^3.13.1",
+        "react-router-dom": "^5.2.0"
     }
 }

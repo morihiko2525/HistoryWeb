@@ -17,7 +17,20 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/button.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/modal.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/loading.css') }}"> 
+    <link rel="stylesheet" href="{{ asset('css/history_table.css') }}">
+
+    <script type="text/javascript" src="{{ asset('js/jQuery.js') }}"></script>
+
+    <script type="text/javascript" src="{{ asset('js/modal.js') }}"></script>
+
 </head>
 <body>
     <div id="app"></div>

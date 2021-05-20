@@ -12,10 +12,15 @@ class EventController extends Controller
     {
         //
         //$events = Event::where('history_id', 1)->first();
+
         $events = Event::where('history_id', $id)->orderBy('date', 'asc')->get();
-        return view('history_view', [
+        /*return view('history_view', [
             'events' => $events,
             'his_id' => $id,
+            ]);*/
+
+            return response([
+                'events' => $events,
             ]);
     }
 
@@ -27,7 +32,7 @@ class EventController extends Controller
         
     }
     
-    public function store(Request $request)
+    public function addEvent(Request $request)
     {
 
         $request->validate([
@@ -43,13 +48,13 @@ class EventController extends Controller
         $events->day = $request->day;
         
         $events->date = $request->year . '-' . $request->month . '-' . $request->day ;
-        $events->history_id = $request->his_id;
+        $events->history_id = $request->history_id;
         
         $events->save();
-        
+        /*
         return redirect(route('events.edit',[
             'id' => $request->his_id,
-            ]));
+            ]));*/
     }
     
     public function edit($id){
@@ -84,5 +89,12 @@ class EventController extends Controller
         $events->delete();
 
         return back();
+    }
+
+    public function getAllEvents(Request $request){
+        $events = Event::All();
+        return response([
+            'events' => $events
+            ]);
     }
 }
