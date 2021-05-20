@@ -15,9 +15,23 @@ class History_Edit extends React.Component {
         }
     }
 
-    getUserID(){
-        return this.props.user_id;
+    componentDidMount() {
+        let id = this.props.historydata.id;
+        //console.log(id);
+        axios
+            .get('/api/event/'+ id)
+            .then(response => {
+                console.log("通信に成功しました")
+                this.setState({events: response.data.events});
+                console.log(response.data.events);
+                //console.log(events)
+            })
+            .catch(err => {
+                console.log(err);
+                console.log('通信に失敗しました');
+            });
     }
+
 
     render(){
         return(
@@ -38,7 +52,7 @@ class History_Edit extends React.Component {
                             <div className = "event-image"></div>
         
                             <div className = "event-content">
-                                <h3 className = "event-title">「{event.name}」</h3>
+                                <a href = "#"><h3 className = "event-title">「{event.name}」</h3></a>
                                 <p className = "event-desc">{event.description}</p>
                             </div>
                         </div>
