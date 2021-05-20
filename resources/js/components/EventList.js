@@ -41,7 +41,7 @@ class EventList extends React.Component {
                 <p>年表タイトル: {this.props.historydata.name}</p>
                 <p>historyID : {this.props.historydata.id}</p>
                 <React.Fragment>
-                    {this.state.events.map(event =>
+                    {this.props.events.map(event =>
                         <React.Fragment>
                 
                         
