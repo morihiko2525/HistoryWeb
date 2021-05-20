@@ -2,7 +2,9 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 import Modal_CreateEvent from './Modal_CreateEvent';
+import Modal_EditEvent from './Modal_EditEvent';
 import EditModal from './Modal_CreateEvent';
+import { Modal } from 'react-bootstrap';
 
 class History_Edit extends React.Component {
 
@@ -12,7 +14,16 @@ class History_Edit extends React.Component {
             events : [],
             previous_year: "",
             historydata:[],
+            showEditModal: false,
+
         }
+        //this.setShowEditModal = this.setShowEditModal.bind(this);
+
+    }
+
+    setShowEditModal(b){
+        this.state.showEditModal = b;
+        console.log("state is :" + this.state.showEditModal);
     }
 
     componentDidMount() {
@@ -37,6 +48,7 @@ class History_Edit extends React.Component {
         return(
             <div>
                 <Modal_CreateEvent history_id={this.props.historydata.id}/>
+                <Modal_EditEvent showEditModal = {this.state.showEditModal}/>
                 <p>年表タイトル: {this.props.historydata.name}</p>
                 <p>historyID : {this.props.historydata.id}</p>
                 <p>ユーザーID：{this.props.user_id}</p>
@@ -52,7 +64,7 @@ class History_Edit extends React.Component {
                             <div className = "event-image"></div>
         
                             <div className = "event-content">
-                                <a href = "#"><h3 className = "event-title">「{event.name}」</h3></a>
+                                <a href = "#" onClick = { ()=>this.setShowEditModal(true)}><h3 className = "event-title">「{event.name}」</h3></a>
                                 <p className = "event-desc">{event.description}</p>
                             </div>
                         </div>

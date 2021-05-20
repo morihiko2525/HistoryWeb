@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 
+import { Api_Logout } from './api/Api'
 class Header extends React.Component {
 
     constructor(props){
@@ -10,24 +11,9 @@ class Header extends React.Component {
             userdata : [],
         }
     }
-/*
-    componentDidMount() {
-        axios
-            .get('/api/fetch_userdata')
-            .then(response => {
-                console.log("ユーザーデータを取得")
-                this.setState({userdata: response.data.user});
-                console.log(this.state.userdata);
-                //console.log(events)
-            })
-            .catch(err => {
-                console.log(err);
-                console.log('通信に失敗しました');
-            });
-    }*/
 
-    getUserName(){
-
+    tryLogout = async e => {
+        await Api_Logout(true);
     }
 
     render(){
@@ -54,7 +40,7 @@ class Header extends React.Component {
                             <Link to = "/userpage"><li className="dropdown-item"><a href ="#">プロフィール</a></li></Link>
                             <li className="dropdown-divider"></li>
 
-                            <li className="dropdown-item"><a href="{{Route('userpage.index')}}">ログアウト</a></li>
+                            <li className="dropdown-item"><a href="#">ログアウト</a></li>
                         </ul>
                     </li>
 
