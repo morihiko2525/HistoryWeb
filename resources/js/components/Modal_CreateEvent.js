@@ -60,7 +60,8 @@ const customStyles = {
         >
           <h2 ref={_subtitle => (subtitle = _subtitle)}>イベントを追加</h2>
           <form>
-          <label>イベント名{props.history_id}</label>
+
+          <label>イベント名</label>
           <input
           type = "text"
           id = "name"
@@ -83,7 +84,6 @@ const customStyles = {
           type = "text"
           id = "year"
           className = "form-control"
-          placeholder = "123"
           value={eventYear}
           onChange={e=>setEventYear(e.target.value)}
           ></input>

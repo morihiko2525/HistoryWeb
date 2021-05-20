@@ -3,6 +3,7 @@ import axios from 'axios';
 import {Link} from 'react-router-dom';
 import Modal_CreateEvent from './Modal_CreateEvent';
 import EditModal from './Modal_CreateEvent';
+
 class History_Edit extends React.Component {
 
     constructor(props,context){
@@ -10,7 +11,6 @@ class History_Edit extends React.Component {
         this.state = {
             events : [],
             previous_year: "",
-            user_id: "",
             historydata:[],
         }
     }
