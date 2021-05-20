@@ -52,7 +52,7 @@ const customStyles = {
     return props.showEditModal?
     (
         <Modal
-          isOpen={props.showEditModal}
+          isOpen={props.showEditModal || modalIsOpen}
           onAfterOpen={afterOpenModal}
           onRequestClose={closeModal}
           style={customStyles}
