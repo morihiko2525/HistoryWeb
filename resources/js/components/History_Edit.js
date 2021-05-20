@@ -41,7 +41,7 @@ class History_Edit extends React.Component {
                 <p>historyID : {this.props.historydata.id}</p>
                 <p>ユーザーID：{this.props.user_id}</p>
                 <React.Fragment>
-                    {this.state.events.map(event =>
+                    {this.props.events.map(event =>
                         <React.Fragment>
                         
                         <div className = "year-column">{event.year}年</div>

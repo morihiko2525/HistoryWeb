@@ -111,7 +111,7 @@ class App extends React.Component{
                     <Route path="/login" render={(routeProps)=> <Login setIsGuest={this.setIsGuest} isGuest={this.state.guest} {...routeProps} />} />
                     <Route path="/signup" render={(routeProps)=> <Signup setIsGuest={this.setIsGuest} isGuest={this.state.guest} {...routeProps} />} />
                     <Route path="/userpage" render={(routeProps)=> <UserPage userdata={this.state.user_data} testvalue={this.state.value} setHistory={this.setHistory.bind(this)} setEventsData={this.setEventsData} setIsLoading={this.setIsLoading.bind(this)} {...routeProps} />} />
-                    <Route path="/history_edit" render={(routeProps)=> <History_Edit historydata={this.state.historydata} user_id={this.state.user_data.id}{...routeProps} />} />
+                    <Route path="/history_edit" render={(routeProps)=> <History_Edit historydata={this.state.historydata} user_id={this.state.user_data.id} events = {this.state.eventsdata}{...routeProps} />} />
                 </Switch>
             </React.Fragment>
             </BrowserRouter>
