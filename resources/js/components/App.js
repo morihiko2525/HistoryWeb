@@ -33,12 +33,14 @@ class App extends React.Component{
             'loading':false,
             'historydata':[],
             'eventsdata':[],
+            'isLoading': false,
         };
         
         this.setIsGuest = this.setIsGuest.bind(this);
         this.setGuest = this.setGuest.bind(this);
         this.setUserData = this.setUserData.bind(this)
         this.setEventsData = this.setEventsData.bind(this);
+        this.setIsLoading = this.setIsLoading.bind(this);
     }
 
     setLoading(){
@@ -72,7 +74,13 @@ class App extends React.Component{
     
     setEventsData(data){
         this.setState({eventsdata: data});
-        console.log("setEventsData:");
+        console.log("setEventsData:" );
+        console.log(this.state.eventsdata);
+    }
+    
+    setIsLoading(b){
+        console.log("isLoading");
+        this.setState({isLoading: b});
     }
 
     componentDidMount(){
@@ -84,7 +92,13 @@ class App extends React.Component{
     }
 
     render(){
-        return(
+        return this.state.isLoading?
+        (
+            //ロード処理
+            <div>
+                <p>ロード中です</p>
+            </div>
+        ):(
             <BrowserRouter>
             <React.Fragment>
                 <Header userdata={this.state.user_data}/>
@@ -96,7 +110,7 @@ class App extends React.Component{
                     <Route path="/create"  render={(routeProps)=> <CreateHistory userdata={this.state.user_data} {...routeProps} />}  />
                     <Route path="/login" render={(routeProps)=> <Login setIsGuest={this.setIsGuest} isGuest={this.state.guest} {...routeProps} />} />
                     <Route path="/signup" render={(routeProps)=> <Signup setIsGuest={this.setIsGuest} isGuest={this.state.guest} {...routeProps} />} />
-                    <Route path="/userpage" render={(routeProps)=> <UserPage userdata={this.state.user_data} testvalue={this.state.value} setHistory={this.setHistory.bind(this)} setEventsData={this.setEventsData} {...routeProps} />} />
+                    <Route path="/userpage" render={(routeProps)=> <UserPage userdata={this.state.user_data} testvalue={this.state.value} setHistory={this.setHistory.bind(this)} setEventsData={this.setEventsData} setIsLoading={this.setIsLoading.bind(this)} {...routeProps} />} />
                     <Route path="/history_edit" render={(routeProps)=> <History_Edit historydata={this.state.historydata} user_id={this.state.user_data.id}{...routeProps} />} />
                 </Switch>
             </React.Fragment>

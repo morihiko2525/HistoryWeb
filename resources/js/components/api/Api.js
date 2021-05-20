@@ -86,7 +86,8 @@ export function Api_Signup(email, name, password, setIsGuest){
      }
 }
 
-export function GetEventsData(history_id, setEventsData){
+export function GetEventsData(history_id, setEventsData, setIsLoading){
+    setIsLoading(true); //ロード開始
     axios
         .get('/api/event/'+ history_id)
         .then(response => {
@@ -94,9 +95,11 @@ export function GetEventsData(history_id, setEventsData){
             setEventsData(response.data.events);
             console.log(response.data.events);
             //console.log(events)
+            setIsLoading(false);
         })
          .catch(err => {
             console.log(err);
             console.log('通信に失敗しました');
+            setIsLoading(false);
         });
 }

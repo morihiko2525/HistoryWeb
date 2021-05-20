@@ -33,13 +33,9 @@ class UserPage extends React.Component {
     }
 
     tryToGetEventsData(){
-        GetEventsData(this.state.history_id, this.props.setEventsData);
+        GetEventsData(this.state.history_id, this.props.setEventsData, this.props.setIsLoading);
     }
-/*
-    tryToGetEventsData = async e =>{
-        await GetEventsData(this.state.history_id);
-    }
-*/
+
     render(){
         return(
             <div>
