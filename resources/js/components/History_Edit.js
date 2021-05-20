@@ -23,6 +23,7 @@ class History_Edit extends React.Component {
 
     }
 
+    //OnClickでは関数しか呼べないため、stateを変更するための関数を作成した
     setShowEditModal(b){
         this.state.showEditModal = b;
         console.log("state is :" + this.state.showEditModal);
@@ -45,6 +46,7 @@ class History_Edit extends React.Component {
             });
     }
 
+    //イベントを再取得する処理
     getEventsData(){
         this.state.isOnceChanged = true;
         let id = this.props.historydata.id;
@@ -67,17 +69,19 @@ class History_Edit extends React.Component {
     render(){
         return(
             <div>
-                <Modal_CreateEvent history_id={this.props.historydata.id}/>
+                <Modal_CreateEvent history_id={this.props.historydata.id} getEventsData={this.getEventsData}/>
                 <Modal_EditEvent showEditModal = {this.state.showEditModal}/>
                 <p>年表タイトル: {this.props.historydata.name}</p>
                 <p>historyID : {this.props.historydata.id}</p>
                 <p>ユーザーID：{this.props.user_id}</p>
                 <React.Fragment>
+                    
                     {this.state.isOnceChanged ?
                     (                  
+                        //一度getEventsDataで取得した後の処理
+                        //state._eventsを使用する
                         this.state._events.map(event =>
                             <React.Fragment>
-                            
                             <div className = "year-column">{event.year}年</div>
     
                             <div className = "event clearfix">                   
@@ -94,6 +98,9 @@ class History_Edit extends React.Component {
                         )
                     
                         ):(
+                            //一度も変更していないとき(一覧画面から遷移したとき)の処理
+                            //App.jsから流れてくるprops.eventsを使用する。
+                            //memo: App.jsで再取得すればよい？ロード画面の有り無しを指定できれば問題なくそれでできるかも。そっちのほうがスマート。
                             this.props.events.map(event =>
                                 <React.Fragment>
                                 

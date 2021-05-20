@@ -47,6 +47,7 @@ const customStyles = {
                 console.log(res);
       })
       closeModal()
+      //props.getEventsData();
     }
 
     return (    
