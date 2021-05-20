@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { GetEventsData } from './api/Api';
 
 class UserPage extends React.Component {
 
@@ -9,8 +10,10 @@ class UserPage extends React.Component {
         super(props)
         this.state = {
             userdata : [],
-            histories : [],
-        }
+            histories : [], //年表のデータが入った配列
+            history_id : "",
+        };
+        this.tryToGetEventsData = this.tryToGetEventsData.bind(this);
     }
 
     componentDidMount() {
@@ -27,21 +30,16 @@ class UserPage extends React.Component {
                 console.log(err);
                 console.log('通信に失敗しました');
             });
-
-        axios
-            .get('/api/getMyHistories/' + id)
-            .then(response => {
-                console.log("通信に成功しました");
-                this.setState({histories: response.data.histories});
-                console.log(response.data);
-                console.log(this.state.histories)
-            })
-            .catch(err => {
-                console.log(err);
-                console.log('通信に失敗しました');
-            });
     }
 
+    tryToGetEventsData(){
+        GetEventsData(this.state.history_id, this.props.setEventsData);
+    }
+/*
+    tryToGetEventsData = async e =>{
+        await GetEventsData(this.state.history_id);
+    }
+*/
     render(){
         return(
             <div>
@@ -52,11 +50,19 @@ class UserPage extends React.Component {
                     
                     //<Link to = {{pathname: "/eventlist" , state: {historydata: this.state.histories}}}><h1><a href = "#" >{history.name}</a></h1></Link>
                     //<h1 onClick={this.props.history.push({pathname: "/eventlist", state: {historydata: this.state.histories}})}><a href = "#" >{history.name}</a></h1>
-                    <Link to = {{pathname: "/eventlist" , state: {historydata: this.state.histories}}}><h1 onClick = {() => this.props.setHistory(history)}><a href = "#" >{history.name}</a></h1></Link>
+                    
+
+                    <Link to = {{pathname: "/eventlist" , state: {historydata: this.state.histories}}}><h1 onClick = {() => 
+                        {
+                            this.state.history_id = history.id; //選んだhistoryのIDを代入
+                            this.props.setHistory(history);  //App.jsにhistoryテーブルのデータをまるごと格納
+                            this.tryToGetEventsData(); //データ取得処理
+                        }
+                    }><a href = "#" >{history.name}</a></h1></Link>
+
+                    
                     )}
                
-                          
-
             </div>
         )
     }

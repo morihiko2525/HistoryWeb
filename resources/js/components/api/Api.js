@@ -11,8 +11,8 @@ export function Api_Logout(setGuest){
         ongoing1 = true;
         axios.get('/api/logout') //apiだからapi/
                     .then(res => {
-                        setGuest(); //setState
                         console.log("logout")
+                        setGuest(); //setState
                         ongoing1 = false
                     })
                     .catch(e => {
@@ -84,4 +84,19 @@ export function Api_Signup(email, name, password, setIsGuest){
                         ongoing4 = false;
                     });
      }
+}
+
+export function GetEventsData(history_id, setEventsData){
+    axios
+        .get('/api/event/'+ history_id)
+        .then(response => {
+            console.log("GetEventData: 通信に成功しました")
+            setEventsData(response.data.events);
+            console.log(response.data.events);
+            //console.log(events)
+        })
+         .catch(err => {
+            console.log(err);
+            console.log('通信に失敗しました');
+        });
 }

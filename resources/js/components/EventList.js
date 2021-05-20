@@ -10,10 +10,11 @@ class EventList extends React.Component {
             events : [],
             previous_year: "",
             historydata:[],
+            events: [],
             user_id: "",
         }
     }
-
+    /* 
     componentDidMount() {
         let id = this.props.historydata.id;
         //console.log(id);
@@ -30,14 +31,7 @@ class EventList extends React.Component {
                 console.log('通信に失敗しました');
             });
 
-    }
-
-    renderTest(){
-        this.setState({previous_year: event.year});
-        return(
-            <p>rendertest</p>
-        );      
-    }
+    }*/
 
     render(){
 
@@ -47,7 +41,6 @@ class EventList extends React.Component {
                 <p>年表タイトル: {this.props.historydata.name}</p>
                 <p>historyID : {this.props.historydata.id}</p>
                 <React.Fragment>
-                    {this.state.viewTest}
                     {this.state.events.map(event =>
                         <React.Fragment>
                 
