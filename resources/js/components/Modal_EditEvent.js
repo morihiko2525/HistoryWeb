@@ -20,27 +20,18 @@ const customStyles = {
   
 class Modal_EditEvent extends React.Component {
       
-    /*
-    const [modalIsOpen,setIsOpen] = React.useState(false);
-
-    const [eventName, setEventName] = useState("");
-    const [eventDesc, setEventDesc] = useState("");
-    const [eventYear, setEventYear] = useState(0);
-    const [eventMonth, setEventMonth] = useState(0);
-    const [eventDay, setEventDay] = useState(0);
-    */
-
     constructor(props,context){
         super(props,context)
         this.state = {
             eventName: "",
-            eventDesc: "",
+            eventDesc: "0",
             eventYear: "",
             eventMonth: "",
             eventDay: "",
             history_id: "",
             isOpen: false,
             showEditModal: false,
+            selectEvent:[],
         }
         //this.setShowEditModal = this.setShowEditModal.bind(this);
         this.closeModal = this.closeModal.bind(this);
@@ -48,9 +39,11 @@ class Modal_EditEvent extends React.Component {
     }
 
     openModal() {
+        this.setState({eventName: this.props.selectEvent.name});
         this.setState({isOpen: true});
         console.log("Modal open");
         console.log(this.state.isOpen);
+
     }
  
  

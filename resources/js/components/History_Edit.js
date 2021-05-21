@@ -18,33 +18,36 @@ class History_Edit extends React.Component {
             historydata:[],
             showEditModal: false,
             isOnceChanged: false,
+            selectEvent:[],
         }
         //this.setShowEditModal = this.setShowEditModal.bind(this);
         this.getEventsData = this.getEventsData.bind(this); //これがないとsetStateがundefinedになる
 
     }
 
-    //OnClickでは関数しか呼べないため、stateを変更するための関数を作成した
-    setShowEditModal(b){
-        this.setState({showEditModal: b});
-        console.log("state is :" + this.state.showEditModal);
-    }
-
+    
     componentDidMount() {
         let id = this.props.historydata.id;
         //console.log(id);
         axios
-            .get('/api/event/'+ id)
-            .then(response => {
-                console.log("通信に成功しました")
-                this.setState({events: response.data.events});
-                console.log(response.data.events);
-                //console.log(events)
-            })
-            .catch(err => {
-                console.log(err);
-                console.log('通信に失敗しました');
-            });
+        .get('/api/event/'+ id)
+        .then(response => {
+            console.log("通信に成功しました")
+            this.setState({events: response.data.events});
+            console.log(response.data.events);
+            //console.log(events)
+        })
+        .catch(err => {
+            console.log(err);
+            console.log('通信に失敗しました');
+        });
+    }
+    
+    //OnClickでは関数しか呼べないため、stateを変更するための関数を作成した
+    setShowEditModal(b){
+        this.setState({showEditModal: b});
+        console.log("state is :" + this.state.showEditModal);
+        console.log(this.state.selectEvent);
     }
 
     //イベントを再取得する処理
@@ -72,7 +75,7 @@ class History_Edit extends React.Component {
                           
             
             <div>
-                <Modal_EditEvent showEditModal = {this.state.showEditModal} setFalse={() => this.setShowEditModal(false)}/>
+                <Modal_EditEvent showEditModal = {this.state.showEditModal} setFalse={() => this.setShowEditModal(false)} selectEvent={this.state.selectEvent}/>
                 <Modal_CreateEvent history_id={this.props.historydata.id} getEventsData={this.getEventsData}/>
                 <p>年表タイトル: {this.props.historydata.name}</p>
                 <p>historyID : {this.props.historydata.id}</p>
@@ -93,7 +96,12 @@ class History_Edit extends React.Component {
                                 <div className = "event-image"></div>
             
                                 <div className = "event-content">
-                                    <a href = "#" onClick = { ()=>this.setShowEditModal(true)}><h3 className = "event-title">「{event.name}」</h3></a>
+                                    <a href = "#" onClick = { ()=>{
+                                        this.setShowEditModal(true);
+                                        this.setState({selectEvent:event});
+                                    }
+                                        
+                                        }><h3 className = "event-title">「{event.name}」</h3></a>
                                     <p className = "event-desc">{event.description}</p>
                                 </div>
                             </div>
@@ -115,7 +123,12 @@ class History_Edit extends React.Component {
                                     <div className = "event-image"></div>
                 
                                     <div className = "event-content">
-                                        <a href = "#" onClick = { ()=>this.setShowEditModal(true)}><h3 className = "event-title">「{event.name}」</h3></a>
+                                        <a href = "#" onClick = { ()=>{
+                                            this.setState({selectEvent:event})
+                                            this.setShowEditModal(true);
+                                        }
+                                            
+                                            }><h3 className = "event-title">「{event.name}」</h3></a>
                                         <p className = "event-desc">{event.description}</p>
                                     </div>
                                 </div>
