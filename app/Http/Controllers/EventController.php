@@ -57,12 +57,27 @@ class EventController extends Controller
     public function updateEvent(Request $request){
 
         $events = Event::findOrFail($request->id);
-        
-        $events->name = $request->name;
-        $events->description = $request->description;
-        $events->year = $request->year;
-        $events->month = $request->month;
-        $events->day = $request->day;
+
+        if($request->name != null){
+            $events->name = $request->name;
+        }
+
+        if($request->description != null){
+            $events->description = $request->description;
+        }
+
+        if($request->year != null){
+            $events->year = $request->year;
+        }
+
+        if($request->month != null){
+            $events->month = $request->month;
+        }
+
+        if($request->day != null){
+            $events->day = $request->day;
+        }
+
         $events->date = $request->year . '-' . $request->month . '-' . $request->day ;
         $events->save();
     }
