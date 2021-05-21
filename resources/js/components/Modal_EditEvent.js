@@ -76,6 +76,7 @@ class Modal_EditEvent extends React.Component {
                 console.log(res);
       })
       this.closeModal()
+      //this.props.getEventsData(); //再描画処理
     }
 
     checkChange()

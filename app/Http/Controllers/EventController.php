@@ -68,17 +68,19 @@ class EventController extends Controller
 
         if($request->year != null){
             $events->year = $request->year;
+            $events->date = $request->year . '-' . $events->month . '-' . $events->day ;
         }
 
         if($request->month != null){
             $events->month = $request->month;
+            $events->date = $events->year . '-' . $request->month . '-' . $events->day ;
         }
 
         if($request->day != null){
             $events->day = $request->day;
+            $events->date = $events->year . '-' . $events->month . '-' . $request->day ;
         }
 
-        $events->date = $request->year . '-' . $request->month . '-' . $request->day ;
         $events->save();
     }
     
