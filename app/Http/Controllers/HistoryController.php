@@ -60,9 +60,10 @@ class HistoryController extends Controller
         $histories->description = $request->description;
         $histories->user_id = $request->user_id;
         $histories->save();
-        /*
-        return redirect(route('events.index',[
-            'id' => $histories->id,
-            ]));*/
+        
+        return response([
+            'history_id' => $histories->id,
+        ]);
+        
     }
 }

@@ -20,7 +20,7 @@ class CreateHistory extends React.Component {
                 <div className="dialog-window">
                     <h1>年表を作成しましょう！</h1>
 
-                    <form onSubmit={this.postForm}>
+                    <form>
                         <div className="form-group">
                             <label>年表タイトル</label>
                             <input 
@@ -43,8 +43,13 @@ class CreateHistory extends React.Component {
                                 onChange={e => this.setState({description :e.target.value})}>
                             </textarea>
                         </div>
-
-                        <button type="submit" className="btn btn-primary">作成する</button>
+                            <Link to ="/eventlist">
+                            <button className="btn btn-primary"       
+                                onClick= {()=>{
+                                    this.postForm();
+                                }}>
+                            作成する</button>
+                            </Link>
 
                     </form>
 
@@ -57,7 +62,9 @@ class CreateHistory extends React.Component {
         
         axios.post('/api/history/create', { 'name': this.state.name, 'description': this.state.description, 'user_id': this.props.userdata.id})
             .then(res => {
-                console.log(res);
+                console.log("Created new History!");
+                console.log(res.data.history_id);
+                //this.props.setHistoryID(res.data.history_id);
       })
     }
 

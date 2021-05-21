@@ -32,6 +32,7 @@ class App extends React.Component{
             'comment_type':'timeline',
             'loading':false,
             'historydata':[],
+            'historyID':"",
             'eventsdata':[],
             'isLoading': false,
         };
@@ -66,6 +67,10 @@ class App extends React.Component{
     setHistory(value){
         this.setState({historydata: value});
         console.log(this.state.value);
+    }
+
+    setHistoryID(value){
+        this.setState({historyID: value});
     }
 
     setUserData(data){
@@ -107,7 +112,7 @@ class App extends React.Component{
                     <Route path="/" exact component={Top} /> 
                     <Route path="/about" component={About} />
                     <Route path="/eventlist" render={(routeProps)=> <EventList historydata={this.state.historydata} user_id={this.state.user_data.id} events = {this.state.eventsdata} {...routeProps} />} />
-                    <Route path="/create"  render={(routeProps)=> <CreateHistory userdata={this.state.user_data} {...routeProps} />}  />
+                    <Route path="/create"  render={(routeProps)=> <CreateHistory userdata={this.state.user_data} setHistoryID={this.setHistoryID.bind(this)}{...routeProps} />}  />
                     <Route path="/login" render={(routeProps)=> <Login setIsGuest={this.setIsGuest} isGuest={this.state.guest} {...routeProps} />} />
                     <Route path="/signup" render={(routeProps)=> <Signup setIsGuest={this.setIsGuest} isGuest={this.state.guest} {...routeProps} />} />
                     <Route path="/userpage" render={(routeProps)=> <UserPage userdata={this.state.user_data} testvalue={this.state.value} setHistory={this.setHistory.bind(this)} setEventsData={this.setEventsData} setIsLoading={this.setIsLoading.bind(this)} {...routeProps} />} />
