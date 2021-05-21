@@ -42,7 +42,7 @@ class History_Edit extends React.Component {
             console.log('通信に失敗しました');
         });
     }
-    
+
     //OnClickでは関数しか呼べないため、stateを変更するための関数を作成した
     setShowEditModal(b){
         this.setState({showEditModal: b});
@@ -75,7 +75,17 @@ class History_Edit extends React.Component {
                           
             
             <div>
-                <Modal_EditEvent showEditModal = {this.state.showEditModal} setFalse={() => this.setShowEditModal(false)} selectEvent={this.state.selectEvent}/>
+                <Modal_EditEvent 
+                showEditModal = {this.state.showEditModal}
+                setFalse={() => this.setShowEditModal(false)}
+                eventName={this.state.selectEvent.name}
+                eventDesc={this.state.selectEvent.description}
+                eventYear={this.state.selectEvent.year}
+                eventMonth={this.state.selectEvent.month}
+                eventDay={this.state.selectEvent.day}
+                />
+
+
                 <Modal_CreateEvent history_id={this.props.historydata.id} getEventsData={this.getEventsData}/>
                 <p>年表タイトル: {this.props.historydata.name}</p>
                 <p>historyID : {this.props.historydata.id}</p>
@@ -97,8 +107,8 @@ class History_Edit extends React.Component {
             
                                 <div className = "event-content">
                                     <a href = "#" onClick = { ()=>{
-                                        this.setShowEditModal(true);
                                         this.setState({selectEvent:event});
+                                        this.setShowEditModal(true);
                                     }
                                         
                                         }><h3 className = "event-title">「{event.name}」</h3></a>
