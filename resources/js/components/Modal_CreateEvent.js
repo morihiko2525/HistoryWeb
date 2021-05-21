@@ -57,8 +57,8 @@ const customStyles = {
             .then(res => {
                 console.log(res);
       })
-      this.closeModal();
-      this.props.getEventsData();
+      this.props.getEventsData(); //再描画処理
+      this.closeModal(); //モーダルを閉じる処理
     }
 
     render(){

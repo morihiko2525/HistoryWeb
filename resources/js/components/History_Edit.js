@@ -20,6 +20,7 @@ class History_Edit extends React.Component {
             isOnceChanged: false,
         }
         //this.setShowEditModal = this.setShowEditModal.bind(this);
+        this.getEventsData = this.getEventsData.bind(this); //これがないとsetStateがundefinedになる
 
     }
 
@@ -48,22 +49,22 @@ class History_Edit extends React.Component {
 
     //イベントを再取得する処理
     getEventsData(){
-        this.state.isOnceChanged = true;
         let id = this.props.historydata.id;
         //console.log(id);
         axios
-            .get('/api/event/'+ id)
-            .then(response => {
-                console.log("通信に成功しました")
-                this.setState({_events: response.data.events});
-                console.log(response.data.events);
-                //console.log(events)
+        .get('/api/event/'+ id)
+        .then(response => {
+            console.log("通信に成功しました")
+            this.setState({_events: response.data.events});
+            console.log(response.data.events);
+            //console.log(events)
+            console.log("再取得完了");
+            this.setState({isOnceChanged: true});
             })
             .catch(err => {
                 console.log(err);
                 console.log('通信に失敗しました');
             });
-
     }
 
     render(){
