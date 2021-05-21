@@ -70,7 +70,7 @@ class History_Edit extends React.Component {
         return(
             <div>
                 <Modal_CreateEvent history_id={this.props.historydata.id} getEventsData={this.getEventsData}/>
-                <Modal_EditEvent showEditModal = {this.state.showEditModal}/>
+                <Modal_EditEvent showEditModal = {this.state.showEditModal} onClick={ ()=> this.setShowEditModal(false)}/>
                 <p>年表タイトル: {this.props.historydata.name}</p>
                 <p>historyID : {this.props.historydata.id}</p>
                 <p>ユーザーID：{this.props.user_id}</p>

@@ -52,7 +52,7 @@ const customStyles = {
     return props.showEditModal?
     (
         <Modal
-          isOpen={props.showEditModal || modalIsOpen}
+          isOpen={props.showEditModal}
           onAfterOpen={afterOpenModal}
           onRequestClose={closeModal}
           style={customStyles}
@@ -107,7 +107,7 @@ const customStyles = {
           ></input>
 
 
-          <Button variant="success" className="mr-2" onClick={closeModal}>close</Button>
+          <Button variant="success" className="mr-2" onClick={props.onClick}>close</Button>
           <Button className= "btn-success" onClick={postForm}>完了</Button>
           </form>
         </Modal>
