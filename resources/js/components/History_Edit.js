@@ -74,7 +74,7 @@ class History_Edit extends React.Component {
         return(
                           
             
-            <div>
+            <div className="container">
                 <Modal_EditEvent 
                 showEditModal = {this.state.showEditModal}
                 setFalse={() => this.setShowEditModal(false)}
