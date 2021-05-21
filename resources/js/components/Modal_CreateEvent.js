@@ -32,7 +32,7 @@ const customStyles = {
             isOpen: false,
         }
         //this.setShowEditModal = this.setShowEditModal.bind(this);
-        this.closeModal = this.closeModal.bind(this);
+        this.closeModal = this.closeModal.bind(this); //これがないとsetStateがundefinedになる
 
     }
 

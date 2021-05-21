@@ -18,9 +18,9 @@ const customStyles = {
 
   
   
-  const Modal_EditEvent = (props) => {
+class Modal_EditEvent extends React.Component {
       
-    var subtitle;
+    /*
     const [modalIsOpen,setIsOpen] = React.useState(false);
 
     const [eventName, setEventName] = useState("");
@@ -28,20 +28,43 @@ const customStyles = {
     const [eventYear, setEventYear] = useState(0);
     const [eventMonth, setEventMonth] = useState(0);
     const [eventDay, setEventDay] = useState(0);
+    */
 
-    function openModal() {
-        setIsOpen(true);
+    constructor(props,context){
+        super(props,context)
+        this.state = {
+            eventName: "",
+            eventDesc: "",
+            eventYear: "",
+            eventMonth: "",
+            eventDay: "",
+            history_id: "",
+            isOpen: false,
+            showEditModal: false,
+        }
+        //this.setShowEditModal = this.setShowEditModal.bind(this);
+        this.closeModal = this.closeModal.bind(this);
+
+    }
+
+    openModal() {
+        this.setState({isOpen: true});
+        console.log("Modal open");
+        console.log(this.state.isOpen);
     }
  
-    function afterOpenModal() {        
-        subtitle.style.color = '#3ab60b';
+ 
+    afterOpenModal() {        
+        //subtitle.style.color = '#3ab60b';
     }
  
-    function closeModal(){
-        setIsOpen(false);
+    closeModal(){
+        this.setState({isOpen: false});
+        console.log("Modal close");
+        console.log(this.state.isOpen);
     }
-
-    function postForm(){
+    
+    postForm(){
         axios.post('/api/event/add', { 'name': eventName, 'description': eventDesc, 'year': eventYear, 'month': eventMonth, 'day': eventDay, 'history_id': props.history_id})
             .then(res => {
                 console.log(res);
@@ -49,16 +72,17 @@ const customStyles = {
       closeModal()
     }
 
-    return props.showEditModal?
+    render(){
+    return this.props.showEditModal?
     (
         <Modal
-          isOpen={props.showEditModal}
-          onAfterOpen={afterOpenModal}
-          onRequestClose={closeModal}
+          isOpen={this.props.showEditModal}
+          //onAfterOpen={afterOpenModal}
+          onRequestClose={ ()=>this.closeModal()}
           style={customStyles}
           contentLabel="Example Modal"
         >
-          <h2 ref={_subtitle => (subtitle = _subtitle)}>イベントを編集</h2>
+          <h2>イベントを編集</h2>
           <form>
 
           <label>イベント名</label>
@@ -66,8 +90,8 @@ const customStyles = {
           type = "text"
           id = "name"
           className = "form-control"
-          value={eventName}
-          onChange={e=>setEventName(e.target.value)}
+          value={this.state.eventName}
+          onChange={e=>this.setState({eventName: e.target.value})}
           ></input>
           
           <label>説明</label>
@@ -75,8 +99,8 @@ const customStyles = {
           type = "text"
           id = "description"
           className = "form-control"
-          value={eventDesc}
-          onChange={e=>setEventDesc(e.target.value)}
+          value={this.state.eventDesc}
+          onChange={e=>this.setState({eventDesc: e.target.value})}
           ></input>
 
           <label>年</label>
@@ -84,8 +108,8 @@ const customStyles = {
           type = "text"
           id = "year"
           className = "form-control"
-          value={eventYear}
-          onChange={e=>setEventYear(e.target.value)}
+          value={this.state.eventYear}
+          onChange={e=>this.setState({eventYear: e.target.value})}
           ></input>
           
           <label>月</label>
@@ -93,8 +117,8 @@ const customStyles = {
           type = "text"
           id = "month"
           className = "form-control"
-          value={eventMonth}
-          onChange={e=>setEventMonth(e.target.value)}
+          value={this.state.eventMonth}
+          onChange={e=>this.setState({eventMonth: e.target.value})}
           ></input>
           
           <label>日</label>
@@ -102,13 +126,13 @@ const customStyles = {
           type = "text"
           id = "day"
           className = "form-control"
-          value={eventDay}
-          onChange={e=>setEventDay(e.target.value)}
+          value={this.state.eventDay}
+          onChange={e=>this.setState({eventDay: e.target.value})}
           ></input>
 
 
-          <Button variant="success" className="mr-2" onClick={props.onClick}>close</Button>
-          <Button className= "btn-success" onClick={postForm}>完了</Button>
+          <Button variant="success" className="mr-2" onClick={ ()=>this.closeModal()}>close</Button>
+          <Button className= "btn-success" onClick={ ()=> this.postForm()}>完了</Button>
           </form>
         </Modal>
     ):(
@@ -116,6 +140,7 @@ const customStyles = {
         
         </div>
     );
+    }
 }
  
 export default Modal_EditEvent;
