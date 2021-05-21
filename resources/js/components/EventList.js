@@ -18,7 +18,7 @@ class EventList extends React.Component {
     render(){
 
         return(
-            <div>
+            <div className="container">
                 <Link to="/history_edit"><a href ="#">編集する</a></Link>
                 <p>年表タイトル: {this.props.historydata.name}</p>
                 <p>historyID : {this.props.historydata.id}</p>
