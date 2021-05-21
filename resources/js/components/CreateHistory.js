@@ -67,7 +67,6 @@ class CreateHistory extends React.Component {
                 //this.props.setHistoryID(res.data.history_id);
       })
     }
-
 }
 
 export default CreateHistory;

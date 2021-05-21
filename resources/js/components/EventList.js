@@ -14,25 +14,7 @@ class EventList extends React.Component {
             user_id: "",
         }
     }
-    /* 
-    componentDidMount() {
-        let id = this.props.historydata.id;
-        //console.log(id);
-        axios
-            .get('/api/event/'+ id)
-            .then(response => {
-                console.log("通信に成功しました")
-                this.setState({events: response.data.events});
-                console.log(response.data.events);
-                //console.log(events)
-            })
-            .catch(err => {
-                console.log(err);
-                console.log('通信に失敗しました');
-            });
-
-    }*/
-
+    
     render(){
 
         return(
@@ -42,9 +24,7 @@ class EventList extends React.Component {
                 <p>historyID : {this.props.historydata.id}</p>
                 <React.Fragment>
                     {this.props.events.map(event =>
-                        <React.Fragment>
-                
-                        
+                        <React.Fragment>                    
                         <div className = "year-column">{event.year}年</div>
 
                         <div className = "event clearfix">                   
@@ -58,11 +38,8 @@ class EventList extends React.Component {
                             </div>
                         </div>
                         </React.Fragment>
-
-                        
+                       
                     )}
-
-
 
                 </React.Fragment>
             </div>
