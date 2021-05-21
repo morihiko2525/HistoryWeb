@@ -74,7 +74,7 @@ class Modal_EditEvent extends React.Component {
             .then(res => {
                 console.log(res);
       })
-      closeModal()
+      this.closeModal()
     }
 
     render(){
