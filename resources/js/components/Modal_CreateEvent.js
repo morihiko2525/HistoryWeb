@@ -18,9 +18,8 @@ const customStyles = {
 
   
   
-  const Modal_CreateEvent = (props) => {
-      
-    var subtitle;
+  class Modal_CreateEvent extends React.Component {
+      /*
     const [modalIsOpen,setIsOpen] = React.useState(false);
 
     const [eventName, setEventName] = useState("");
@@ -28,20 +27,33 @@ const customStyles = {
     const [eventYear, setEventYear] = useState(0);
     const [eventMonth, setEventMonth] = useState(0);
     const [eventDay, setEventDay] = useState(0);
+*/
+    constructor(props,context){
+        super(props,context)
+        this.state = {
+            events : [],
+            _events: [],
+            previous_year: "",
+            historydata:[],
+            showEditModal: false,
+            isOnceChanged: false,
+        }
+        //this.setShowEditModal = this.setShowEditModal.bind(this);
+    }
 
-    function openModal() {
+    openModal() {
         setIsOpen(true);
     }
  
-    function afterOpenModal() {        
+    afterOpenModal() {        
         subtitle.style.color = '#3ab60b';
     }
  
-    function closeModal(){
+    closeModal(){
         setIsOpen(false);
     }
 
-    function postForm(){
+    postForm(){
         axios.post('/api/event/add', { 'name': eventName, 'description': eventDesc, 'year': eventYear, 'month': eventMonth, 'day': eventDay, 'history_id': props.history_id})
             .then(res => {
                 console.log(res);
@@ -50,7 +62,9 @@ const customStyles = {
       //this.props.getEventsData();
     }
 
-    return (    
+    render(){
+    return ( 
+        
         <div>
         <Button variant="success" className="mr-2" onClick={openModal}>イベントを追加</Button>
         <Modal
@@ -115,6 +129,7 @@ const customStyles = {
         </Modal>
       </div>
     );
+    }
 }
  
 export default Modal_CreateEvent;
