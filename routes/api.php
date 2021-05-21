@@ -35,6 +35,8 @@ Route::get("/event/{id}",[EventController::class, 'index']);
 
 Route::post("/event/add",[EventController::class, 'addEvent']);
 
+Route::post("/event/update",[EventController::class, 'updateEvent']);
+
 Route::post("/history/create",[HistoryController::class, 'store']);
 
 Route::get("/getMyHistories/{id}",[HistoryController::class, 'getMyHistories']);

@@ -23,6 +23,7 @@ class Modal_EditEvent extends React.Component {
     constructor(props,context){
         super(props,context)
         this.state = {
+            selectEventID:"",
             eventName: "",
             eventDesc: "",
             eventYear: "",
@@ -31,7 +32,11 @@ class Modal_EditEvent extends React.Component {
             history_id: "",
             isOpen: false,
             showEditModal: false,
-            selectEvent:[],
+            u_eventName: "",
+            u_eventDesc: "",
+            u_eventYear: "",
+            u_eventMonth: "",
+            u_eventDay: "",
         }
         this.closeModal = this.closeModal.bind(this);
     }
@@ -57,7 +62,15 @@ class Modal_EditEvent extends React.Component {
     }
     
     postForm(){
-        axios.post('/api/event/add', { 'name': eventName, 'description': eventDesc, 'year': eventYear, 'month': eventMonth, 'day': eventDay, 'history_id': props.history_id})
+        axios.post('/api/event/update', { 
+            'id': this.props.selectEventID,
+            'name': this.state.u_eventName,
+            'description': this.state.u_eventDesc,
+            'year': this.state.u_eventYear,
+            'month': this.state.u_eventMonth,
+            'day': this.state.u_eventDay,
+        
+        })
             .then(res => {
                 console.log(res);
       })
@@ -82,8 +95,8 @@ class Modal_EditEvent extends React.Component {
           type = "text"
           id = "name"
           className = "form-control"
-          value={this.props.eventName}
-          onChange={e=>this.setState({eventName: e.target.value})}
+          defaultValue={this.props.eventName}
+          onChange={e=>this.setState({u_eventName: e.target.value})}
           ></input>
           
           <label>説明</label>
@@ -91,8 +104,8 @@ class Modal_EditEvent extends React.Component {
           type = "text"
           id = "description"
           className = "form-control"
-          value={this.props.eventDesc}
-          onChange={e=>this.setState({eventDesc: e.target.value})}
+          defaultValue={this.props.eventDesc}
+          onChange={e=>this.setState({u_eventDesc: e.target.value})}
           ></input>
 
           <label>年</label>
@@ -100,8 +113,8 @@ class Modal_EditEvent extends React.Component {
           type = "text"
           id = "year"
           className = "form-control"
-          value={this.props.eventYear}
-          onChange={e=>this.setState({eventYear: e.target.value})}
+          defaultValue={this.props.eventYear}
+          onChange={e=>this.setState({u_eventYear: e.target.value})}
           ></input>
           
           <label>月</label>
@@ -109,8 +122,8 @@ class Modal_EditEvent extends React.Component {
           type = "text"
           id = "month"
           className = "form-control"
-          value={this.props.eventMonth}
-          onChange={e=>this.setState({eventMonth: e.target.value})}
+          defaultValue={this.props.eventMonth}
+          onChange={e=>this.setState({u_eventMonth: e.target.value})}
           ></input>
           
           <label>日</label>
@@ -118,8 +131,8 @@ class Modal_EditEvent extends React.Component {
           type = "text"
           id = "day"
           className = "form-control"
-          value={this.props.eventDay}
-          onChange={e=>this.setState({eventDay: e.target.value})}
+          defaultValue={this.props.eventDay}
+          onChange={e=>this.setState({u_eventDay: e.target.value})}
           ></input>
 
 

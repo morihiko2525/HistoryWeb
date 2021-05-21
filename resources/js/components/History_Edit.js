@@ -78,6 +78,7 @@ class History_Edit extends React.Component {
                 <Modal_EditEvent 
                 showEditModal = {this.state.showEditModal}
                 setFalse={() => this.setShowEditModal(false)}
+                selectEventID={this.state.selectEvent.id}
                 eventName={this.state.selectEvent.name}
                 eventDesc={this.state.selectEvent.description}
                 eventYear={this.state.selectEvent.year}
