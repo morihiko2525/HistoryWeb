@@ -26,7 +26,7 @@ class History_Edit extends React.Component {
 
     //OnClickでは関数しか呼べないため、stateを変更するための関数を作成した
     setShowEditModal(b){
-        this.state.showEditModal = b;
+        this.setState({showEditModal: b});
         console.log("state is :" + this.state.showEditModal);
     }
 
@@ -69,9 +69,11 @@ class History_Edit extends React.Component {
 
     render(){
         return(
+                          
+            
             <div>
+                <Modal_EditEvent showEditModal = {this.state.showEditModal} setFalse={() => this.setShowEditModal(false)}/>
                 <Modal_CreateEvent history_id={this.props.historydata.id} getEventsData={this.getEventsData}/>
-                <Modal_EditEvent showEditModal = {this.state.showEditModal} onClick={ ()=> this.setShowEditModal(false)}/>
                 <p>年表タイトル: {this.props.historydata.name}</p>
                 <p>historyID : {this.props.historydata.id}</p>
                 <p>ユーザーID：{this.props.user_id}</p>

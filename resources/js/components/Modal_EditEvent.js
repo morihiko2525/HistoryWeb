@@ -60,6 +60,7 @@ class Modal_EditEvent extends React.Component {
  
     closeModal(){
         this.setState({isOpen: false});
+        this.props.setFalse();
         console.log("Modal close");
         console.log(this.state.isOpen);
     }
