@@ -15,6 +15,7 @@ class Header extends React.Component {
 
     tryLogout = async e => {
         await Api_Logout(this.props.setGuest);
+        return(<Redirect push to="/" />);
     }
 
     render(){

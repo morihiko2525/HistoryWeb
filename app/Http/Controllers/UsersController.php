@@ -110,11 +110,11 @@ class UsersController extends Controller
         $token = Cookie::get('my_token'); //Token check
         
         if(!$this->isTokenExists($token) || $token == null){
-            return response(['user_data' => -1])->withoutCookie('my_token')->withoutCookie('loggedin');
+            return response()->json(['user_data' => -1])->withoutCookie('my_token')->withoutCookie('loggedin');
         }
         
         if(!$this->isTokenValid($token)){
-            return response(['user_data' => -1])->withoutCookie('my_token')->withoutCookie('loggedin');
+            return response()->json(['user_data' => -1])->withoutCookie('my_token')->withoutCookie('loggedin');
         }
         
         $user = $this->getTokenUser($token); //get user
@@ -142,7 +142,7 @@ class UsersController extends Controller
             $user->token = null;
             $user->token_expire_at = null;
             $user->save();
-            return response(['status' => $user->token])->withoutCookie('my_token')->withoutCookie('loggedin');
+            return response()->json(['status' => $user->token])->withoutCookie('my_token')->withoutCookie('loggedin');
         }else{
             return response(['message' => 'ohhhhhhhhhhhh']);
         }
