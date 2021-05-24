@@ -95,7 +95,6 @@ class History_Edit extends React.Component {
                 
                 <p>年表タイトル: {this.props.historydata.name}</p>
                 <p>historyID : {this.props.historydata.id}</p>
-                <p>ユーザーID：{this.props.user_id}</p>
                 <React.Fragment>
                     
                     {this.state.isOnceChanged ?
@@ -153,7 +152,6 @@ class History_Edit extends React.Component {
                     }
 
                 </React.Fragment>
-                <a onClick = {()=>this.getEventsData()}>取得</a>
             </div>
         )
     }

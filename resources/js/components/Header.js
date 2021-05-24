@@ -10,10 +10,11 @@ class Header extends React.Component {
         this.state = {
             userdata : [],
         }
+        this.tryLogout = this.tryLogout.bind(this);
     }
 
     tryLogout = async e => {
-        await Api_Logout(true);
+        await Api_Logout(this.props.setGuest);
     }
 
     render(){
@@ -40,7 +41,7 @@ class Header extends React.Component {
                             <Link to = "/userpage"><li className="dropdown-item"><a href ="#">プロフィール</a></li></Link>
                             <li className="dropdown-divider"></li>
 
-                            <li className="dropdown-item"><a href="#">ログアウト</a></li>
+                            <li className="dropdown-item"><a href="#" onClick={this.tryLogout}>ログアウト</a></li>
                         </ul>
                     </li>
 
