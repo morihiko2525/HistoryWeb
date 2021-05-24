@@ -24,7 +24,7 @@ class EventList extends React.Component {
         return(
             <div className="container">
                 <Link to="/history_edit"><a href ="#">編集する</a></Link>
-                <p>年表タイトル: {this.props.historydata.name}</p>
+                <h1>{this.props.historydata.name}</h1>
                 <p>historyID : {this.props.historydata.id}</p>
                 <React.Fragment>
                     {this.props.events.map(event =>

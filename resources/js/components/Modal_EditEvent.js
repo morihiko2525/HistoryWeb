@@ -147,8 +147,11 @@ class Modal_EditEvent extends React.Component {
           ></input>
 
 
-          <Button variant="success" className="mr-2" onClick={ ()=>this.closeModal()}>close</Button>
-          <Button className= "btn-success" onClick={ ()=> this.postForm()}>完了</Button>
+          <div className = "btn-group">
+            <Button variant="success" onClick={ ()=>this.closeModal()}>close</Button>
+            <Button className= "btn-success" onClick={ ()=> this.postForm()}>完了</Button>
+            <Button className= "btn-danger" onClick={ ()=> this.postForm()}>削除</Button>
+          </div>
           </form>
         </Modal>
     ):(
