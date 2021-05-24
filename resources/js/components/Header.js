@@ -37,8 +37,8 @@ class Header extends React.Component {
                     <ul className="navbar-nav mr-auto"></ul>
                     <ul className="navbar-nav"></ul>
                 
-                    <li className="nav-item"><a href ="#">新規登録</a></li>
-                    <li className="nav-item"><a href ="#">ログイン</a></li>
+                    <Link to = "/signup"><li className="nav-item"><a href ="#">新規登録</a></li></Link>
+                    <Link to = "/login"><li className="nav-item"><a href ="#">ログイン</a></li></Link>
 
                 </div>
             </nav>
