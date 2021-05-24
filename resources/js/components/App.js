@@ -106,7 +106,7 @@ class App extends React.Component{
         ):(
             <BrowserRouter>
             <React.Fragment>
-                <Header userdata={this.state.user_data} setGuest={this.setGuest}/>
+                <Header userdata={this.state.user_data} setGuest={this.setGuest} isGuest={this.state.guest}/>
                 <GlobalNav />
                 <Switch>
                     <Route path="/" exact component={Top} /> 

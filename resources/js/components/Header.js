@@ -9,6 +9,7 @@ class Header extends React.Component {
         super(props)
         this.state = {
             userdata : [],
+            isGuest: "",
         }
         this.tryLogout = this.tryLogout.bind(this);
     }
@@ -20,7 +21,7 @@ class Header extends React.Component {
 
     render(){
         
-        return(
+        return this.props.isGuest ?(
             <div>
             <div className="mb-4">
             <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -31,6 +32,31 @@ class Header extends React.Component {
                     <span className="navbar-toggler-icon"></span>
                 </button>
 
+                
+                <div className="collapse navbar-collapse" id="nav-bar">
+                    <ul className="navbar-nav mr-auto"></ul>
+                    <ul className="navbar-nav"></ul>
+                
+                    <li className="nav-item"><a href ="#">新規登録</a></li>
+                    <li className="nav-item"><a href ="#">ログイン</a></li>
+
+                </div>
+            </nav>
+            </div>
+            </div>
+        ):
+        (
+            <div>
+            <div className="mb-4">
+            <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
+
+                <a className="navbar-brand" href="/">Webで年表</a>
+
+                <button type="button" className="navbar-toggler" data-toggle="collapse" data-target="#nav-bar">
+                    <span className="navbar-toggler-icon"></span>
+                </button>
+
+                
                 <div className="collapse navbar-collapse" id="nav-bar">
                     <ul className="navbar-nav mr-auto"></ul>
                     <ul className="navbar-nav"></ul>
@@ -45,8 +71,6 @@ class Header extends React.Component {
                             <li className="dropdown-item"><a href="#" onClick={this.tryLogout}>ログアウト</a></li>
                         </ul>
                     </li>
-
-
                 </div>
             </nav>
             </div>
