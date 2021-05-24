@@ -35,10 +35,10 @@ class Header extends React.Component {
                 
                 <div className="collapse navbar-collapse" id="nav-bar">
                     <ul className="navbar-nav mr-auto"></ul>
-                    <ul className="navbar-nav"></ul>
-                
-                    <Link to = "/signup"><li className="nav-item"><a href ="#">新規登録</a></li></Link>
-                    <Link to = "/login"><li className="nav-item"><a href ="#">ログイン</a></li></Link>
+                    <ul className="navbar-nav">
+                       <Link to = "/signup"><li className="nav-item"><a href ="#">新規登録</a></li></Link>
+                       <Link to = "/login"><li className="nav-item"><a href ="#">ログイン</a></li></Link>
+                    </ul>
 
                 </div>
             </nav>
@@ -59,7 +59,7 @@ class Header extends React.Component {
                 
                 <div className="collapse navbar-collapse" id="nav-bar">
                     <ul className="navbar-nav mr-auto"></ul>
-                    <ul className="navbar-nav"></ul>
+                    <ul className="navbar-nav">
                 
                     <li className="nav-item dropdown">
                         <a href = "#" className="nav-link dropdown-toggle" data-toggle="dropdown">{this.props.userdata.name}</a>
@@ -71,6 +71,7 @@ class Header extends React.Component {
                             <li className="dropdown-item"><a href="#" onClick={this.tryLogout}>ログアウト</a></li>
                         </ul>
                     </li>
+                    </ul>
                 </div>
             </nav>
             </div>
