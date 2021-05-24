@@ -75,12 +75,12 @@ class UsersController extends Controller
         }
 
         $user = User::where('email', $email)->first();
-        
-                
+                        
         $pass = request()->get('password');
         $hashed_pass = $user->password;
-        if ($pass == $hashed_pass){
-        //if (Hash::check($pass, $hashed_pass)){
+
+        //if ($pass == $hashed_pass){
+        if (Hash::check($pass, $hashed_pass)){
             
             $token = Str::random(255);
             $user->token = $token;
@@ -100,7 +100,7 @@ class UsersController extends Controller
                 ])->cookie($cookie)->cookie($cookie_2);
         }
         
-        return response(['user_data' => -1,
+        return response(['user_data' => -2,
         ]);
         
     }
