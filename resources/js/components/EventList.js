@@ -14,7 +14,11 @@ class EventList extends React.Component {
             user_id: "",
         }
     }
-    
+    componentDidMount() {
+        let urlParamStr = window.location.href;
+        console.log("url is " + urlParamStr);
+    }
+
     render(){
 
         return(

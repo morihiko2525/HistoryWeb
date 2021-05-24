@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
-import {Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { GetEventsData } from './api/Api';
 
@@ -37,6 +37,7 @@ class UserPage extends React.Component {
     }
 
     render(){
+
         return(
             <div>
                 <h1>ユーザーページ</h1>
@@ -53,6 +54,7 @@ class UserPage extends React.Component {
                             this.state.history_id = history.id; //選んだhistoryのIDを代入
                             this.props.setHistory(history);  //App.jsにhistoryテーブルのデータをまるごと格納
                             this.tryToGetEventsData(); //データ取得処理
+                            window.history.pushState(null, null, '/history_view/' + history.id);
                         }
                     }><a href = "#" >{history.name}</a></h1></Link>
 
