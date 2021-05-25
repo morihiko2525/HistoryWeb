@@ -89,8 +89,8 @@ class History_Edit extends React.Component {
 
 
                 <Modal_CreateEvent
-                history_id={this.props.historydata.id}
-                getEventsData={this.getEventsData}
+                    history_id={this.props.historydata.id}
+                    getEventsData={this.getEventsData}
                 />
                 
                 <p>年表タイトル: {this.props.historydata.name}</p>

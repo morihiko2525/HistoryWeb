@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import {useParams,Link, useHistory} from 'react-router-dom';
+import YearColumn from './YearColumn';
 
 class EventList extends React.Component {
 
@@ -17,6 +18,8 @@ class EventList extends React.Component {
             isInPageAccess: "",
             isOnceChanged: "",
         }
+
+        this.setPreviousYear = this.setPreviousYear.bind(this);
     }
     componentDidMount() {
         if(this.props.isInPageAccess){
@@ -64,9 +67,12 @@ class EventList extends React.Component {
                 console.log('通信に失敗しました');
             });
     }
+    
+    setPreviousYear(year){
+        this.setState({previous_year: year});
+    }
 
     render(){
-
         return !this.state.isOnceChanged?(
             <div className="container">
                 <Link to="/history_edit"><a href ="#">編集する</a></Link>
@@ -75,7 +81,11 @@ class EventList extends React.Component {
                 <React.Fragment>
                     {this.props.events.map(event =>
                         <React.Fragment>                    
-                        <div className = "year-column">{event.year}年</div>
+                        <YearColumn
+                            setPreviousYear = {this.setPreviousYear.bind(this)}
+                            previous_year = {this.state.previous_year}
+                            current_year = {event.year}
+                        />
 
                         <div className = "event clearfix">                   
                             <p className = "event-date">{event.month}月{event.day}日</p>
@@ -102,7 +112,11 @@ class EventList extends React.Component {
                 <React.Fragment>
                     {this.state._events.map(event =>
                         <React.Fragment>                    
-                        <div className = "year-column">{event.year}年</div>
+                        <YearColumn
+                            setPreviousYear = {this.setPreviousYear.bind(this)}
+                            previous_year = {this.state.previous_year}
+                            current_year = {event.year}
+                        />
 
                         <div className = "event clearfix">                   
                             <p className = "event-date">{event.month}月{event.day}日</p>
