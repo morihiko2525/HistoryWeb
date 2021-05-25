@@ -35,6 +35,7 @@ class App extends React.Component{
             'historyID':"",
             'eventsdata':[],
             'isLoading': false,
+            'isInPageAccess': false,
         };
         
         this.setIsGuest = this.setIsGuest.bind(this);
@@ -42,6 +43,7 @@ class App extends React.Component{
         this.setUserData = this.setUserData.bind(this)
         this.setEventsData = this.setEventsData.bind(this);
         this.setIsLoading = this.setIsLoading.bind(this);
+        this.setIsInPageAccess = this.setIsInPageAccess.bind(this);
     }
 
     setLoading(){
@@ -88,6 +90,10 @@ class App extends React.Component{
         this.setState({isLoading: b});
     }
 
+    setIsInPageAccess(b){
+        this.setState({isInPageAccess:b});
+    }
+
     componentDidMount(){
         if(Cookies.get('loggedin') != null){
             Api_LoginWithToken(this.setIsGuest);
@@ -110,11 +116,11 @@ class App extends React.Component{
                 <Switch>
                     <Route path="/" exact component={Top} /> 
                     <Route path="/about" component={About} />
-                    <Route path="/eventlist" render={(routeProps)=> <EventList historydata={this.state.historydata} user_id={this.state.user_data.id} events = {this.state.eventsdata} {...routeProps} />} />
+                    <Route path="/eventlist" render={(routeProps)=> <EventList historydata={this.state.historydata} user_id={this.state.user_data.id} events = {this.state.eventsdata} isInPageAccess = {this.state.isInPageAccess}{...routeProps} />} />
                     <Route path="/create"  render={(routeProps)=> <CreateHistory userdata={this.state.user_data} setHistoryID={this.setHistoryID.bind(this)}{...routeProps} />}  />
                     <Route path="/login" render={(routeProps)=> <Login setIsGuest={this.setIsGuest} isGuest={this.state.guest} {...routeProps} />} />
                     <Route path="/signup" render={(routeProps)=> <Signup setIsGuest={this.setIsGuest} isGuest={this.state.guest} {...routeProps} />} />
-                    <Route path="/userpage" render={(routeProps)=> <UserPage userdata={this.state.user_data} testvalue={this.state.value} setHistory={this.setHistory.bind(this)} setEventsData={this.setEventsData} setIsLoading={this.setIsLoading.bind(this)} {...routeProps} />} />
+                    <Route path="/userpage" render={(routeProps)=> <UserPage userdata={this.state.user_data} testvalue={this.state.value} setHistory={this.setHistory.bind(this)} setEventsData={this.setEventsData} setIsLoading={this.setIsLoading.bind(this)} setIsInPageAccess={this.setIsInPageAccess.bind(this)} {...routeProps} />} />
                     <Route path="/history_edit" render={(routeProps)=> <History_Edit historydata={this.state.historydata} user_id={this.state.user_data.id} events = {this.state.eventsdata}{...routeProps} />} />
                 </Switch>
             </React.Fragment>

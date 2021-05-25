@@ -18,7 +18,7 @@ class EventList extends React.Component {
         }
     }
     componentDidMount() {
-        if(this.state.isInPageAccess){
+        if(this.props.isInPageAccess){
             history.pushState(null, null, '/history_view/' + this.props.historydata.id);
         }else{        
             let urlParamStr = window.location.pathname;
