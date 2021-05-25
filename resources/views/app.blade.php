@@ -30,6 +30,7 @@
     <script type="text/javascript" src="{{ asset('js/jQuery.js') }}"></script>
 
     <script type="text/javascript" src="{{ asset('js/modal.js') }}"></script>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 
 </head>
 <body>

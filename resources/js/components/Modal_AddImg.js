@@ -24,19 +24,8 @@ class Modal_AddImg extends React.Component {
         super(props,context)
         this.state = {
             selectEventID:"",
-            eventName: "",
-            eventDesc: "",
-            eventYear: "",
-            eventMonth: "",
-            eventDay: "",
-            history_id: "",
             isOpen: false,
-            showEditModal: false,
-            u_eventName: "",
-            u_eventDesc: "",
-            u_eventYear: "",
-            u_eventMonth: "",
-            u_eventDay: "",
+            showImgModal: false,
         }
         this.closeModal = this.closeModal.bind(this);
     }
@@ -47,11 +36,6 @@ class Modal_AddImg extends React.Component {
         console.log("Modal open");
         console.log(this.state.isOpen);
         console.log(this.props.selectEvent);
-    }
- 
- 
-    afterOpenModal() {        
-        //subtitle.style.color = '#3ab60b';
     }
  
     closeModal(){
@@ -89,10 +73,10 @@ class Modal_AddImg extends React.Component {
     }
 
     render(){
-    return this.props.showEditModal?
+    return this.props.showImgModal?
     (
         <Modal
-          isOpen={this.props.showEditModal}
+          isOpen={this.props.showImgModal}
           //onAfterOpen={afterOpenModal}
           onRequestClose={ ()=>this.closeModal()}
           style={customStyles}

@@ -3,6 +3,7 @@ import axios from 'axios';
 import {Link} from 'react-router-dom';
 import Modal_CreateEvent from './Modal_CreateEvent';
 import Modal_EditEvent from './Modal_EditEvent';
+import Modal_AddImg from './Modal_AddImg';
 import EditModal from './Modal_CreateEvent';
 import { Modal } from 'react-bootstrap';
 import { GetEventsData } from './api/Api';
@@ -17,6 +18,7 @@ class History_Edit extends React.Component {
             previous_year: "",
             historydata:[],
             showEditModal: false,
+            showImgModal: false,
             isOnceChanged: false,
             selectEvent:[],
         }
@@ -48,6 +50,11 @@ class History_Edit extends React.Component {
         this.setState({showEditModal: b});
         console.log("state is :" + this.state.showEditModal);
         console.log(this.state.selectEvent);
+    }
+
+    setShowImgModal(b){
+        this.setState({showImgModal: b});
+        console.log("state is :" + this.state.showImgModal);
     }
 
     //イベントを再取得する処理
@@ -92,9 +99,13 @@ class History_Edit extends React.Component {
                     history_id={this.props.historydata.id}
                     getEventsData={this.getEventsData}
                 />
+
+                <Modal_AddImg
+                showImgModal = {this.state.showImgModal}
+                />
                 
                 <h1>「{this.props.historydata.name}」</h1>
-                
+
                 <React.Fragment>
                     
                     {this.state.isOnceChanged ?
@@ -108,7 +119,9 @@ class History_Edit extends React.Component {
                             <div className = "event clearfix">                   
                                 <p className = "event-date">{event.month}月{event.day}日</p>
             
-                                <div className = "event-image"></div>
+                                <div className = "event-image" onClick={()=>{
+                                    console.log("img clicked!");
+                                }}></div>
             
                                 <div className = "event-content">
                                     <a href = "#" onClick = { ()=>{
@@ -135,7 +148,11 @@ class History_Edit extends React.Component {
                                 <div className = "event clearfix">                   
                                     <p className = "event-date">{event.month}月{event.day}日</p>
                 
-                                    <div className = "event-image"></div>
+                                    <div className = "event-image" onClick={()=>{
+                                        console.log("img clicked!");
+                                        this.setState({selectEvent:event})
+                                        this.setShowImgModal(true);
+                                        }}></div>
                 
                                     <div className = "event-content">
                                         <a href = "#" onClick = { ()=>{
