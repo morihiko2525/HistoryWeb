@@ -69,15 +69,15 @@ class EventList extends React.Component {
     }
     
     setPreviousYear(year){
-        this.setState({previous_year: year});
+        //this.setState({previous_year: year});
     }
 
     render(){
         return !this.state.isOnceChanged?(
             <div className="container">
                 <Link to="/history_edit"><a href ="#">編集する</a></Link>
-                <h1>{this.props.historydata.name}</h1>
-                <p>historyID : {this.props.historydata.id}</p>
+                <h1>「{this.props.historydata.name}」</h1>
+
                 <React.Fragment>
                     {this.props.events.map(event =>
                         <React.Fragment>                    
@@ -107,8 +107,8 @@ class EventList extends React.Component {
             //URLダイレクト接続の処理
             <div className="container">
                 <Link to="/history_edit"><a href ="#">編集する</a></Link>
-                <h1>{this.state._historydata.name}</h1>
-                <p>historyID : {this.state._historydata.id}</p>
+                <h1>「{this.props.historydata.name}」</h1>
+
                 <React.Fragment>
                     {this.state._events.map(event =>
                         <React.Fragment>                    

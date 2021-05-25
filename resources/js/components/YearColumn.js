@@ -13,7 +13,7 @@ class YearColumn extends React.Component {
     }
 
     render(){
-        //this.props.setPreviousYear(this.props.previous_year);
+        this.props.setPreviousYear(this.props.previous_year);
         return this.props.previous_year === this.props.current_year?(
             //前回の年と今回の年が一緒だったら->何も描画しない
                 <div></div>

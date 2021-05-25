@@ -93,8 +93,8 @@ class History_Edit extends React.Component {
                     getEventsData={this.getEventsData}
                 />
                 
-                <p>年表タイトル: {this.props.historydata.name}</p>
-                <p>historyID : {this.props.historydata.id}</p>
+                <h1>「{this.props.historydata.name}」</h1>
+                
                 <React.Fragment>
                     
                     {this.state.isOnceChanged ?
