@@ -49,7 +49,7 @@ class UserPage extends React.Component {
                     //<h1 onClick={this.props.history.push({pathname: "/eventlist", state: {historydata: this.state.histories}})}><a href = "#" >{history.name}</a></h1>
                     
 
-                    <Link to = {{pathname: "/eventlist" , state: {historydata: this.state.histories}}}><h1 onClick = {() => 
+                    <Link to = {{pathname: "/history_view" , state: {historydata: this.state.histories}}}><h1 onClick = {() => 
                         {
                             this.state.history_id = history.id; //選んだhistoryのIDを代入
                             this.props.setHistory(history);  //App.jsにhistoryテーブルのデータをまるごと格納

@@ -81,7 +81,6 @@ class EventList extends React.Component {
                 <Link to="/history_edit"><a href ="#">編集する</a></Link>
                 <h1>{this.props.historydata.name}</h1>
                 <p>historyID : {this.props.historydata.id}</p>
-                <p>ダイレクト</p>
                 <React.Fragment>
                     {this.state._events.map(event =>
                         <React.Fragment>                    
