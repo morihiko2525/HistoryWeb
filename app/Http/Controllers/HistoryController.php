@@ -42,6 +42,14 @@ class HistoryController extends Controller
 
     }
 
+    public function getHistoryData($id){
+        $history = History::findOrFail($id);
+
+        return response([
+            'historydata' => $history
+        ]);
+    }
+
     public function create()
     {
          $histories = new History;

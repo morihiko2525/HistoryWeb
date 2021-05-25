@@ -10,6 +10,7 @@ class EventList extends React.Component {
             events : [],
             previous_year: "",
             historydata:[],
+            _historydata:[],
             events: [],
             _events: [],
             user_id: "",
@@ -26,6 +27,7 @@ class EventList extends React.Component {
             let data = urlParamStr.split('/');
             let id = data[2];
             console.log(id); //これがIDになる
+            this.getHistoryData(id);
             this.getEventsData(id); //再描画処理
         }
     }
@@ -41,6 +43,21 @@ class EventList extends React.Component {
             //console.log(events)
             console.log("再取得完了");
             this.setState({isOnceChanged: true});
+            })
+            .catch(err => {
+                console.log(err);
+                console.log('通信に失敗しました');
+            });
+    }
+
+    getHistoryData(_id){
+        axios
+        .get('/api/getHistoryData/'+ _id)
+        .then(response => {
+            console.log("通信に成功しました")
+            console.log(response.data);
+            this.setState({_historydata: response.data.historydata});
+            console.log("年表データの再取得完了");
             })
             .catch(err => {
                 console.log(err);
@@ -77,10 +94,11 @@ class EventList extends React.Component {
                 </React.Fragment>
             </div>
         ):(
+            //URLダイレクト接続の処理
             <div className="container">
                 <Link to="/history_edit"><a href ="#">編集する</a></Link>
-                <h1>{this.props.historydata.name}</h1>
-                <p>historyID : {this.props.historydata.id}</p>
+                <h1>{this.state._historydata.name}</h1>
+                <p>historyID : {this.state._historydata.id}</p>
                 <React.Fragment>
                     {this.state._events.map(event =>
                         <React.Fragment>                    

@@ -43,6 +43,8 @@ Route::post("/history/create",[HistoryController::class, 'store']);
 
 Route::get("/getMyHistories/{id}",[HistoryController::class, 'getMyHistories']);
 
+Route::get("/getHistoryData/{id}",[HistoryController::class, 'getHistoryData']);
+
 Route::get("/getAllHistories",[HistoryController::class, 'getAllHistories']);
 
 
