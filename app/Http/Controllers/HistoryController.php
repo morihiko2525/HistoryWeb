@@ -62,7 +62,7 @@ class HistoryController extends Controller
         $histories->save();
         
         return response([
-            'history_id' => $histories->id,
+            'histories' => $histories,
         ]);
         
     }

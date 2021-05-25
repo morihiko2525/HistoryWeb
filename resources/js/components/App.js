@@ -120,7 +120,8 @@ class App extends React.Component{
 
                     <Route path="/create"  render={(routeProps)=>
                     <CreateHistory userdata={this.state.user_data}
-                    setHistoryID={this.setHistoryID.bind(this)}
+                    setHistory={this.setHistory.bind(this)}
+                    setIsInPageAccess={this.setIsInPageAccess.bind(this)}
                     {...routeProps} />}  />
 
                     <Route path="/history_view" render={(routeProps)=>

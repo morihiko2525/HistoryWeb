@@ -43,7 +43,7 @@ class CreateHistory extends React.Component {
                                 onChange={e => this.setState({description :e.target.value})}>
                             </textarea>
                         </div>
-                            <Link to ="/eventlist">
+                            <Link to ="/history_view">
                             <button className="btn btn-primary"       
                                 onClick= {()=>{
                                     this.postForm();
@@ -63,8 +63,10 @@ class CreateHistory extends React.Component {
         axios.post('/api/history/create', { 'name': this.state.name, 'description': this.state.description, 'user_id': this.props.userdata.id})
             .then(res => {
                 console.log("Created new History!");
-                console.log(res.data.history_id);
-                //this.props.setHistoryID(res.data.history_id);
+                console.log(res.data);
+                console.log("new history id is : " + res.data.histories.id);
+                this.props.setHistory(res.data.histories)
+                this.props.setIsInPageAccess(true);
       })
     }
 }
