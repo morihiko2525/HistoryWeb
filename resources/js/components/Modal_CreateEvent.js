@@ -59,7 +59,7 @@ const customStyles = {
       this.setState({eventMonth: ""});
       this.setState({eventDay: ""});
     }
-    
+
     postForm(){
         axios.post('/api/event/add', { 'name': this.state.eventName, 'description': this.state.eventDesc, 'year': this.state.eventYear, 'month': this.state.eventMonth, 'day': this.state.eventDay, 'history_id': this.props.history_id})
             .then(res => {
@@ -96,13 +96,14 @@ const customStyles = {
           ></input>
           
           <label>説明</label>
-          <input
+          <textarea
+          rows="3"
           type = "text"
           id = "description"
           className = "form-control"
           value={this.state.eventDesc}
           onChange={e=>this.setState({eventDesc: e.target.value})}
-          ></input>
+          ></textarea>
 
           <label>年</label>
           <input

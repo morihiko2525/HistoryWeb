@@ -124,13 +124,14 @@ class Modal_EditEvent extends React.Component {
           ></input>
           
           <label>説明</label>
-          <input
+          <textarea
+          rows="3"
           type = "text"
           id = "description"
           className = "form-control"
           defaultValue={this.props.eventDesc}
           onChange={e=>this.setState({u_eventDesc: e.target.value})}
-          ></input>
+          ></textarea>
 
           <label>年</label>
           <input
