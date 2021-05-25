@@ -80,7 +80,7 @@ class EventList extends React.Component {
             <div className="container">
                 <Link to="/history_edit"><a href ="#">編集する</a></Link>
                 <h1>「{this.props.historydata.name}」</h1>
-
+                <p>{this.props.historydata.description}</p>
                 <React.Fragment>
                     {this.props.events.map(event =>
                         <React.Fragment>                    

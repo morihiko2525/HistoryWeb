@@ -32,7 +32,7 @@ class CreateHistory extends React.Component {
                                 
                             </input>
                         </div>
-                        {this.state.name}
+
                         <div className="form-group">
                             <label>説明</label>
                             <textarea

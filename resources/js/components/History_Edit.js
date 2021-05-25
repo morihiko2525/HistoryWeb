@@ -83,6 +83,8 @@ class History_Edit extends React.Component {
             
             <div className="container">
                 <h1>「{this.props.historydata.name}」</h1>
+                <p>{this.props.historydata.description}</p>
+
                 <Modal_EditEvent 
                 showEditModal = {this.state.showEditModal}
                 setFalse={() => this.setShowEditModal(false)}

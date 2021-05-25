@@ -62,7 +62,7 @@ class Modal_EditEvent extends React.Component {
     }
     
     postForm(){
-        this.checkChange()
+        //this.checkChange()
         axios.post('/api/event/update', { 
             'id': this.props.selectEventID,
             'name': this.state.u_eventName,

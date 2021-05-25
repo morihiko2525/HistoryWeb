@@ -52,6 +52,14 @@ const customStyles = {
         console.log(this.state.isOpen);
     }
 
+    clearForm(){
+      this.setState({eventName: ""});
+      this.setState({eventDesc: ""});
+      this.setState({eventYear: ""});
+      this.setState({eventMonth: ""});
+      this.setState({eventDay: ""});
+    }
+    
     postForm(){
         axios.post('/api/event/add', { 'name': this.state.eventName, 'description': this.state.eventDesc, 'year': this.state.eventYear, 'month': this.state.eventMonth, 'day': this.state.eventDay, 'history_id': this.props.history_id})
             .then(res => {
@@ -59,6 +67,7 @@ const customStyles = {
       })
       this.props.getEventsData(); //再描画処理
       this.closeModal(); //モーダルを閉じる処理
+      this.clearForm();
     }
 
     render(){
