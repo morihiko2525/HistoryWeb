@@ -128,6 +128,7 @@ class App extends React.Component{
                          <EventList historydata={this.state.historydata}
                          user_id={this.state.user_data.id}
                          events = {this.state.eventsdata}
+                         setHistory={this.setHistory.bind(this)}
                          isInPageAccess = {this.state.isInPageAccess}
                          {...routeProps} />} />
 

@@ -53,6 +53,7 @@ class EventList extends React.Component {
             });
     }
 
+    //年表データを再取得する処理
     getHistoryData(_id){
         axios
         .get('/api/getHistoryData/'+ _id)
@@ -61,6 +62,7 @@ class EventList extends React.Component {
             console.log(response.data);
             this.setState({_historydata: response.data.historydata});
             console.log("年表データの再取得完了");
+            this.props.setHistory(this.state._historydata);
             })
             .catch(err => {
                 console.log(err);
@@ -107,7 +109,7 @@ class EventList extends React.Component {
             //URLダイレクト接続の処理
             <div className="container">
                 <Link to="/history_edit"><a href ="#">編集する</a></Link>
-                <h1>「{this.props.historydata.name}」</h1>
+                <h1>「{this.state._historydata.name}」</h1>
 
                 <React.Fragment>
                     {this.state._events.map(event =>
