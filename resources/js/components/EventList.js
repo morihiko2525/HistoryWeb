@@ -46,6 +46,7 @@ class EventList extends React.Component {
             //console.log(events)
             console.log("再取得完了");
             this.setState({isOnceChanged: true});
+            this.props.setEventsData(this.state._events);
             })
             .catch(err => {
                 console.log(err);

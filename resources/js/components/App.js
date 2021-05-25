@@ -129,6 +129,7 @@ class App extends React.Component{
                          user_id={this.state.user_data.id}
                          events = {this.state.eventsdata}
                          setHistory={this.setHistory.bind(this)}
+                         setEventsData={this.setEventsData}
                          isInPageAccess = {this.state.isInPageAccess}
                          {...routeProps} />} />
 
