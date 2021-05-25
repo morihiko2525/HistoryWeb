@@ -37,6 +37,8 @@ Route::post("/event/add",[EventController::class, 'addEvent']);
 
 Route::post("/event/update",[EventController::class, 'updateEvent']);
 
+Route::post("/event/delete", [EventController::class, 'deleteEvent']);
+
 Route::post("/history/create",[HistoryController::class, 'store']);
 
 Route::get("/getMyHistories/{id}",[HistoryController::class, 'getMyHistories']);

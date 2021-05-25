@@ -79,6 +79,19 @@ class Modal_EditEvent extends React.Component {
       this.props.getEventsData(); //再描画処理
     }
 
+    deleteEvent(){
+        this.checkChange()
+        axios.post('/api/event/delete', { 
+            'id': this.props.selectEventID,
+            //本来ここにtokenを含めるべき。後々実装。       
+        })
+            .then(res => {
+                console.log(res);
+      })
+      this.closeModal()
+      this.props.getEventsData(); //再描画処理
+    }
+
     checkChange()
     {
         if(!this.props.u_eventDesc){
@@ -150,7 +163,7 @@ class Modal_EditEvent extends React.Component {
           <div className = "btn-group">
             <Button variant="success" onClick={ ()=>this.closeModal()}>close</Button>
             <Button className= "btn-success" onClick={ ()=> this.postForm()}>完了</Button>
-            <Button className= "btn-danger" onClick={ ()=> this.postForm()}>削除</Button>
+            <Button className= "btn-danger" onClick={ ()=> this.deleteEvent()}>削除</Button>
           </div>
           </form>
         </Modal>

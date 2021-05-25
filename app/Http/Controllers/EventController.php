@@ -110,12 +110,10 @@ class EventController extends Controller
 
     }
     
-    public function destroy(Request $request){
+    public function deleteEvent(Request $request){
         $events = Event::findOrFail($request->id);
         
         $events->delete();
-
-        return back();
     }
 
     public function getAllEvents(Request $request){
