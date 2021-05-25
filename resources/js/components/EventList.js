@@ -12,6 +12,7 @@ class EventList extends React.Component {
             previous_year: "",
             historydata:[],
             _historydata:[],
+            history_userid:"",
             events: [],
             _events: [],
             user_id: "",
@@ -24,6 +25,8 @@ class EventList extends React.Component {
     componentDidMount() {
         if(this.props.isInPageAccess){
             history.pushState(null, null, '/history_view/' + this.props.historydata.id);
+            this.setState({history_userid: this.props.historydata.user_id});
+
         }else{        
             let urlParamStr = window.location.pathname;
             console.log("url is " + urlParamStr);
@@ -64,6 +67,7 @@ class EventList extends React.Component {
             this.setState({_historydata: response.data.historydata});
             console.log("年表データの再取得完了");
             this.props.setHistory(this.state._historydata);
+            this.setState({history_userid: this.state._historydata.user_id});
             })
             .catch(err => {
                 console.log(err);
@@ -75,10 +79,26 @@ class EventList extends React.Component {
         //this.setState({previous_year: year});
     }
 
+    checkPermission(){
+        if(this.props.user_id === this.state.history_userid){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
     render(){
         return !this.state.isOnceChanged?(
             <div className="container">
-                <Link to="/history_edit"><a href ="#">編集する</a></Link>
+                {this.checkPermission()?(
+                    //自分に権限があるとき
+                    <Link to="/history_edit"><a href ="#">編集する</a></Link>
+                ):(
+                    //自分に権限がないとき
+                    <div></div> 
+                )
+                }
+
                 <h1>「{this.props.historydata.name}」</h1>
                 <p>{this.props.historydata.description}</p>
                 <React.Fragment>
@@ -109,7 +129,14 @@ class EventList extends React.Component {
         ):(
             //URLダイレクト接続の処理
             <div className="container">
-                <Link to="/history_edit"><a href ="#">編集する</a></Link>
+                {this.checkPermission()?(
+                    //自分に権限があるとき
+                    <Link to="/history_edit"><a href ="#">編集する</a></Link>
+                ):(
+                    //自分に権限がないとき
+                    <div></div> 
+                )
+                }
                 <h1>「{this.state._historydata.name}」</h1>
 
                 <React.Fragment>
