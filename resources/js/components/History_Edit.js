@@ -101,6 +101,7 @@ class History_Edit extends React.Component {
                 />
 
                 <Modal_AddImg
+                setFalse={() => this.setShowImgModal(false)}
                 showImgModal = {this.state.showImgModal}
                 />
                 

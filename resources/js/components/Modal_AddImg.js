@@ -82,7 +82,7 @@ class Modal_AddImg extends React.Component {
           style={customStyles}
           contentLabel="Example Modal"
         >
-          <h2>イベントを編集</h2>
+          <h2>画像を追加</h2>
           <form>
 
           <label>イベント名</label>
