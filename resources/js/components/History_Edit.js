@@ -79,9 +79,10 @@ class History_Edit extends React.Component {
 
     render(){
         return(
-                          
+            
             
             <div className="container">
+                <h1>「{this.props.historydata.name}」</h1>
                 <Modal_EditEvent 
                 showEditModal = {this.state.showEditModal}
                 setFalse={() => this.setShowEditModal(false)}
@@ -105,7 +106,6 @@ class History_Edit extends React.Component {
                 showImgModal = {this.state.showImgModal}
                 />
                 
-                <h1>「{this.props.historydata.name}」</h1>
 
                 <React.Fragment>
                     

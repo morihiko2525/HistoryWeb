@@ -42,7 +42,7 @@ class UserPage extends React.Component {
             <div>
                 <h1>ユーザーページ</h1>
 
-                <h2>自分の年表一覧</h2>
+                <h1>自分の年表一覧</h1>
                 {this.state.histories.map(history =>
                     
                     //<Link to = {{pathname: "/eventlist" , state: {historydata: this.state.histories}}}><h1><a href = "#" >{history.name}</a></h1></Link>
