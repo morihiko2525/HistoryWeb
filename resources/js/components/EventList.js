@@ -80,6 +80,7 @@ class EventList extends React.Component {
         //this.setState({previous_year: year});
     }
 
+    //権限のチェック処理
     checkPermission(){
         if(this.props.user_id === this.state.history_userid){
             return true;
@@ -101,7 +102,7 @@ class EventList extends React.Component {
 
                 <h1>「{this.props.historydata.name}」</h1>
                 <p>{this.props.historydata.description}</p>
-                
+
                 <React.Fragment>
                     {this.props.events.map(event =>
                         <React.Fragment>                    

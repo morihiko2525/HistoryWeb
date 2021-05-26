@@ -22,6 +22,7 @@ class History_Edit extends React.Component {
             isOnceChanged: false,
             selectEvent: [],
             showTitleEdit: false,
+            history_name: "",
             u_history_name: "",
         }
         //this.setShowEditModal = this.setShowEditModal.bind(this);
@@ -45,6 +46,7 @@ class History_Edit extends React.Component {
             console.log(err);
             console.log('通信に失敗しました');
         });
+        this.setState({history_name: this.props.historydata.name});
     }
 
     //OnClickでは関数しか呼べないため、stateを変更するための関数を作成した
@@ -79,6 +81,7 @@ class History_Edit extends React.Component {
             });
     }
 
+    //年表タイトル変更処理
     changeHistoryName(){
         axios.post('/api/history/update/name', { 
             'id': this.props.historydata.id,
@@ -86,6 +89,7 @@ class History_Edit extends React.Component {
         })
             .then(res => {
                 console.log(res);
+                this.setState({history_name: this.state.u_history_name});
         })
     }
 
@@ -96,39 +100,39 @@ class History_Edit extends React.Component {
                 {this.state.showTitleEdit?
                 (
                 //タイトル編集処理
-                <div className =  "mx-auto">
-                    <div className="input-group input-group-lg col-md-8">
-                        <input
-                            type="text"
-                            className="form-control"
-                            defaultValue={this.props.historydata.name} 
-                            onChange={e=>this.setState({u_history_name: e.target.value})}         
-                        ></input>
-                        <div className="input-group-append">
-                            <button
-                                className="btn btn-outline-secondary"
-                                type="button"
-                                id="button-addon2"
-                                onClick={()=>{
-                                    this.setState({showTitleEdit:false})
-                                    this.changeHistoryName();
-                                }}
-                            >決定</button>
+                    <div className =  "mx-auto">
+                        <div className="input-group input-group-lg col-md-8">
+                            <input
+                                type="text"
+                                className="form-control"
+                                defaultValue={this.state.history_name} 
+                                onChange={e=>this.setState({u_history_name: e.target.value})}         
+                            ></input>
+                            <div className="input-group-append">
+                                <button
+                                    className="btn btn-outline-secondary"
+                                    type="button"
+                                    id="button-addon2"
+                                    onClick={()=>{
+                                        this.setState({showTitleEdit:false})
+                                        this.changeHistoryName();
+                                    }}
+                                >決定</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            ):
-            (
-                <div>
-                <a href = "#" onClick={()=>{
-                        this.setState({showTitleEdit:true})
-                        }}>
-                            <h1>「{this.props.historydata.name}」</h1></a>                    
-                </div>
-            )}
+                ):
+                (
+                    <div>
+                    <a href = "#" onClick={()=>{
+                            this.setState({showTitleEdit:true})
+                            }}>
+                                <h1>「{this.state.history_name}」</h1></a>                    
+                    </div>
+                )}
 
                 <p>{this.props.historydata.description}</p>
-                
+
                 <Modal_EditEvent 
                 showEditModal = {this.state.showEditModal}
                 setFalse={() => this.setShowEditModal(false)}
