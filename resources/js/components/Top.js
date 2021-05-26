@@ -30,7 +30,7 @@ class Header extends React.Component {
                             <div className = "ht-sumnail">
                                 <img src = "https://riverwalk.co.jp/app/wp-content/uploads/2019/03/20190318-saizeriya_logo.jpg" width = "200px" height = "200px"></img>
                             </div>
-                            <a href="/history_view/4"></a>
+                            <a href="/history_view/56"></a>
                             <p className = "ht-title">サイゼリヤ年表</p>
                             <p>ここは年表説明欄です。サイゼリヤの年表を作りたいと思っています。</p>
                         </div>
@@ -41,7 +41,7 @@ class Header extends React.Component {
                             <div className = "ht-sumnail">
                                 <img src = "https://pbs.twimg.com/profile_images/2579542348/l2b371d8r57tu6m4wu7i_400x400.jpeg" width = "200px" height = "200px"></img>
                             </div>
-                            <a href="https://www.google.co.jp"></a>
+                            <a href="/history_view/57"></a>
                             <p className = "ht-title">孫正義の人生</p>
                             <p>ここは年表説明欄です。サイゼリヤの年表を作りたいと思っています。</p>
                         </div>

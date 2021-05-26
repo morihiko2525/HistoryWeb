@@ -62,7 +62,7 @@ class Modal_EditEvent extends React.Component {
     }
     
     postForm(){
-        //this.checkChange()
+        this.clearForm();
         axios.post('/api/event/update', { 
             'id': this.props.selectEventID,
             'name': this.state.u_eventName,
@@ -101,6 +101,20 @@ class Modal_EditEvent extends React.Component {
         }
     }
 
+    clearForm(){
+        this.setState({eventName: ""});
+        this.setState({eventDesc: ""});
+        this.setState({eventYear: ""});
+        this.setState({eventMonth: ""});
+        this.setState({eventDay: ""});
+        this.setState({u_eventName: ""});
+        this.setState({u_eventDesc: ""});
+        this.setState({u_eventYear: ""});
+        this.setState({u_eventMonth: ""});
+        this.setState({u_eventDay: ""});
+      }
+
+      
     render(){
     return this.props.showEditModal?
     (
