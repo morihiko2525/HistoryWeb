@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import {useParams,Link, useHistory} from 'react-router-dom';
+import { useFileUpload } from "use-file-upload";
 import YearColumn from './YearColumn';
 
 class EventList extends React.Component {
@@ -96,8 +97,7 @@ class EventList extends React.Component {
                 ):(
                     //自分に権限がないとき
                     <div></div> 
-                )
-                }
+                )}
 
                 <h1>「{this.props.historydata.name}」</h1>
                 <p>{this.props.historydata.description}</p>
@@ -135,8 +135,7 @@ class EventList extends React.Component {
                 ):(
                     //自分に権限がないとき
                     <div></div> 
-                )
-                }
+                )}
                 <h1>「{this.state._historydata.name}」</h1>
 
                 <React.Fragment>

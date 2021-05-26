@@ -20,7 +20,8 @@ class History_Edit extends React.Component {
             showEditModal: false,
             showImgModal: false,
             isOnceChanged: false,
-            selectEvent:[],
+            selectEvent: [],
+            showTitleEdit: false,
         }
         //this.setShowEditModal = this.setShowEditModal.bind(this);
         this.getEventsData = this.getEventsData.bind(this); //これがないとsetStateがundefinedになる
@@ -82,9 +83,36 @@ class History_Edit extends React.Component {
             
             
             <div className="container">
-                <h1>「{this.props.historydata.name}」</h1>
-                <p>{this.props.historydata.description}</p>
+                {this.state.showTitleEdit?
+            (
+                <div>
+                    <div className="input-group input-group-lg col-md-6 center-block">
+                        <input
+                        type="text"
+                        className="form-control"
+                        defaultValue={this.props.historydata.name}            
+                        ></input>
+                        <div className="input-group-append">
+                            <button
+                            className="btn btn-outline-secondary"
+                            type="button"
+                            id="button-addon2"
+                            onClick={()=>this.setState({showTitleEdit:false})}
+                            >決定</button>
+                        </div>
+                    </div>
+                </div>
+            ):
+            (
+                <div>
+                <a href = "#" onClick={()=>{
+                        this.setState({showTitleEdit:true})
+                        }}>
+                            <h1>「{this.props.historydata.name}」</h1></a>                    
+                </div>
+            )}
 
+                <p>{this.props.historydata.description}</p>
                 <Modal_EditEvent 
                 showEditModal = {this.state.showEditModal}
                 setFalse={() => this.setShowEditModal(false)}

@@ -82,53 +82,10 @@ class Modal_AddImg extends React.Component {
           style={customStyles}
           contentLabel="Example Modal"
         >
-          <h2>画像を追加</h2>
+          <h2>画像を追加する</h2>
           <form>
 
-          <label>イベント名</label>
-          <input
-          type = "text"
-          id = "name"
-          className = "form-control"
-          defaultValue={this.props.eventName}
-          onChange={e=>this.setState({u_eventName: e.target.value})}
-          ></input>
-          
-          <label>説明</label>
-          <input
-          type = "text"
-          id = "description"
-          className = "form-control"
-          defaultValue={this.props.eventDesc}
-          onChange={e=>this.setState({u_eventDesc: e.target.value})}
-          ></input>
-
-          <label>年</label>
-          <input
-          type = "text"
-          id = "year"
-          className = "form-control"
-          defaultValue={this.props.eventYear}
-          onChange={e=>this.setState({u_eventYear: e.target.value})}
-          ></input>
-          
-          <label>月</label>
-          <input
-          type = "text"
-          id = "month"
-          className = "form-control"
-          defaultValue={this.props.eventMonth}
-          onChange={e=>this.setState({u_eventMonth: e.target.value})}
-          ></input>
-          
-          <label>日</label>
-          <input
-          type = "text"
-          id = "day"
-          className = "form-control"
-          defaultValue={this.props.eventDay}
-          onChange={e=>this.setState({u_eventDay: e.target.value})}
-          ></input>
+          <p>現在調整中</p>
 
 
           <Button variant="success" className="mr-2" onClick={ ()=>this.closeModal()}>close</Button>

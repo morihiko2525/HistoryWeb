@@ -16,7 +16,7 @@ class Header extends React.Component {
             <div className = "top-img">
                 <p className = "title">Webで年表作成</p>
                 <p className = "subtitle">年表を作ってみませんか</p>
-                <p className = "subtitle">絶賛開発中！(Version : alpha 1.0)</p>
+                <p className = "subtitle">絶賛開発中！(Version : alpha 1.1)</p>
 
                 <div className ="button-wrapper">
                   <Link to = "/create"><a href= "#" className="button">作成する！</a></Link>
