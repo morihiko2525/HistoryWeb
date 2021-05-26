@@ -101,6 +101,7 @@ class EventList extends React.Component {
 
                 <h1>「{this.props.historydata.name}」</h1>
                 <p>{this.props.historydata.description}</p>
+                
                 <React.Fragment>
                     {this.props.events.map(event =>
                         <React.Fragment>                    
@@ -137,6 +138,7 @@ class EventList extends React.Component {
                     <div></div> 
                 )}
                 <h1>「{this.state._historydata.name}」</h1>
+                <p>{this.props.historydata.description}</p>
 
                 <React.Fragment>
                     {this.state._events.map(event =>
