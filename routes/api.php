@@ -47,6 +47,7 @@ Route::get("/getHistoryData/{id}",[HistoryController::class, 'getHistoryData']);
 
 Route::get("/getAllHistories",[HistoryController::class, 'getAllHistories']);
 
+Route::post("/history/update/name",[HistoryController::class, 'updateHistoryName']);
 
 //User
 Route::post("/signup", [UsersController::class, 'signup']);

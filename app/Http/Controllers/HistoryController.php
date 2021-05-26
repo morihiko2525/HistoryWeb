@@ -74,4 +74,15 @@ class HistoryController extends Controller
         ]);
         
     }
+
+    public function updateHistoryName(Request $request){
+        
+        $history = History::findOrFail($request->id);
+        $history->name = $request->name;
+        $history->save();
+
+        return response([
+            'history' => $history,
+        ]);
+    }
 }

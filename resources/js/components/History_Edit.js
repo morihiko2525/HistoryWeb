@@ -22,6 +22,7 @@ class History_Edit extends React.Component {
             isOnceChanged: false,
             selectEvent: [],
             showTitleEdit: false,
+            u_history_name: "",
         }
         //this.setShowEditModal = this.setShowEditModal.bind(this);
         this.getEventsData = this.getEventsData.bind(this); //これがないとsetStateがundefinedになる
@@ -78,26 +79,40 @@ class History_Edit extends React.Component {
             });
     }
 
+    changeHistoryName(){
+        axios.post('/api/history/update/name', { 
+            'id': this.props.historydata.id,
+            'name': this.state.u_history_name,       
+        })
+            .then(res => {
+                console.log(res);
+        })
+    }
+
     render(){
-        return(
-            
-            
+        return(          
             <div className="container">
+                
                 {this.state.showTitleEdit?
-            (
-                <div>
-                    <div className="input-group input-group-lg col-md-6 center-block">
+                (
+                //タイトル編集処理
+                <div className =  "mx-auto">
+                    <div className="input-group input-group-lg col-md-8">
                         <input
-                        type="text"
-                        className="form-control"
-                        defaultValue={this.props.historydata.name}            
+                            type="text"
+                            className="form-control"
+                            defaultValue={this.props.historydata.name} 
+                            onChange={e=>this.setState({u_history_name: e.target.value})}         
                         ></input>
                         <div className="input-group-append">
                             <button
-                            className="btn btn-outline-secondary"
-                            type="button"
-                            id="button-addon2"
-                            onClick={()=>this.setState({showTitleEdit:false})}
+                                className="btn btn-outline-secondary"
+                                type="button"
+                                id="button-addon2"
+                                onClick={()=>{
+                                    this.setState({showTitleEdit:false})
+                                    this.changeHistoryName();
+                                }}
                             >決定</button>
                         </div>
                     </div>
