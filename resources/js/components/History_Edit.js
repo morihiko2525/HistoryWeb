@@ -83,13 +83,13 @@ class History_Edit extends React.Component {
 
     //年表タイトル変更処理
     changeHistoryName(){
+        this.setState({history_name: this.state.u_history_name});
         axios.post('/api/history/update/name', { 
             'id': this.props.historydata.id,
             'name': this.state.u_history_name,       
         })
             .then(res => {
                 console.log(res);
-                this.setState({history_name: this.state.u_history_name});
         })
     }
 
