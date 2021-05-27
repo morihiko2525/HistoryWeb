@@ -39,6 +39,7 @@ class Modal_EditEvent extends React.Component {
             u_eventDay: "",
             s_eventMonth: "",
             s_eventDay: "",
+            isRun: false,
         }
         this.closeModal = this.closeModal.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -48,12 +49,14 @@ class Modal_EditEvent extends React.Component {
     }
 
     initEditModal(){
+        if(!this.state.isRun){
+            this.state.isRun = true;
         console.log("！！！！！！！！呼び出し成功！！！！！！！！！");
         console.log("props.eventMonth is : "+this.props.eventMonth); //ここではまだundefinedになっている
-        this.state.u_eventMonth = this.props.eventMonth; //この処理をOpen時にやらなければならない
-        //this.state.u_eventDay = this.props.eventDay;
-        this.setState({u_eventDay: this.props.eventDay});
+        this.state.u_eventMonth = this.props.getSelectEventData.month; //この処理をOpen時にやらなければならない
+        this.state.u_eventDay = this.props.getSelectEventData.day; 
         console.log("init month is " + this.state.u_eventMonth);
+        }
     }
 
     //これ呼ばれていない
@@ -70,13 +73,16 @@ class Modal_EditEvent extends React.Component {
         //subtitle.style.color = '#3ab60b';
     }
  
+    //モーダルを閉じる処理
     closeModal(){
         this.setState({isOpen: false});
         this.props.setFalse();
         console.log("Modal close");
         console.log(this.state.isOpen);
+        this.state.isRun = false;
     }
     
+    //POST処理
     postForm(){
         //空チェック
         
@@ -166,7 +172,7 @@ class Modal_EditEvent extends React.Component {
         (
         <Modal
           isOpen={this.props.showEditModal}
-          //onAfterOpen={afterOpenModal}
+          onAfterOpen={this.initEditModal()}
           onRequestClose={ ()=>this.closeModal()}
           style={customStyles}
           contentLabel="Example Modal"

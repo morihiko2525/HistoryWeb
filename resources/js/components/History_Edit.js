@@ -27,6 +27,7 @@ class History_Edit extends React.Component {
         }
         //this.setShowEditModal = this.setShowEditModal.bind(this);
         this.getEventsData = this.getEventsData.bind(this); //これがないとsetStateがundefinedになる
+        this.getSelectEventData = this.getSelectEventData(this);
         this.ChildRef = React.createRef();
     }
 
@@ -97,6 +98,10 @@ class History_Edit extends React.Component {
         })
     }
 
+    getSelectEventData(){
+        return this.state.selectEvent;
+    }
+
     render(){
         return(          
             <div className="container">
@@ -147,6 +152,7 @@ class History_Edit extends React.Component {
                 eventYear={this.state.selectEvent.year}
                 eventMonth={this.state.selectEvent.month}
                 eventDay={this.state.selectEvent.day}
+                getSelectEventData={this.getSelectEventData}
                 ref={this.ChildRef}
                 />
 
