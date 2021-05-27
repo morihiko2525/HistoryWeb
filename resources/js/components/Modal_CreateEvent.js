@@ -26,8 +26,8 @@ const customStyles = {
             eventName: "",
             eventDesc: "",
             eventYear: "",
-            eventMonth: "",
-            eventDay: "",
+            eventMonth: 0,
+            eventDay: 0,
             history_id: "",
             isOpen: false,
         }
@@ -61,7 +61,23 @@ const customStyles = {
     }
 
     postForm(){
-        axios.post('/api/event/add', { 'name': this.state.eventName, 'description': this.state.eventDesc, 'year': this.state.eventYear, 'month': this.state.eventMonth, 'day': this.state.eventDay, 'history_id': this.props.history_id})
+      console.log("day is ");
+      console.log(this.state.eventDay);
+      if(this.state.eventMonth == 0){
+        this.setState({eventMonth:0});
+      }
+
+      if(this.state.eventDay == 0){
+        this.setState({eventDay:0});
+      }
+
+        axios.post('/api/event/add', { 
+          'name': this.state.eventName,
+          'description': this.state.eventDesc,
+          'year': this.state.eventYear,
+          'month': this.state.eventMonth,
+          'day': this.state.eventDay,
+          'history_id': this.props.history_id})
             .then(res => {
                 console.log(res);
       })
@@ -119,7 +135,7 @@ const customStyles = {
           type = "text"
           id = "month"
           className = "form-control"
-          value={this.state.eventMonth}
+          defaultValue = ""
           onChange={e=>this.setState({eventMonth: e.target.value})}
           ></input>
           
@@ -128,7 +144,7 @@ const customStyles = {
           type = "text"
           id = "day"
           className = "form-control"
-          value={this.state.eventDay}
+          defaultValue = ""
           onChange={e=>this.setState({eventDay: e.target.value})}
           ></input>
 

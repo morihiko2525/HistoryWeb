@@ -45,8 +45,8 @@ class EventController extends Controller
         $events->description = $request->description;
         $events->year = $request->year;
         
-        //monthもdayもnullだったら
-        if($request->month == null && $request->day == null)
+        //monthもdayも0だったら
+        if($request->month == 0 && $request->day == 0)
         {         
             $events->month = 0;
             $events->day = 0;
@@ -54,14 +54,14 @@ class EventController extends Controller
             $events->date = $request->year . '-' . 1 . '-' . 1 ;
 
         }else{
-            //全てnullでなければそのまま入れる
+            //全て0でなければそのまま入れる
             $events->month = $request->month;
             $events->day = $request->day;
             $events->date = $request->year . '-' . $request->month . '-' . $request->day ;
         }
 
         //dayのみnullだったら
-        if($request->month != null && $request->day == null)
+        if($request->month != 0 && $request->day == 0)
         {         
             $events->month = $request->month;
             $events->day = 0;
@@ -70,7 +70,7 @@ class EventController extends Controller
         }
 
         //monthのみnullでdayが入っていたら
-        if($request->month == null && $request->day != null)
+        if($request->month == 0 && $request->day != 0)
         {         
             //エラーを出す
         }
