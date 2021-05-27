@@ -61,8 +61,6 @@ const customStyles = {
     }
 
     postForm(){
-      console.log("day is ");
-      console.log(this.state.eventDay);
       if(this.state.eventMonth == 0){
         this.setState({eventMonth:0});
       }

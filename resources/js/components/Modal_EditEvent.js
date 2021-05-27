@@ -35,8 +35,8 @@ class Modal_EditEvent extends React.Component {
             u_eventName: "",
             u_eventDesc: "",
             u_eventYear: "",
-            u_eventMonth: "",
-            u_eventDay: "",
+            u_eventMonth: 0,
+            u_eventDay: 0,
         }
         this.closeModal = this.closeModal.bind(this);
     }

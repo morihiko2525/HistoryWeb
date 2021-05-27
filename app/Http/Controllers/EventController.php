@@ -85,6 +85,22 @@ class EventController extends Controller
 
         $events = Event::findOrFail($request->id);
 
+        $write_year = $events->year;
+
+        if($events->month == 0)
+        {
+            $write_month = 1;
+        }else{
+            $write_month = $events->month;
+        }
+
+        if($events->day == 0)
+        {
+            $write_day = 1;
+        }else{
+            $write_day = $events->day;
+        }
+
         if($request->name != null){
             $events->name = $request->name;
         }
@@ -93,21 +109,61 @@ class EventController extends Controller
             $events->description = $request->description;
         }
 
+        //yearが編集されていれば
         if($request->year != null){
             $events->year = $request->year;
-            $events->date = $request->year . '-' . $events->month . '-' . $events->day ;
+            $events->date = $request->year . '-' . $events->month . '-' . $events->day;
+            $write_year = $request->year;
         }
 
-        if($request->month != null){
-            $events->month = $request->month;
-            $events->date = $events->year . '-' . $request->month . '-' . $events->day ;
+        //Month, dayが編集されていなければ
+        if($request->month == null && $request->day == null)
+        {
+            //保存する。 処理自体がこれで終わりでOK
+            $events->save();
         }
 
-        if($request->day != null){
+
+        //先にdayの編集処理を入れる
+        if($request->day != null)
+        {
+            if($request->day == 0)
+            {   
+                //0だったらdateには1を入れるのでその処理。
+                $write_day = 1;
+            }
+            else
+            {
+                //
+                $write_day = $request->day;
+            }
+            //
             $events->day = $request->day;
-            $events->date = $events->year . '-' . $events->month . '-' . $request->day ;
+        }
+        
+        //monthが変更されている
+        if($request->month != null){
+            //view側で0だったら0が送られてくる。
+            if($request->month == 0)
+            {
+                if($event->day == 0)
+                {
+                    //日にちエラーを出す
+                    //TODO
+                }
+                //0だったらdateには1を入れる
+                $write_month = 1;
+            }
+            else
+            {
+                //それ以外はそのまま月を入れる
+                $write_month = $request->month;
+            }
+            $events->month = $request->month;
         }
 
+        $events->date = $write_year . '-' . $write_month . '-' . $write_day ;
+        
         $events->save();
     }
     
