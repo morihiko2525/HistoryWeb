@@ -44,10 +44,37 @@ class EventController extends Controller
         $events->name = $request->name;
         $events->description = $request->description;
         $events->year = $request->year;
-        $events->month = $request->month;
-        $events->day = $request->day;
         
-        $events->date = $request->year . '-' . $request->month . '-' . $request->day ;
+        //monthもdayもnullだったら
+        if($request->month == null && $request->day == null)
+        {         
+            $events->month = 0;
+            $events->day = 0;
+
+            $events->date = $request->year . '-' . 1 . '-' . 1 ;
+
+        }else{
+            //全てnullでなければそのまま入れる
+            $events->month = $request->month;
+            $events->day = $request->day;
+            $events->date = $request->year . '-' . $request->month . '-' . $request->day ;
+        }
+
+        //dayのみnullだったら
+        if($request->month != null && $request->day == null)
+        {         
+            $events->month = $request->month;
+            $events->day = 0;
+
+            $events->date = $request->year . '-' . $request->month . '-' . 1 ;
+        }
+
+        //monthのみnullでdayが入っていたら
+        if($request->month == null && $request->day != null)
+        {         
+            //エラーを出す
+        }
+
         $events->history_id = $request->history_id;
         
         $events->save();
