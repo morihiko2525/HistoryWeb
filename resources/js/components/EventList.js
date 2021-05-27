@@ -23,12 +23,14 @@ class EventList extends React.Component {
 
         this.setPreviousYear = this.setPreviousYear.bind(this);
     }
+
     componentDidMount() {
         if(this.props.isInPageAccess){
             history.pushState(null, null, '/history_view/' + this.props.historydata.id);
             this.setState({history_userid: this.props.historydata.user_id});
 
         }else{        
+            //直接アクセス時の処理
             let urlParamStr = window.location.pathname;
             console.log("url is " + urlParamStr);
             let data = urlParamStr.split('/');

@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
+import { withRouter } from 'react-router';
 
 class CreateHistory extends React.Component {
 
@@ -43,15 +44,12 @@ class CreateHistory extends React.Component {
                                 onChange={e => this.setState({description :e.target.value})}>
                             </textarea>
                         </div>
-                            <Link to ="/history_view">
-                            <button className="btn btn-primary"       
-                                onClick= {()=>{
-                                    this.postForm();
-                                }}>
-                            作成する</button>
-                            </Link>
-
                     </form>
+                    <button className="btn btn-primary"       
+                            onClick= {()=>{
+                                this.postForm();
+                            }}>
+                        作成する</button>
 
                 </div>
             </div>
@@ -66,8 +64,9 @@ class CreateHistory extends React.Component {
                 console.log("new history id is : " + res.data.histories.id);
                 this.props.setHistory(res.data.histories)
                 this.props.setIsInPageAccess(true);
+                this.props.history.push('/history_view/')
       })
     }
 }
 
-export default CreateHistory;
+export default withRouter(CreateHistory);
