@@ -61,12 +61,13 @@ const customStyles = {
     }
 
     postForm(){
-      if(this.state.eventMonth == 0){
-        this.setState({eventMonth:0});
+      //NULL検知はこの方法でできる
+      if(this.state.eventMonth == ""){
+        this.state.eventMonth = 0; //この方法じゃないとsetStateは遅い
       }
 
-      if(this.state.eventDay == 0){
-        this.setState({eventDay:0});
+      if(this.state.eventDay == ""){
+        this.state.eventDay = 0; //この方法じゃないとsetStateは遅い
       }
 
         axios.post('/api/event/add', { 

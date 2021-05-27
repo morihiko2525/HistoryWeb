@@ -62,6 +62,15 @@ class Modal_EditEvent extends React.Component {
     }
     
     postForm(){
+        //空チェック
+        if(this.state.eventMonth == ""){
+            this.state.eventMonth = 0; 
+        }
+    
+          if(this.state.eventDay == ""){
+            this.state.eventDay = 0;
+        }
+
         this.clearForm();
         axios.post('/api/event/update', { 
             'id': this.props.selectEventID,
