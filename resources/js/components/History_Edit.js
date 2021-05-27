@@ -99,6 +99,9 @@ class History_Edit extends React.Component {
     }
 
     getSelectEventData(){
+        //returnは成功している。受信もできる。
+        console.log("kansuuuu");
+        console.log(this.state.selectEvent); //ここがからっぽ！！！！！！
         return this.state.selectEvent;
     }
 
@@ -188,7 +191,7 @@ class History_Edit extends React.Component {
                                 <div className = "event-content">
                                     <a href = "#" onClick = { ()=>{
                                         this.state.selectEvent = event;
-                                        this.doEditModalInit();
+                                        //this.doEditModalInit();
                                         this.setShowEditModal(true);
                                     }
                                         
@@ -220,7 +223,8 @@ class History_Edit extends React.Component {
                                     <div className = "event-content">
                                         <a href = "#" onClick = { ()=>{
                                             this.state.selectEvent = event;
-                                            this.doEditModalInit();
+                                            console.log(this.state.selectEvent);
+                                            //this.doEditModalInit();
                                             this.setShowEditModal(true);
                                         }
                                             

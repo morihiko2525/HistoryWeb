@@ -53,6 +53,8 @@ class Modal_EditEvent extends React.Component {
             this.state.isRun = true;
         console.log("！！！！！！！！呼び出し成功！！！！！！！！！");
         console.log("props.eventMonth is : "+this.props.eventMonth); //ここではまだundefinedになっている
+        console.log(this.props.getSelectEventData);
+        console.log("kansu month is " + this.props.getSelectEventData);
         this.state.u_eventMonth = this.props.getSelectEventData.month; //この処理をOpen時にやらなければならない
         this.state.u_eventDay = this.props.getSelectEventData.day; 
         console.log("init month is " + this.state.u_eventMonth);
@@ -168,8 +170,8 @@ class Modal_EditEvent extends React.Component {
     }
       
     render(){
-        return this.props.showEditModal?
-        (
+        return(
+            <div>
         <Modal
           isOpen={this.props.showEditModal}
           onAfterOpen={this.initEditModal()}
@@ -214,7 +216,7 @@ class Modal_EditEvent extends React.Component {
           id = "month"
           name = "u_eventMonth"
           className = "form-control"
-          defaultValue={this.props.eventMonth}
+          //defaultValue={this.props.eventMonth}
           value = {this.state.u_eventMonth}
           onChange={this.handleChange}
           ></input>
@@ -225,7 +227,7 @@ class Modal_EditEvent extends React.Component {
           id = "day"
           name = "u_eventDay"
           className = "form-control"
-          defaultValue = {this.props.eventDay}
+          //defaultValue = {this.props.eventDay}
           value = {this.state.u_eventDay}
           onChange={this.handleChange}
           ></input>
@@ -241,11 +243,8 @@ class Modal_EditEvent extends React.Component {
           </div>
           </form>
         </Modal>
-    ):(
-        <div>
-        
         </div>
-    );
+    )
     }
 }
  
