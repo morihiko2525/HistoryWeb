@@ -41,6 +41,9 @@ ul {
   list-style-type:none;
 }
 
+span.need{
+  color:red;
+}
 
  /* --- 外枠の定義 ---------------------------------------------*/
 .history-table-feature {

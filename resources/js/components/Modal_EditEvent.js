@@ -128,7 +128,7 @@ class Modal_EditEvent extends React.Component {
           <h2>イベントを編集</h2>
           <form>
 
-          <label>イベント名</label>
+          <label>イベント名<span className = "need"> *</span></label>
           <input
           type = "text"
           id = "name"
@@ -137,7 +137,7 @@ class Modal_EditEvent extends React.Component {
           onChange={e=>this.setState({u_eventName: e.target.value})}
           ></input>
           
-          <label>説明</label>
+          <label>説明<span className = "need"> *</span></label>
           <textarea
           rows="3"
           type = "text"
@@ -147,7 +147,7 @@ class Modal_EditEvent extends React.Component {
           onChange={e=>this.setState({u_eventDesc: e.target.value})}
           ></textarea>
 
-          <label>年</label>
+          <label>年<span className = "need"> *</span></label>
           <input
           type = "text"
           id = "year"

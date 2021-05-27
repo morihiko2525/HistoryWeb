@@ -86,7 +86,7 @@ const customStyles = {
           <h2>イベントを追加</h2>
           <form>
 
-          <label>イベント名</label>
+          <label>イベント名<span className = "need"> *</span></label>
           <input
           type = "text"
           id = "name"
@@ -95,7 +95,7 @@ const customStyles = {
           onChange={e=>this.setState({eventName: e.target.value})}
           ></input>
           
-          <label>説明</label>
+          <label>説明<span className = "need"> *</span></label>
           <textarea
           rows="3"
           type = "text"
@@ -105,7 +105,7 @@ const customStyles = {
           onChange={e=>this.setState({eventDesc: e.target.value})}
           ></textarea>
 
-          <label>年</label>
+          <label>年<span className = "need"> *</span></label>
           <input
           type = "text"
           id = "year"
