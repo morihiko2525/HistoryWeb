@@ -121,7 +121,7 @@ const customStyles = {
 
           <label>年<span className = "need"> *</span></label>
           <input
-          type = "text"
+          type = "number"
           id = "year"
           className = "form-control"
           value={this.state.eventYear}
@@ -130,7 +130,7 @@ const customStyles = {
           
           <label>月</label>
           <input
-          type = "text"
+          type = "number"
           id = "month"
           className = "form-control"
           defaultValue = ""
@@ -139,7 +139,7 @@ const customStyles = {
           
           <label>日</label>
           <input
-          type = "text"
+          type = "number"
           id = "day"
           className = "form-control"
           defaultValue = ""

@@ -149,7 +149,7 @@ class Modal_EditEvent extends React.Component {
 
           <label>年<span className = "need"> *</span></label>
           <input
-          type = "text"
+          type = "number"
           id = "year"
           className = "form-control"
           defaultValue={this.props.eventYear}
@@ -158,7 +158,7 @@ class Modal_EditEvent extends React.Component {
           
           <label>月</label>
           <input
-          type = "text"
+          type = "number"
           id = "month"
           className = "form-control"
           defaultValue={this.props.eventMonth}
@@ -167,7 +167,7 @@ class Modal_EditEvent extends React.Component {
           
           <label>日</label>
           <input
-          type = "text"
+          type = "number"
           id = "day"
           className = "form-control"
           defaultValue={this.props.eventDay}
