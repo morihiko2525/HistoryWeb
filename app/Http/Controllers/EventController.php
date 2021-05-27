@@ -115,18 +115,23 @@ class EventController extends Controller
             $events->date = $request->year . '-' . $events->month . '-' . $events->day;
             $write_year = $request->year;
         }
-
+        /*
         //Month, dayが編集されていなければ
         if($request->month == null && $request->day == null)
         {
             //保存する。 処理自体がこれで終わりでOK
             $events->save();
-        }
+        }*/
 
 
         //先にdayの編集処理を入れる
-        if($request->day != null)
+        //dayにデータが入っていれば
+        if($request->day >= 0)
         {
+            //dayを格納する
+            $events->day = $request->day; //この処理が呼ばれていない
+
+            //送られてきた数字が0であれば
             if($request->day == 0)
             {   
                 //0だったらdateには1を入れるのでその処理。
@@ -134,19 +139,20 @@ class EventController extends Controller
             }
             else
             {
-                //
+                //それ以外はそのままdateに格納する
                 $write_day = $request->day;
             }
-            //
-            $events->day = $request->day;
         }
         
         //monthが変更されている
-        if($request->month != null){
+        if($request->month >= 0){
+
+            $events->month = $request->month;
+
             //view側で0だったら0が送られてくる。
             if($request->month == 0)
             {
-                if($event->day == 0)
+                if($events->day == 0)
                 {
                     //日にちエラーを出す
                     //TODO
@@ -159,12 +165,12 @@ class EventController extends Controller
                 //それ以外はそのまま月を入れる
                 $write_month = $request->month;
             }
-            $events->month = $request->month;
         }
 
         $events->date = $write_year . '-' . $write_month . '-' . $write_day ;
         
         $events->save();
+
     }
     
     public function edit($id){

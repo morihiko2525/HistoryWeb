@@ -88,7 +88,6 @@ const customStyles = {
     render(){
         return this.state.isOpen?
         ( 
-        
         <div>
         <Button variant="success" className="mr-2" onClick={ ()=> this.openModal()}>イベントを追加</Button>
         <Modal

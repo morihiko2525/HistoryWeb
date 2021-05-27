@@ -35,12 +35,27 @@ class Modal_EditEvent extends React.Component {
             u_eventName: "",
             u_eventDesc: "",
             u_eventYear: "",
-            u_eventMonth: 0,
-            u_eventDay: 0,
+            u_eventMonth: "",
+            u_eventDay: "",
+            s_eventMonth: "",
+            s_eventDay: "",
         }
         this.closeModal = this.closeModal.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
 
+    componentDidMount(){       
+    }
+
+    initEditModal(){
+        console.log("！！！！！！！！成功！！！！！！！！！");
+        this.state.u_eventMonth = this.props.eventMonth; //この処理をOpen時にやらなければならない
+        this.state.u_eventDay = this.props.eventDay;
+        console.log("init month is " + this.state.u_eventMonth);
+
+    }
+
+    //これ呼ばれていない
     openModal() {
         this.setState({eventName: this.props.selectEvent.name});
         this.setState({isOpen: true});
@@ -63,29 +78,45 @@ class Modal_EditEvent extends React.Component {
     
     postForm(){
         //空チェック
-        if(this.state.eventMonth == ""){
-            this.state.eventMonth = 0; 
+        
+        if(this.state.u_eventMonth == ""){ //つまりここ
+            console.log("month is null");
+            console.log(this.state.u_eventMonth);
+            this.state.s_eventMonth = 0;
+            console.log(this.state.s_eventMonth);
+        }else{
+            console.log(this.state.u_eventMonth);
+            this.state.s_eventMonth = this.state.u_eventMonth;
         }
     
-          if(this.state.eventDay == ""){
-            this.state.eventDay = 0;
+        //NULLだったら
+        if(this.state.u_eventDay == ""){
+            console.log("day is null");
+            console.log(this.state.u_eventDay);
+            this.state.s_eventDay = 0;
+            console.log(this.state.s_eventDay);
+        }else{
+            console.log(this.state.u_eventDay);
+            this.state.s_eventDay = this.state.u_eventDay;
         }
 
-        this.clearForm();
         axios.post('/api/event/update', { 
             'id': this.props.selectEventID,
             'name': this.state.u_eventName,
             'description': this.state.u_eventDesc,
             'year': this.state.u_eventYear,
-            'month': this.state.u_eventMonth,
-            'day': this.state.u_eventDay,
-        
+            'month': this.state.s_eventMonth,
+            'day': this.state.s_eventDay,
+            
         })
-            .then(res => {
-                console.log(res);
-      })
-      this.closeModal()
-      this.props.getEventsData(); //再描画処理
+        .then(res => {
+            console.log(res);
+            console.log(this.state.s_eventDay);
+        })
+
+        this.clearForm();
+        this.closeModal()
+        this.props.getEventsData(); //再描画処理
     }
 
     deleteEvent(){
@@ -122,11 +153,16 @@ class Modal_EditEvent extends React.Component {
         this.setState({u_eventMonth: ""});
         this.setState({u_eventDay: ""});
       }
+    
 
+    handleChange(e){
+        let name = e.target.name;
+        this.setState({[name]: e.target.value}) 
+    }
       
     render(){
-    return this.props.showEditModal?
-    (
+        return this.props.showEditModal?
+        (
         <Modal
           isOpen={this.props.showEditModal}
           //onAfterOpen={afterOpenModal}
@@ -169,24 +205,31 @@ class Modal_EditEvent extends React.Component {
           <input
           type = "number"
           id = "month"
+          name = "u_eventMonth"
           className = "form-control"
           defaultValue={this.props.eventMonth}
-          onChange={e=>this.setState({u_eventMonth: e.target.value})}
+          value = {this.state.u_eventMonth}
+          onChange={this.handleChange}
           ></input>
           
           <label>日</label>
           <input
           type = "number"
           id = "day"
+          name = "u_eventDay"
           className = "form-control"
-          defaultValue={this.props.eventDay}
-          onChange={e=>this.setState({u_eventDay: e.target.value})}
+          //defaultValue = {this.props.eventDay}
+          value = {this.state.u_eventDay}
+          onChange={this.handleChange}
           ></input>
 
 
           <div className = "btn-group">
             <Button variant="success" onClick={ ()=>this.closeModal()}>close</Button>
-            <Button className= "btn-success" onClick={ ()=> this.postForm()}>完了</Button>
+            <Button className= "btn-success" onClick={ ()=>{
+                this.postForm()
+                }}>
+                完了</Button>
             <Button className= "btn-danger" onClick={ ()=> this.deleteEvent()}>削除</Button>
           </div>
           </form>
