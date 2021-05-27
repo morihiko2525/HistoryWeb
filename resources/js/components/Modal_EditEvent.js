@@ -48,11 +48,12 @@ class Modal_EditEvent extends React.Component {
     }
 
     initEditModal(){
-        console.log("！！！！！！！！成功！！！！！！！！！");
+        console.log("！！！！！！！！呼び出し成功！！！！！！！！！");
+        console.log("props.eventMonth is : "+this.props.eventMonth); //ここではまだundefinedになっている
         this.state.u_eventMonth = this.props.eventMonth; //この処理をOpen時にやらなければならない
-        this.state.u_eventDay = this.props.eventDay;
+        //this.state.u_eventDay = this.props.eventDay;
+        this.setState({u_eventDay: this.props.eventDay});
         console.log("init month is " + this.state.u_eventMonth);
-
     }
 
     //これ呼ばれていない
@@ -218,7 +219,7 @@ class Modal_EditEvent extends React.Component {
           id = "day"
           name = "u_eventDay"
           className = "form-control"
-          //defaultValue = {this.props.eventDay}
+          defaultValue = {this.props.eventDay}
           value = {this.state.u_eventDay}
           onChange={this.handleChange}
           ></input>

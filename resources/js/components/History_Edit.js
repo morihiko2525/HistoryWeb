@@ -181,8 +181,8 @@ class History_Edit extends React.Component {
             
                                 <div className = "event-content">
                                     <a href = "#" onClick = { ()=>{
+                                        this.state.selectEvent = event;
                                         this.doEditModalInit();
-                                        this.setState({selectEvent:event});
                                         this.setShowEditModal(true);
                                     }
                                         
@@ -213,8 +213,8 @@ class History_Edit extends React.Component {
                 
                                     <div className = "event-content">
                                         <a href = "#" onClick = { ()=>{
+                                            this.state.selectEvent = event;
                                             this.doEditModalInit();
-                                            this.setState({selectEvent:event})
                                             this.setShowEditModal(true);
                                         }
                                             
