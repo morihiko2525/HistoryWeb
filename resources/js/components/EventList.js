@@ -91,6 +91,26 @@ class EventList extends React.Component {
         }
     }
 
+    renderDateColumn(month, day){
+        if(day == 0){
+            if(month == 0){
+                //monthもdayも空 = 何も描画しない
+                return <p className = "event-date">　</p>                                    
+            }else{
+                //monthは入っていてdayは空 = monthのみ描画
+                return <p className = "event-date">{month}月</p>
+            }
+        }else{
+            if(month == 0){
+                //エラー
+            }else{
+                //monthもdayも入っている = monthもdayも両方描画
+                return <p className = "event-date">{month}月{day}日</p>
+
+            }
+        }
+    }
+
     render(){
         return !this.state.isOnceChanged?(
             <div className="container">
@@ -115,16 +135,8 @@ class EventList extends React.Component {
                         />
 
                         <div className = "event clearfix">                   
-                                {event.month===0?
-                                (
-                                    //0だったら
-                                    <p className = "event-date">　</p>
-                                ):(
-                                    //通常
-                                    <p className = "event-date">{event.month}月{event.day}日</p>
-                                )
-                                }  
-
+                            {this.renderDateColumn(event.month, event.day)}
+                            
                             <div className = "event-image"></div>
         
                             <div className = "event-content">
@@ -163,16 +175,8 @@ class EventList extends React.Component {
                         />
 
                         <div className = "event clearfix">   
+                            {this.renderDateColumn(event.month, event.day)}
 
-                           {event.month===0?
-                            (
-                                    //0だったら
-                                <p className = "event-date">　</p>
-                            ):(
-                                    //通常
-                                    <p className = "event-date">{event.month}月{event.day}日</p>
-                            )} 
-        
                             <div className = "event-image"></div>
         
                             <div className = "event-content">

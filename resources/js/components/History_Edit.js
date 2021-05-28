@@ -105,13 +105,35 @@ class History_Edit extends React.Component {
         return this.state.selectEvent;
     }
 
+    renderDateColumn(month, day){
+        if(day == 0){
+            if(month == 0){
+                //monthもdayも空 = 何も描画しない
+                return <p className = "event-date">　</p>                                    
+            }else{
+                //monthは入っていてdayは空 = monthのみ描画
+                return <p className = "event-date">{month}月</p>
+            }
+        }else{
+            if(month == 0){
+                //エラー
+            }else{
+                //monthもdayも入っている = monthもdayも両方描画
+                return <p className = "event-date">{month}月{day}日</p>
+
+            }
+        }
+    }
+
     render(){
         return(          
             <div className="container">
                 
+                {/* 年表のタイトル*/}
+                {/* タイトル編集画面かどうか(bool)*/}
                 {this.state.showTitleEdit?
                 (
-                //タイトル編集処理
+                    //タイトルの編集中
                     <div className =  "mx-auto">
                         <div className="input-group input-group-lg col-md-8">
                             <input
@@ -120,6 +142,7 @@ class History_Edit extends React.Component {
                                 defaultValue={this.state.history_name} 
                                 onChange={e=>this.setState({u_history_name: e.target.value})}         
                             ></input>
+
                             <div className="input-group-append">
                                 <button
                                     className="btn btn-outline-secondary"
@@ -129,22 +152,32 @@ class History_Edit extends React.Component {
                                         this.setState({showTitleEdit:false})
                                         this.changeHistoryName();
                                     }}
-                                >決定</button>
+                                    >決定</button>
                             </div>
                         </div>
                     </div>
                 ):
                 (
+                    //通常時
                     <div>
                     <a href = "#" onClick={()=>{
                             this.setState({showTitleEdit:true})
                             }}>
-                                <h1>「{this.state.history_name}」</h1></a>                    
+                            <h1>「{this.state.history_name}」</h1></a>                    
                     </div>
                 )}
 
                 <p>{this.props.historydata.description}</p>
 
+
+                {/* 作成用モーダル*/}
+                <Modal_CreateEvent
+                    history_id={this.props.historydata.id}
+                    getEventsData={this.getEventsData}
+                />
+
+
+                {/* 編集用モーダル*/}
                 <Modal_EditEvent 
                     showEditModal = {this.state.showEditModal}
                     setFalse={() => this.setShowEditModal(false)}
@@ -159,11 +192,8 @@ class History_Edit extends React.Component {
                     ref={this.ChildRef}
                 />
 
-                <Modal_CreateEvent
-                    history_id={this.props.historydata.id}
-                    getEventsData={this.getEventsData}
-                />
 
+                {/* 画像追加用モーダル*/}
                 <Modal_AddImg
                     setFalse={() => this.setShowImgModal(false)}
                     showImgModal = {this.state.showImgModal}
@@ -181,15 +211,9 @@ class History_Edit extends React.Component {
                             <div className = "year-column">{event.year}年</div>
     
                             <div className = "event clearfix">
-                                {event.month === 0 ?
-                                (
-                                    //0だったら
-                                    <p className = "event-date">　</p>
-                                ):(
-                                    //通常
-                                    <p className = "event-date">{event.month}月{event.day}日</p>
-                                )}  
-                  
+
+                                {/*月日の出力処理*/}
+                                {this.renderDateColumn(event.month, event.day)}
             
                                 <div className = "event-image" onClick={()=>{
                                     console.log("img clicked!");
@@ -218,16 +242,11 @@ class History_Edit extends React.Component {
                                 
                                 <div className = "year-column">{event.year}年</div>
         
-                                <div className = "event clearfix">                   
-                                    {event.month===0?
-                                    (
-                                        //0だったら
-                                        <p className = "event-date">　</p>
-                                    ):(
-                                        //通常
-                                        <p className = "event-date">{event.month}月{event.day}日</p>
-                                    )} 
-                
+                                <div className = "event clearfix">   
+
+                                    {/*月日の出力処理*/}
+                                    {this.renderDateColumn(event.month, event.day)}
+
                                     <div className = "event-image" onClick={()=>{
                                         console.log("img clicked!");
                                         this.setState({selectEvent:event})
