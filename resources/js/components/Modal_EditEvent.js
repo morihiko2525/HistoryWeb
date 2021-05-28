@@ -43,16 +43,17 @@ class Modal_EditEvent extends React.Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
+    //inputに表示する値のイニシャライズ処理
     initEditModal(){
         if(!this.state.isRun){
             this.state.isRun = true;
-        console.log("！！！！！！！！呼び出し成功！！！！！！！！！");
-        console.log("props.eventMonth is : "+this.props.eventMonth); //ここではまだundefinedになっている
-        console.log(this.props.getSelectEventData);
-        console.log("kansu month is " + this.props.getSelectEventData); //ここがundefinedになっているのは大問題
-        this.state.u_eventMonth = this.props.getSelectEventData.month; //この処理をOpen時にやらなければならない
-        this.state.u_eventDay = this.props.getSelectEventData.day; 
-        console.log("init month is " + this.state.u_eventMonth);
+            console.log("！！！！！！！！呼び出し成功！！！！！！！！！");
+            console.log("props.eventMonth is : "+this.props.eventMonth); //ここではまだundefinedになっている
+            console.log(this.props.getSelectEventData);
+            console.log("kansu month is " + this.props.getSelectEventData); //ここがundefinedになっているのは大問題
+            this.state.u_eventMonth = this.props.getSelectEventData.month; //この処理をOpen時にやらなければならない
+            this.state.u_eventDay = this.props.getSelectEventData.day; 
+            console.log("init month is " + this.state.u_eventMonth);
         }
     }
 
@@ -63,11 +64,6 @@ class Modal_EditEvent extends React.Component {
         console.log("Modal open");
         console.log(this.state.isOpen);
         console.log(this.props.selectEvent);
-    }
- 
- 
-    afterOpenModal() {        
-        //subtitle.style.color = '#3ab60b';
     }
  
     //モーダルを閉じる処理
@@ -82,6 +78,7 @@ class Modal_EditEvent extends React.Component {
     //POST処理
     postForm(){
         //空チェック
+        //monthのチェック
         console.log("u_eventMonth = " + this.state.u_eventMonth);
         if(this.state.u_eventMonth == undefined){ //ここが呼ばれていない 本当はここに前の値が入っていてほしい undefinedは無編集時。""は編集で消したときになっている
             //undefinedのときなので無編集時=>つまり前の値をsubmitすればよい？
@@ -101,6 +98,7 @@ class Modal_EditEvent extends React.Component {
             this.state.s_eventMonth = this.state.u_eventMonth;
         }
     
+        //dayのチェック
         if(this.state.u_eventDay == undefined){ //ここが呼ばれていない 本当はここに前の値が入っていてほしい undefinedは無編集時。""は編集で消したときになっている
             //undefinedのときなので無編集時=>つまり前の値をsubmitすればよい？
             console.log("day is undefined");
@@ -121,6 +119,7 @@ class Modal_EditEvent extends React.Component {
 
         console.log("s_eventMonth = " + this.state.s_eventMonth);
 
+        //post処理
         axios.post('/api/event/update', { 
             'id': this.props.selectEventID,
             'name': this.state.u_eventName,
@@ -135,11 +134,12 @@ class Modal_EditEvent extends React.Component {
             console.log(this.state.s_eventDay);
         })
 
-        this.clearForm();
-        this.closeModal()
+        this.clearForm(); //フォームの内容のクリア(イニシャライズ)
+        this.closeModal() //モーダルを閉じる処理
         this.props.getEventsData(); //再描画処理
     }
 
+    //イベントの削除処理
     deleteEvent(){
         this.checkChange()
         axios.post('/api/event/delete', { 
@@ -162,6 +162,7 @@ class Modal_EditEvent extends React.Component {
         }
     }
 
+    //フォームをクリア(イニシャライズ)する処理
     clearForm(){
         this.setState({eventName: ""});
         this.setState({eventDesc: ""});
