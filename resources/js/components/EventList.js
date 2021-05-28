@@ -118,7 +118,7 @@ class EventList extends React.Component {
                                 {event.month===0?
                                 (
                                     //0だったら
-                                    <p className = "event-date"></p>
+                                    <p className = "event-date">　</p>
                                 ):(
                                     //通常
                                     <p className = "event-date">{event.month}月{event.day}日</p>
@@ -148,6 +148,8 @@ class EventList extends React.Component {
                     //自分に権限がないとき
                     <div></div> 
                 )}
+                
+
                 <h1>「{this.state._historydata.name}」</h1>
                 <p>{this.props.historydata.description}</p>
 
@@ -160,11 +162,12 @@ class EventList extends React.Component {
                             current_year = {event.year}
                         />
 
-                        <div className = "event clearfix">                   
+                        <div className = "event clearfix">   
+
                            {event.month===0?
                             (
                                     //0だったら
-                                <p className = "event-date"></p>
+                                <p className = "event-date">　</p>
                             ):(
                                     //通常
                                     <p className = "event-date">{event.month}月{event.day}日</p>
@@ -177,8 +180,7 @@ class EventList extends React.Component {
                                 <p className = "event-desc">{event.description}</p>
                             </div>
                         </div>
-                        </React.Fragment>
-                       
+                        </React.Fragment>                      
                     )}
 
                 </React.Fragment>

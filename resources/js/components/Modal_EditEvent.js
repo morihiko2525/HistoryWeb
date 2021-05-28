@@ -16,8 +16,6 @@ const customStyles = {
     }
   };  
 
-  
-  
 class Modal_EditEvent extends React.Component {
       
     constructor(props,context){
@@ -43,9 +41,6 @@ class Modal_EditEvent extends React.Component {
         }
         this.closeModal = this.closeModal.bind(this);
         this.handleChange = this.handleChange.bind(this);
-    }
-
-    componentDidMount(){       
     }
 
     initEditModal(){
@@ -87,8 +82,8 @@ class Modal_EditEvent extends React.Component {
     //POST処理
     postForm(){
         //空チェック
-        
-        if(this.state.u_eventMonth == ""){ //つまりここ
+        console.log("u_eventMonth = " + this.state.u_eventMonth);
+        if(this.state.u_eventMonth == undefined){ //ここが呼ばれていない
             console.log("month is null");
             console.log(this.state.u_eventMonth);
             this.state.s_eventMonth = 0;
@@ -108,6 +103,8 @@ class Modal_EditEvent extends React.Component {
             console.log(this.state.u_eventDay);
             this.state.s_eventDay = this.state.u_eventDay;
         }
+
+        console.log("s_eventMonth = " + this.state.s_eventMonth);
 
         axios.post('/api/event/update', { 
             'id': this.props.selectEventID,
@@ -216,7 +213,7 @@ class Modal_EditEvent extends React.Component {
           id = "month"
           name = "u_eventMonth"
           className = "form-control"
-          //defaultValue={this.props.eventMonth}
+          defaultValue={this.props.eventMonth}
           value = {this.state.u_eventMonth}
           onChange={this.handleChange}
           ></input>
@@ -227,7 +224,7 @@ class Modal_EditEvent extends React.Component {
           id = "day"
           name = "u_eventDay"
           className = "form-control"
-          //defaultValue = {this.props.eventDay}
+          defaultValue = {this.props.eventDay}
           value = {this.state.u_eventDay}
           onChange={this.handleChange}
           ></input>
