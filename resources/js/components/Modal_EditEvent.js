@@ -21,8 +21,8 @@ class Modal_EditEvent extends React.Component {
     constructor(props,context){
         super(props,context)
         this.state = {
-            selectEventID:"",
-            eventName: "",
+            selectEventID:"", //props. 選択したイベントのIDが格納されている
+            eventName: "", //props. 選択したイベントの名前が入っている。
             eventDesc: "",
             eventYear: "",
             eventMonth: "",
@@ -30,12 +30,12 @@ class Modal_EditEvent extends React.Component {
             history_id: "",
             isOpen: false,
             showEditModal: false,
-            u_eventName: "",
+            u_eventName: "", //u_はinputでupdateされたあとの値
             u_eventDesc: "",
             u_eventYear: "",
             u_eventMonth: "",
             u_eventDay: "",
-            s_eventMonth: "",
+            s_eventMonth: "", //s_はsubmit用の値
             s_eventDay: "",
             isRun: false,
         }
@@ -49,7 +49,7 @@ class Modal_EditEvent extends React.Component {
         console.log("！！！！！！！！呼び出し成功！！！！！！！！！");
         console.log("props.eventMonth is : "+this.props.eventMonth); //ここではまだundefinedになっている
         console.log(this.props.getSelectEventData);
-        console.log("kansu month is " + this.props.getSelectEventData);
+        console.log("kansu month is " + this.props.getSelectEventData); //ここがundefinedになっているのは大問題
         this.state.u_eventMonth = this.props.getSelectEventData.month; //この処理をOpen時にやらなければならない
         this.state.u_eventDay = this.props.getSelectEventData.day; 
         console.log("init month is " + this.state.u_eventMonth);
@@ -83,23 +83,38 @@ class Modal_EditEvent extends React.Component {
     postForm(){
         //空チェック
         console.log("u_eventMonth = " + this.state.u_eventMonth);
-        if(this.state.u_eventMonth == undefined){ //ここが呼ばれていない
-            console.log("month is null");
+        if(this.state.u_eventMonth == undefined){ //ここが呼ばれていない 本当はここに前の値が入っていてほしい undefinedは無編集時。""は編集で消したときになっている
+            //undefinedのときなので無編集時=>つまり前の値をsubmitすればよい？
+            console.log("month is undefined");
+            console.log(this.state.u_eventMonth);
+            this.state.s_eventMonth = this.props.eventMonth;
+            console.log(this.state.s_eventMonth);
+        }else if(this.state.u_eventMonth == ""){
+            //""なので消したので0をsubmitしたい
+            console.log("month is undefined");
             console.log(this.state.u_eventMonth);
             this.state.s_eventMonth = 0;
             console.log(this.state.s_eventMonth);
         }else{
+            //それ以外なので入力された値をそのまま入れる
             console.log(this.state.u_eventMonth);
             this.state.s_eventMonth = this.state.u_eventMonth;
         }
     
-        //NULLだったら
-        if(this.state.u_eventDay == ""){
-            console.log("day is null");
+        if(this.state.u_eventDay == undefined){ //ここが呼ばれていない 本当はここに前の値が入っていてほしい undefinedは無編集時。""は編集で消したときになっている
+            //undefinedのときなので無編集時=>つまり前の値をsubmitすればよい？
+            console.log("day is undefined");
+            console.log(this.state.u_eventDay);
+            this.state.s_eventDay = this.props.eventDay;
+            console.log(this.state.s_eventDay);
+        }else if(this.state.u_eventDay == ""){
+            //""なので消したので0をsubmitしたい
+            console.log("month is cleared");
             console.log(this.state.u_eventDay);
             this.state.s_eventDay = 0;
             console.log(this.state.s_eventDay);
         }else{
+            //それ以外なので入力された値をそのまま入れる
             console.log(this.state.u_eventDay);
             this.state.s_eventDay = this.state.u_eventDay;
         }
@@ -228,7 +243,6 @@ class Modal_EditEvent extends React.Component {
           value = {this.state.u_eventDay}
           onChange={this.handleChange}
           ></input>
-
 
           <div className = "btn-group">
             <Button variant="success" onClick={ ()=>this.closeModal()}>close</Button>
