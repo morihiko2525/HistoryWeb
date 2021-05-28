@@ -30,13 +30,8 @@ class ChangeImageColumnOnHistoriesTable extends Migration
         //
         Schema::table('histories', function (Blueprint $table) {
             //
-<<<<<<< HEAD
             $table->string("img_name")->nullable(true)->change();
             $table->string("file_path")->nullable(true)->change();
-=======
-            $table->string("img_name")->nullable(false);
-            $table->string("file_path")->nullable(false);
->>>>>>> 18936552744ed60c3b9c1f95e27b913bbd5da3a4
         });
     }
 }
