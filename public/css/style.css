@@ -37,6 +37,14 @@ h1{
     font-weight: 500;
 }
 
+ul {
+  list-style-type:none;
+}
+
+span.need{
+  color:red;
+}
+
  /* --- 外枠の定義 ---------------------------------------------*/
 .history-table-feature {
   margin         : auto;                 /* サンプル用 中央寄せ */
