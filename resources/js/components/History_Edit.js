@@ -105,6 +105,26 @@ class History_Edit extends React.Component {
         return this.state.selectEvent;
     }
 
+    renderDateColumn(month, day){
+        if(day == 0){
+            if(month == 0){
+                //monthもdayも空 = 何も描画しない
+                return <p className = "event-date">　</p>                                    
+            }else{
+                //monthは入っていてdayは空 = monthのみ描画
+                return <p className = "event-date">{month}月</p>
+            }
+        }else{
+            if(month == 0){
+                //エラー
+            }else{
+                //monthもdayも入っている = monthもdayも両方描画
+                return <p className = "event-date">{month}月{day}日</p>
+
+            }
+        }
+    }
+
     render(){
         return(          
             <div className="container">
@@ -192,16 +212,8 @@ class History_Edit extends React.Component {
     
                             <div className = "event clearfix">
 
-                                {/* monthが未入力のときの処理*/}
-                                {event.month === 0 ?
-                                (
-                                    //0だったら
-                                    <p className = "event-date">　</p>
-                                ):(
-                                    //通常時
-                                    <p className = "event-date">{event.month}月{event.day}日</p>
-                                )}  
-                  
+                                {/*月日の出力処理*/}
+                                {this.renderDateColumn(event.month, event.day)}
             
                                 <div className = "event-image" onClick={()=>{
                                     console.log("img clicked!");
@@ -230,16 +242,11 @@ class History_Edit extends React.Component {
                                 
                                 <div className = "year-column">{event.year}年</div>
         
-                                <div className = "event clearfix">                   
-                                    {event.month===0?
-                                    (
-                                        //0だったら
-                                        <p className = "event-date">　</p>
-                                    ):(
-                                        //通常
-                                        <p className = "event-date">{event.month}月{event.day}日</p>
-                                    )} 
-                
+                                <div className = "event clearfix">   
+
+                                    {/*月日の出力処理*/}
+                                    {this.renderDateColumn(event.month, event.day)}
+
                                     <div className = "event-image" onClick={()=>{
                                         console.log("img clicked!");
                                         this.setState({selectEvent:event})
