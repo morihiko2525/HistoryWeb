@@ -6,7 +6,10 @@ class History_View extends React.Component {
 
     render(){
         return(
-            <div></div>
+            <div>
+                <p></p>
+                <p></p>
+            </div>
         )
     }
 

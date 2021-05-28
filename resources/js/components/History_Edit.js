@@ -146,19 +146,18 @@ class History_Edit extends React.Component {
                 <p>{this.props.historydata.description}</p>
 
                 <Modal_EditEvent 
-                showEditModal = {this.state.showEditModal}
-                setFalse={() => this.setShowEditModal(false)}
-                getEventsData={this.getEventsData}
-                selectEventID={this.state.selectEvent.id}
-                eventName={this.state.selectEvent.name}
-                eventDesc={this.state.selectEvent.description}
-                eventYear={this.state.selectEvent.year}
-                eventMonth={this.state.selectEvent.month}
-                eventDay={this.state.selectEvent.day}
-                getSelectEventData={this.getSelectEventData}
-                ref={this.ChildRef}
+                    showEditModal = {this.state.showEditModal}
+                    setFalse={() => this.setShowEditModal(false)}
+                    getEventsData={this.getEventsData}
+                    selectEventID={this.state.selectEvent.id}
+                    eventName={this.state.selectEvent.name}
+                    eventDesc={this.state.selectEvent.description}
+                    eventYear={this.state.selectEvent.year}
+                    eventMonth={this.state.selectEvent.month}
+                    eventDay={this.state.selectEvent.day}
+                    getSelectEventData={this.getSelectEventData}
+                    ref={this.ChildRef}
                 />
-
 
                 <Modal_CreateEvent
                     history_id={this.props.historydata.id}
@@ -166,8 +165,8 @@ class History_Edit extends React.Component {
                 />
 
                 <Modal_AddImg
-                setFalse={() => this.setShowImgModal(false)}
-                showImgModal = {this.state.showImgModal}
+                    setFalse={() => this.setShowImgModal(false)}
+                    showImgModal = {this.state.showImgModal}
                 />
                 
 
@@ -182,15 +181,15 @@ class History_Edit extends React.Component {
                             <div className = "year-column">{event.year}年</div>
     
                             <div className = "event clearfix">
-                                {event.month===0?
+                                {event.month === 0 ?
                                 (
                                     //0だったら
-                                    <p className = "event-date"></p>
+                                    <p className = "event-date">　</p>
                                 ):(
                                     //通常
                                     <p className = "event-date">{event.month}月{event.day}日</p>
-                                )
-                                }                   
+                                )}  
+                  
             
                                 <div className = "event-image" onClick={()=>{
                                     console.log("img clicked!");
@@ -223,7 +222,7 @@ class History_Edit extends React.Component {
                                     {event.month===0?
                                     (
                                         //0だったら
-                                        <p className = "event-date"></p>
+                                        <p className = "event-date">　</p>
                                     ):(
                                         //通常
                                         <p className = "event-date">{event.month}月{event.day}日</p>

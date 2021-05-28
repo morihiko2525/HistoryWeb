@@ -119,10 +119,12 @@ class App extends React.Component{
                     <Route path="/about" component={About} />
 
                     <Route path="/create"  render={(routeProps)=>
-                    <CreateHistory userdata={this.state.user_data}
-                    setHistory={this.setHistory.bind(this)}
-                    setIsInPageAccess={this.setIsInPageAccess.bind(this)}
-                    {...routeProps} />}  />
+
+                    <CreateHistory 
+                        userdata={this.state.user_data}
+                        setHistory={this.setHistory.bind(this)}
+                        setIsInPageAccess={this.setIsInPageAccess.bind(this)}
+                        {...routeProps} />}  />
 
                     <Route path="/history_view" render={(routeProps)=>
                          <EventList historydata={this.state.historydata}
@@ -134,13 +136,15 @@ class App extends React.Component{
                          {...routeProps} />} />
 
                     <Route path="/history_edit" render={(routeProps)=>
-                        <History_Edit historydata={this.state.historydata}
+                        <History_Edit
+                        historydata={this.state.historydata}
                         user_id={this.state.user_data.id}
                         events = {this.state.eventsdata}
                         {...routeProps} />} />
 
                     <Route path="/userpage" render={(routeProps)=>
-                        <UserPage userdata={this.state.user_data}
+                        <UserPage
+                        userdata={this.state.user_data}
                         testvalue={this.state.value}
                         setHistory={this.setHistory.bind(this)}
                         setEventsData={this.setEventsData}
