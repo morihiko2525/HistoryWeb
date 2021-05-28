@@ -96,6 +96,9 @@ const customStyles = {
                     style={customStyles}
                     contentLabel="Example Modal"
                 >
+                    <div class="event-modal">
+
+                    </div>
                     <h2>イベントを追加</h2>
                     <form>
                         <label>イベント名<span className = "need"> *</span></label>

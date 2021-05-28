@@ -90459,7 +90459,9 @@ var Modal_CreateEvent = /*#__PURE__*/function (_React$Component) {
         },
         style: customStyles,
         contentLabel: "Example Modal"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "\u30A4\u30D9\u30F3\u30C8\u3092\u8FFD\u52A0"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "\u30A4\u30D9\u30F3\u30C8\u540D", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": "event-modal"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "\u30A4\u30D9\u30F3\u30C8\u3092\u8FFD\u52A0"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "\u30A4\u30D9\u30F3\u30C8\u540D", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "need"
       }, " *")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
@@ -90833,6 +90835,8 @@ var Modal_EditEvent = /*#__PURE__*/function (_React$Component) {
         },
         style: customStyles,
         contentLabel: "Example Modal"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": "modal-event"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "\u30A4\u30D9\u30F3\u30C8\u3092\u7DE8\u96C6"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         "class": "d-flex"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "\u8AAC\u660E", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -90897,7 +90901,7 @@ var Modal_EditEvent = /*#__PURE__*/function (_React$Component) {
         onClick: function onClick() {
           return _this3.deleteEvent();
         }
-      }, "\u524A\u9664")))));
+      }, "\u524A\u9664"))))));
     }
   }]);
 

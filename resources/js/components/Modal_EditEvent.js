@@ -192,60 +192,60 @@ class Modal_EditEvent extends React.Component {
                     style={customStyles}
                     contentLabel="Example Modal"
                 >
-                    <h2>イベントを編集</h2>
-                    <form>
-                        
-                        <div class="d-flex">
-                            <label>説明<span className = "need"> *</span></label>
-                            <textarea
-                                rows="3"
-                                type = "text"
-                                id = "description"
-                                className = "form-control"
-                                defaultValue={this.props.eventDesc}
-                                onChange={e=>this.setState({u_eventDesc: e.target.value})}
-                            ></textarea>
-                        </div>
-
-                        <div class="d-flex">
-                            <label>日付</label>
+                    <div class="modal-event">
+                        <h2>イベントを編集</h2>
+                        <form>
                             <div class="d-flex">
-                                <label>年<span className = "need"> *</span></label>
-                                <input
-                                　　type = "number"
-                                    id = "year"
+                                <label>説明<span className = "need"> *</span></label>
+                                <textarea
+                                    rows="3"
+                                    type = "text"
+                                    id = "description"
                                     className = "form-control"
-                                    defaultValue={this.props.eventYear}
-                                    onChange={e=>this.setState({u_eventYear: e.target.value})}
-                                ></input>
-                                <label>月</label>
-                                <input
-                                    type = "number"
-                                    id = "month"
-                                    name = "u_eventMonth"
-                                    className = "form-control"
-                                    defaultValue={this.props.eventMonth}
-                                    value = {this.state.u_eventMonth}
-                                    onChange={this.handleChange}
-                                ></input>
-                                <label>日</label>
-                                <input
-                                    type = "number"
-                                    id = "day"
-                                    name = "u_eventDay"
-                                    className = "form-control"
-                                    defaultValue = {this.props.eventDay}
-                                    value = {this.state.u_eventDay}
-                                    onChange={this.handleChange}
-                                ></input>
+                                    defaultValue={this.props.eventDesc}
+                                    onChange={e=>this.setState({u_eventDesc: e.target.value})}
+                                ></textarea>
                             </div>
-                        </div>
-                        <div className = "btn-group">
-                        　　<Button variant="success" onClick={ ()=>this.closeModal()}>close</Button>
-                            <Button className= "btn-success" onClick={ ()=>{this.postForm()}}>完了</Button>
-                            <Button className= "btn-danger" onClick={ ()=> this.deleteEvent()}>削除</Button>
-                        </div>
-                    </form>
+                            <div class="d-flex">
+                                <label>日付</label>
+                                <div class="d-flex">
+                                    <label>年<span className = "need"> *</span></label>
+                                    <input
+                                    　　type = "number"
+                                        id = "year"
+                                        className = "form-control"
+                                        defaultValue={this.props.eventYear}
+                                        onChange={e=>this.setState({u_eventYear: e.target.value})}
+                                    ></input>
+                                    <label>月</label>
+                                    <input
+                                        type = "number"
+                                        id = "month"
+                                        name = "u_eventMonth"
+                                        className = "form-control"
+                                        defaultValue={this.props.eventMonth}
+                                        value = {this.state.u_eventMonth}
+                                        onChange={this.handleChange}
+                                    ></input>
+                                    <label>日</label>
+                                    <input
+                                        type = "number"
+                                        id = "day"
+                                        name = "u_eventDay"
+                                        className = "form-control"
+                                        defaultValue = {this.props.eventDay}
+                                        value = {this.state.u_eventDay}
+                                        onChange={this.handleChange}
+                                    ></input>
+                                </div>
+                            </div>
+                            <div className = "btn-group">
+                            　　<Button variant="success" onClick={ ()=>this.closeModal()}>close</Button>
+                                <Button className= "btn-success" onClick={ ()=>{this.postForm()}}>完了</Button>
+                                <Button className= "btn-danger" onClick={ ()=> this.deleteEvent()}>削除</Button>
+                            </div>
+                        </form>
+                    </div>
                 </Modal>
             </div>
         )

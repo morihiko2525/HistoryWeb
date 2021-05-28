@@ -10940,3 +10940,7 @@ a.text-dark:focus {
   }
 }
 
+.modal-event h2 {
+  text-align: center;
+}
+
