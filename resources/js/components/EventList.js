@@ -115,8 +115,16 @@ class EventList extends React.Component {
                         />
 
                         <div className = "event clearfix">                   
-                            <p className = "event-date">{event.month}月{event.day}日</p>
-        
+                                {event.month===0?
+                                (
+                                    //0だったら
+                                    <p className = "event-date"></p>
+                                ):(
+                                    //通常
+                                    <p className = "event-date">{event.month}月{event.day}日</p>
+                                )
+                                }  
+
                             <div className = "event-image"></div>
         
                             <div className = "event-content">
@@ -153,7 +161,14 @@ class EventList extends React.Component {
                         />
 
                         <div className = "event clearfix">                   
-                            <p className = "event-date">{event.month}月{event.day}日</p>
+                           {event.month===0?
+                            (
+                                    //0だったら
+                                <p className = "event-date"></p>
+                            ):(
+                                    //通常
+                                    <p className = "event-date">{event.month}月{event.day}日</p>
+                            )} 
         
                             <div className = "event-image"></div>
         

@@ -171,7 +171,7 @@ class Modal_EditEvent extends React.Component {
       
     render(){
         return(
-            <div>
+        <div>
         <Modal
           isOpen={this.props.showEditModal}
           onAfterOpen={this.initEditModal()}

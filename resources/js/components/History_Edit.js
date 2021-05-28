@@ -181,8 +181,16 @@ class History_Edit extends React.Component {
                             <React.Fragment>
                             <div className = "year-column">{event.year}年</div>
     
-                            <div className = "event clearfix">                   
-                                <p className = "event-date">{event.month}月{event.day}日</p>
+                            <div className = "event clearfix">
+                                {event.month===0?
+                                (
+                                    //0だったら
+                                    <p className = "event-date"></p>
+                                ):(
+                                    //通常
+                                    <p className = "event-date">{event.month}月{event.day}日</p>
+                                )
+                                }                   
             
                                 <div className = "event-image" onClick={()=>{
                                     console.log("img clicked!");
@@ -212,7 +220,14 @@ class History_Edit extends React.Component {
                                 <div className = "year-column">{event.year}年</div>
         
                                 <div className = "event clearfix">                   
-                                    <p className = "event-date">{event.month}月{event.day}日</p>
+                                    {event.month===0?
+                                    (
+                                        //0だったら
+                                        <p className = "event-date"></p>
+                                    ):(
+                                        //通常
+                                        <p className = "event-date">{event.month}月{event.day}日</p>
+                                    )} 
                 
                                     <div className = "event-image" onClick={()=>{
                                         console.log("img clicked!");
