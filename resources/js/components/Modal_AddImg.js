@@ -14,12 +14,12 @@ const customStyles = {
       transform             : 'translate(-50%, -50%)',
       width: '700px',
     }
-  };  
+  };
 
-  
-  
+
+
 class Modal_AddImg extends React.Component {
-      
+
     constructor(props,context){
         super(props,context)
         this.state = {
@@ -37,24 +37,24 @@ class Modal_AddImg extends React.Component {
         console.log(this.state.isOpen);
         console.log(this.props.selectEvent);
     }
- 
+
     closeModal(){
         this.setState({isOpen: false});
         this.props.setFalse();
         console.log("Modal close");
         console.log(this.state.isOpen);
     }
-    
+
     postForm(){
         this.checkChange()
-        axios.post('/api/event/update', { 
+        axios.post('/api/event/update', {
             'id': this.props.selectEventID,
             'name': this.state.u_eventName,
             'description': this.state.u_eventDesc,
             'year': this.state.u_eventYear,
             'month': this.state.u_eventMonth,
             'day': this.state.u_eventDay,
-        
+
         })
             .then(res => {
                 console.log(res);
@@ -84,20 +84,18 @@ class Modal_AddImg extends React.Component {
         >
           <h2>画像を追加する</h2>
           <form>
+              <p>現在調整中</p>
 
-          <p>現在調整中</p>
-
-
-          <Button variant="success" className="mr-2" onClick={ ()=>this.closeModal()}>close</Button>
-          <Button className= "btn-success" onClick={ ()=> this.postForm()}>完了</Button>
+              <Button variant="success" className="mr-2" onClick={ ()=>this.closeModal()}>close</Button>
+              <Button className= "btn-success" onClick={ ()=> this.postForm()}>完了</Button>
           </form>
         </Modal>
     ):(
         <div>
-        
+
         </div>
     );
     }
 }
- 
+
 export default Modal_AddImg;

@@ -14,12 +14,12 @@ const customStyles = {
       transform             : 'translate(-50%, -50%)',
       width: '700px',
     }
-  };  
+  };
 
-  
-  
+
+
   class Modal_CreateEvent extends React.Component {
-      
+
     constructor(props,context){
         super(props,context)
         this.state = {
@@ -41,11 +41,11 @@ const customStyles = {
         console.log("Modal open");
         console.log(this.state.isOpen);
     }
- 
-    afterOpenModal() {        
+
+    afterOpenModal() {
         //subtitle.style.color = '#3ab60b';
     }
- 
+
     closeModal(){
         this.setState({isOpen: false});
         console.log("Modal close");
@@ -70,7 +70,7 @@ const customStyles = {
         this.state.eventDay = 0; //この方法じゃないとsetStateは遅い
       }
 
-        axios.post('/api/event/add', { 
+        axios.post('/api/event/add', {
           'name': this.state.eventName,
           'description': this.state.eventDesc,
           'year': this.state.eventYear,
@@ -87,77 +87,70 @@ const customStyles = {
 
     render(){
         return this.state.isOpen?
-        ( 
+      (
         <div>
-        <Button variant="success" className="mr-2" onClick={ ()=> this.openModal()}>イベントを追加</Button>
-        <Modal
-          isOpen={this.state.isOpen}
-          //onAfterOpen={ ()=> afterOpenModal()}
-          onRequestClose={ ()=> this.closeModal()}
-          style={customStyles}
-          contentLabel="Example Modal"
-        >
-          <h2>イベントを追加</h2>
-          <form>
-
-          <label>イベント名<span className = "need"> *</span></label>
-          <input
-          type = "text"
-          id = "name"
-          className = "form-control"
-          value={this.state.eventName}
-          onChange={e=>this.setState({eventName: e.target.value})}
-          ></input>
-          
-          <label>説明<span className = "need"> *</span></label>
-          <textarea
-          rows="3"
-          type = "text"
-          id = "description"
-          className = "form-control"
-          value={this.state.eventDesc}
-          onChange={e=>this.setState({eventDesc: e.target.value})}
-          ></textarea>
-
-          <label>年<span className = "need"> *</span></label>
-          <input
-          type = "number"
-          id = "year"
-          className = "form-control"
-          value={this.state.eventYear}
-          onChange={e=>this.setState({eventYear: e.target.value})}
-          ></input>
-          
-          <label>月</label>
-          <input
-          type = "number"
-          id = "month"
-          className = "form-control"
-          defaultValue = ""
-          onChange={e=>this.setState({eventMonth: e.target.value})}
-          ></input>
-          
-          <label>日</label>
-          <input
-          type = "number"
-          id = "day"
-          className = "form-control"
-          defaultValue = ""
-          onChange={e=>this.setState({eventDay: e.target.value})}
-          ></input>
-
-
-          <Button variant="success" className="mr-2" onClick={ ()=>this.closeModal()}>close</Button>
-          <Button className= "btn-success" onClick={ ()=>this.postForm()}>完了</Button>
-          </form>
-        </Modal>
-      </div>
-    ):(
-        <div>
-            <Button variant="success" className="mr-2" onClick={ ()=> this.openModal()}>イベントを追加</Button>
+          <Button variant="success" className="mr-2" onClick={ ()=> this.openModal()}>イベントを追加</Button>
+          <Modal
+            isOpen={this.state.isOpen}
+            //onAfterOpen={ ()=> afterOpenModal()}
+            onRequestClose={ ()=> this.closeModal()}
+            style={customStyles}
+            contentLabel="Example Modal"
+          >
+            <h2>イベントを追加</h2>
+            <form>
+              <label>イベント名<span className = "need"> *</span></label>
+              <input
+                type = "text"
+                id = "name"
+                className = "form-control"
+                value={this.state.eventName}
+                onChange={e=>this.setState({eventName: e.target.value})}
+              ></input>
+              <label>説明<span className = "need"> *</span></label>
+              <textarea
+                rows="3"
+                type = "text"
+                id = "description"
+                className = "form-control"
+                value={this.state.eventDesc}
+                onChange={e=>this.setState({eventDesc: e.target.value})}
+              ></textarea>
+              <label>年<span className = "need"> *</span></label>
+              <input
+                type = "number"
+                id = "year"
+                className = "form-control"
+                value={this.state.eventYear}
+                onChange={e=>this.setState({eventYear: e.target.value})}
+              ></input>
+              <label>月</label>
+              <input
+                type = "number"
+                id = "month"
+                className = "form-control"
+                defaultValue = ""
+                onChange={e=>this.setState({eventMonth: e.target.value})}
+              ></input>
+              <label>日</label>
+              <input
+                type = "number"
+                id = "day"
+                className = "form-control"
+                defaultValue = ""
+                onChange={e=>this.setState({eventDay: e.target.value})}
+              ></input>
+              <Button variant="success" className="mr-2" onClick={ ()=>this.closeModal()}>close</Button>
+              <Button className= "btn-success" onClick={ ()=>this.postForm()}>完了</Button>
+            </form>
+          </Modal>
         </div>
-    );
+      ):(
+        <div>
+          <Button variant="success" className="mr-2" onClick={ ()=> this.openModal()}>イベントを追加</Button>
+        </div>
+      );
     }
 }
- 
+
 export default Modal_CreateEvent;
