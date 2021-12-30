@@ -140,7 +140,7 @@ const customStyles = {
                 defaultValue = ""
                 onChange={e=>this.setState({eventDay: e.target.value})}
               ></input>
-              <Button variant="success" className="mr-2" onClick={ ()=>this.closeModal()}>close</Button>
+              <Button variant="success" className="mr-2" onClick={ ()=>this.closeModal()}>閉じる</Button>
               <Button className= "btn-success" onClick={ ()=>this.postForm()}>完了</Button>
             </form>
           </Modal>

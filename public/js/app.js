@@ -90522,7 +90522,7 @@ var Modal_CreateEvent = /*#__PURE__*/function (_React$Component) {
         onClick: function onClick() {
           return _this2.closeModal();
         }
-      }, "close"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Button"], {
+      }, "\u9589\u3058\u308B"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Button"], {
         className: "btn-success",
         onClick: function onClick() {
           return _this2.postForm();
@@ -90893,7 +90893,7 @@ var Modal_EditEvent = /*#__PURE__*/function (_React$Component) {
         onClick: function onClick() {
           return _this3.closeModal();
         }
-      }, "close"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Button"], {
+      }, "\u9589\u3058\u308B"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Button"], {
         className: "btn-success",
         onClick: function onClick() {
           _this3.postForm();
@@ -91587,8 +91587,8 @@ function GetEventsData(history_id, setEventsData, setIsLoading) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/ohsangwoo/Site/HistoryWeb/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/ohsangwoo/Site/HistoryWeb/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /usr/share/nginx/html/HistoryWeb/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /usr/share/nginx/html/HistoryWeb/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -240,7 +240,7 @@ class Modal_EditEvent extends React.Component {
                         onChange={this.handleChange}
                     ></input>
                     <div className = "btn-group">
-                        <Button variant="success" onClick={ ()=>this.closeModal()}>close</Button>
+                        <Button variant="success" onClick={ ()=>this.closeModal()}>閉じる</Button>
                         <Button className= "btn-success" onClick={ ()=>{
                             this.postForm()
                         }}>完了</Button>
