@@ -89687,7 +89687,9 @@ var History_Edit = /*#__PURE__*/function (_React$Component) {
       selectEvent: [],
       showTitleEdit: false,
       history_name: "",
-      u_history_name: ""
+      u_history_name: "",
+      history_desc: "",
+      u_history_desc: ""
     }; //this.setShowEditModal = this.setShowEditModal.bind(this);
 
     _this.getEventsData = _this.getEventsData.bind(_assertThisInitialized(_this)); //これがないとsetStateがundefinedになる
@@ -89783,6 +89785,20 @@ var History_Edit = /*#__PURE__*/function (_React$Component) {
       }).then(function (res) {
         console.log(res);
       });
+    } //年表説明変更処理
+
+  }, {
+    key: "changeHistoryDesc",
+    value: function changeHistoryDesc() {
+      this.setState({
+        history_desc: this.state.u_history_desc
+      });
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/api/history/update/desc', {
+        'id': this.props.historydata.id,
+        'desc': this.state.u_history_desc
+      }).then(function (res) {
+        console.log(res);
+      });
     }
   }, {
     key: "getSelectEventData",
@@ -89860,11 +89876,49 @@ var History_Edit = /*#__PURE__*/function (_React$Component) {
       react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "#",
         onClick: function onClick() {
+          //クリックすると、showTitleEdit=trueにする
           _this4.setState({
             showTitleEdit: true
           });
         }
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "\u300C", this.state.history_name, "\u300D"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.historydata.description), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Modal_CreateEvent__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "\u300C", this.state.history_name, "\u300D"))), this.state.showDescEdit ?
+      /*#__PURE__*/
+      //編集中
+      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "input-group input-group-lg col-md-8"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        className: "form-control",
+        defaultValue: this.props.historydata.description,
+        onChange: function onChange(e) {
+          return _this4.setState({
+            u_history_desc: e.target.value
+          });
+        }
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "input-group-append"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "btn btn-outline-secondary",
+        type: "button",
+        id: "button-addon2",
+        onClick: function onClick() {
+          _this4.setState({
+            showDescEdit: false
+          });
+
+          _this4.changeHistoryDesc();
+        }
+      }, "\u6C7A\u5B9A")))) :
+      /*#__PURE__*/
+      //通常時
+      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "#",
+        onClick: function onClick() {
+          _this4.setState({
+            showDescEdit: true
+          });
+        }
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.historydata.description))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Modal_CreateEvent__WEBPACK_IMPORTED_MODULE_3__["default"], {
         history_id: this.props.historydata.id,
         getEventsData: this.getEventsData
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Modal_EditEvent__WEBPACK_IMPORTED_MODULE_4__["default"], {

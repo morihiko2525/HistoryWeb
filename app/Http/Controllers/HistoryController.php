@@ -74,11 +74,23 @@ class HistoryController extends Controller
         ]);
         
     }
-
+    //年表タイトル変更処理
     public function updateHistoryName(Request $request){
         
         $history = History::findOrFail($request->id);
         $history->name = $request->name;
+        $history->save();
+
+        return response([
+            'history' => $history,
+        ]);
+    }
+
+    //年表説明変更処理
+    public function updateHistoryDesc(Request $request){
+        
+        $history = History::findOrFail($request->id);
+        $history->description = $request->desc;
         $history->save();
 
         return response([

@@ -24,6 +24,8 @@ class History_Edit extends React.Component {
             showTitleEdit: false,
             history_name: "",
             u_history_name: "",
+            history_desc: "",
+            u_history_desc: ""
         }
         //this.setShowEditModal = this.setShowEditModal.bind(this);
         this.getEventsData = this.getEventsData.bind(this); //これがないとsetStateがundefinedになる
@@ -98,6 +100,18 @@ class History_Edit extends React.Component {
         })
     }
 
+    //年表説明変更処理
+    changeHistoryDesc(){
+        this.setState({history_desc: this.state.u_history_desc});
+        axios.post('/api/history/update/desc', { 
+            'id': this.props.historydata.id,
+            'desc': this.state.u_history_desc,       
+        })
+            .then(res => {
+                console.log(res);
+        })
+    }
+
     getSelectEventData(){
         //returnは成功している。受信もできる。
         console.log("kansuuuu");
@@ -161,13 +175,51 @@ class History_Edit extends React.Component {
                     //通常時
                     <div>
                     <a href = "#" onClick={()=>{
+                            //クリックすると、showTitleEdit=trueにする
                             this.setState({showTitleEdit:true})
                             }}>
+                            
                             <h1>「{this.state.history_name}」</h1></a>                    
                     </div>
                 )}
 
-                <p>{this.props.historydata.description}</p>
+
+                {/*年表説明欄表示処理*/}
+                {this.state.showDescEdit?
+                (
+                    //編集中
+                    <div>
+                        <div className="input-group input-group-lg col-md-8">
+                        <input
+                                type="text"
+                                className="form-control"
+                                defaultValue={this.props.historydata.description} 
+                                onChange={e=>this.setState({u_history_desc: e.target.value})}         
+                            ></input>
+                            <div className="input-group-append">
+                                <button
+                                    className="btn btn-outline-secondary"
+                                    type="button"
+                                    id="button-addon2"
+                                    onClick={()=>{
+                                        this.setState({showDescEdit:false})
+                                        this.changeHistoryDesc();
+                                    }}
+                                    >決定</button>
+                            </div>
+                            </div>
+                    </div>
+                ):
+                (
+                    //通常時
+                    <div>
+                        <a href = "#" onClick={()=>{
+                            this.setState({showDescEdit:true})
+                        }}>
+
+                        <p>{this.props.historydata.description}</p></a>
+                    </div>
+                )}
 
 
                 {/* 作成用モーダル*/}
